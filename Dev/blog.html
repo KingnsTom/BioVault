@@ -138,12 +138,30 @@
 
     </div>
   </section>
+ <!-- Blog Categories -->
+<section class="blog-categories py-4 bg-light">
+  <div class="container text-center">
+    <h5 class="mb-3 fw-semibold">Browse by Category</h5>
+    <div class="d-flex flex-wrap justify-content-center gap-2 gap-md-3">
+      <a href="#" class="btn btn-outline-success btn-sm m-1 active" data-filter="all">All</a>
+      <a href="#" class="btn btn-outline-success btn-sm m-1" data-filter="gut-health">Gut Health</a>
+      <a href="#" class="btn btn-outline-success btn-sm m-1" data-filter="mental-clarity">Mental Clarity</a>
+      <a href="#" class="btn btn-outline-success btn-sm m-1" data-filter="energy-focus">Energy & Focus</a>
+      <a href="#" class="btn btn-outline-success btn-sm m-1" data-filter="supplements">Supplements</a>
+      <a href="#" class="btn btn-outline-success btn-sm m-1" data-filter="mindfulness">Mindfulness</a>
+    </div>
+  </div>
+</section>
+
+
+
+
 
   <main class="py-5">
     <div class="container">
       <div class="row">
         <!-- Blog Post Card 1 -->
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4" data-category="mindfulness">
           <div class="card h-100 shadow-sm">
             <img src="/img/Mindfulness in the Workplace.webp" class="card-img-top" alt="Mindfulness in the Workplace">
 
@@ -159,20 +177,22 @@
         </div>
 
         <!-- Blog Post Card 2 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 shadow-sm">
-            <img src="/img/gut-brain-connection-concept.webp" class="card-img-top" alt="Gut health tips">
-            <div class="card-body">
-              <small class="text-muted d-block mb-2">June 5, 2025 • 5 min read</small>
-              <h5 class="card-title">The Gut-Brain Connection: How Digestion Impacts Mental Clarity</h5>
-              <p class="card-text">Did you know your gut health affects your mood and focus? Here’s how to reset your digestion naturally.</p>
-              <a href="/blogs/gut-brain-connection.html" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-block">Read More »</a>
-            </div>
-          </div>
-        </div>
+        <div class="col-md-4 mb-4" data-category="gut-health">
+  <div class="card h-100 shadow-sm">
+    <img src="/img/gut-brain-connection-concept.webp" class="card-img-top" alt="Gut health tips">
+    <div class="card-body">
+      <small class="text-muted d-block mb-1">Category: Gut Health</small>
+      <small class="text-muted d-block mb-2">June 5, 2025 • 5 min read</small>
+      <h5 class="card-title">The Gut-Brain Connection: How Digestion Impacts Mental Clarity</h5>
+      <p class="card-text">Did you know your gut health affects your mood and focus? Here’s how to reset your digestion naturally.</p>
+      <a href="/blogs/gut-brain-connection.html" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-block">Read More »</a>
+    </div>
+  </div>
+</div>
+
 
         <!-- Blog Post Card 3 -->
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4" data-category="energy-focus">
           <div class="card h-100 shadow-sm">
             <img src="/img/blog3.jpg" class="card-img-top" alt="Immune Support Strategies">
             <div class="card-body">
@@ -292,30 +312,33 @@
 <script src="/js/scripts.js" defer></script>
 
 <script>
-  const questions = document.querySelectorAll('.faq-question');
+  document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".blog-categories .btn");
+    const posts = document.querySelectorAll("[data-category]");
 
-  questions.forEach((question) => {
-    question.addEventListener('click', () => {
-      const answer = question.nextElementSibling;
-      const icon = question.querySelector('.faq-icon');
+    buttons.forEach(btn => {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
 
-      // Close others
-      document.querySelectorAll('.faq-answer').forEach((ans) => {
-        if (ans !== answer) {
-          ans.classList.remove('open');
-        }
+        // Remove active state from all buttons
+        buttons.forEach(b => b.classList.remove("active", "btn-success"));
+        buttons.forEach(b => b.classList.add("btn-outline-success"));
+
+        // Add active state to clicked button
+        this.classList.remove("btn-outline-success");
+        this.classList.add("active", "btn-success");
+
+        const category = this.textContent.trim().toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-");
+
+        posts.forEach(post => {
+          const postCategory = post.getAttribute("data-category");
+          if (category === "all" || postCategory === category) {
+            post.style.display = "";
+          } else {
+            post.style.display = "none";
+          }
+        });
       });
-      document.querySelectorAll('.faq-question').forEach((q) => {
-        if (q !== question) {
-          q.classList.remove('active');
-          q.querySelector('.faq-icon').textContent = '+';
-        }
-      });
-
-      // Toggle current
-      answer.classList.toggle('open');
-      question.classList.toggle('active');
-      icon.textContent = answer.classList.contains('open') ? '−' : '+';
     });
   });
 </script>

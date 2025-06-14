@@ -12,11 +12,20 @@
   --secondary-color: #017f7c;
   --accent-color: #f5f5f5;
   --dark-color: #1d1d1d;
-  --light-color: #ffffff;
+  --light-color: #fff;
   --text-muted: #6c757d;
+
   --heading-font: 'Poppins', sans-serif;
   --body-font: 'Poppins', sans-serif;
+
+  /* Additional clarified colors */
+  --teal-bright: #05b9b5;
+  --deep-teal: #023d3a;
+  --neutral-bg: #eae8e5;
+  --background-light: #f1fafa;
 }
+
+
 
 
 body {
@@ -182,7 +191,7 @@ section {
 
 .logo:hover,
 .logo:focus {
-  color: #02a099;
+  color: var(--teal-bright);
   transform: scale(1.04);
 }
 
@@ -236,7 +245,7 @@ section {
 
 /* --- Premium CTA Button --- */
 .nav-links li .btn {
-  background: linear-gradient(135deg, #05b9b5, #029494);
+  background: linear-gradient(135deg, #05b9b5, var(--teal-bright));
   color: #023d3a;
   padding: 0.4rem 1rem;
   border-radius: 24px;
@@ -249,8 +258,8 @@ section {
 
 .nav-links li .btn:hover,
 .nav-links li .btn:focus {
-  background: linear-gradient(135deg, #02a099, #017c7c);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--teal-bright), #017c7c);
+  color: var(--light-color);
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 22px rgba(2, 148, 148, 0.6);
 }
@@ -279,7 +288,7 @@ section {
   content: '';
   display: block;
   height: 2px;
-  background-color: #fff;
+  background-color: var(--light-color);
   border-radius: 2px;
   transition: all 0.3s ease;
   position: relative;
@@ -346,7 +355,7 @@ section {
 /* === Hero Section === */
 .hero {
   background: linear-gradient(120deg, #05b9b5, #000);
-  color: #fff;
+  color: var(--light-color);
   padding: 6rem 1rem 8rem;
   text-align: center;
   box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
@@ -389,7 +398,7 @@ section {
   font-size: clamp(1rem, 2vw, 1.5rem);
   max-width: 700px;
   margin: 0 auto 2.5rem;
-  color: #d4f0ef;
+  color: #eae8e5;
   font-weight: 500;
   line-height: 1.4;
   text-shadow: 1px 1px 5px rgba(0,0,0,0.25);
@@ -401,7 +410,7 @@ section {
 .btn {
   display: inline-block;
   background-color: #05b9b5;
-  color: #fff;
+  color: var(--light-color);
   padding: 1rem 2.2rem;
   text-decoration: none;
   border-radius: 50px;
@@ -438,7 +447,7 @@ section {
 
 .btn:hover,
 .btn:focus {
-  background-color: #048a8c;
+  background-color: var(--teal-bright);
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(4, 138, 140, 0.8);
   outline: none;
@@ -475,17 +484,17 @@ html {
 /* === Optional: Dark Mode Support === */
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #121212;
-    color: #333;
+    background-color: #1d1d1d;
+    color: #eae8e5;
   }
 
   .navbar {
-    background-color: #121212;
+    background-color: var(--dark-color);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
   }
 
   .nav-links li a {
-    color: #333;
+    color: #eae8e5;
   }
 
   .nav-links li a:hover,
@@ -494,12 +503,12 @@ html {
   }
 
   .hero {
-    background: linear-gradient(120deg, #048a8c, #003535);
+    background: linear-gradient(120deg, var(--teal-bright), #1d1d1d);
     box-shadow: 0 6px 40px rgba(0, 0, 0, 0.6);
   }
 
   .btn {
-    background-color: #048a8c;
+    background-color: var(--teal-bright);
   }
 
   .btn:hover,
@@ -510,7 +519,7 @@ html {
    Why Choose BioVault Section
 ----------------------------------- */
 .why-choose {
-  background-color: #fff;
+  background-color: var(--light-color);
   padding: 4rem 1rem;
   text-align: center;
   font-family: 'Poppins', sans-serif;
@@ -544,7 +553,7 @@ html {
 
 .section-subtitle {
   font-size: 1.3rem;
-  color: #555;
+  color: var(--dark-color);
   max-width: 650px;
   margin: 0 auto 3rem;
   font-style: italic;
@@ -561,7 +570,7 @@ html {
 }
 
 .benefit-card {
-  background-color: #f9fdfd;
+  background-color: var(--light-color);
   flex: 1 1 300px;
   max-width: 320px;
   border-radius: 22px;
@@ -576,7 +585,7 @@ html {
 .benefit-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 14px 28px rgba(5, 185, 181, 0.25);
-  background-color: #ffffff;
+  background-color: var(--light-color);
 }
 
 .icon-circle {
@@ -588,7 +597,7 @@ html {
   justify-content: center;
   margin: 0 auto 1.2rem;
   font-size: 2.5rem;
-  color: white;
+  color: var(--light-color);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -613,13 +622,13 @@ html {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
-  color: #2b2b2b;
+  color: var(--primary-color);
   text-transform: capitalize;
 }
 
 .benefit-desc {
   font-size: 1rem;
-  color: #555;
+  color: var(--dark-color);
   line-height: 1.5;
   min-height: 70px;
   margin-bottom: 0;
@@ -628,7 +637,7 @@ html {
 .why-choose p.small {
   max-width: 650px;
   margin: 2rem auto 0;
-  color: #888;
+  color: #1d1d1d;
   font-size: 0.85rem;
   font-style: italic;
 }
@@ -650,7 +659,7 @@ html {
 ----------------------------------- */
 
 #products {
-  background-color: #fff;
+  background-color: var(--light-color);
   padding: 4rem 1rem;
   font-family: 'Poppins', sans-serif;
 }
@@ -676,7 +685,7 @@ html {
   height: 4px;
   background-color: #05b9b5;
   border-radius: 2px;
-  box-shadow: 0 0 8px #05b9b580;
+  box-shadow: 0 0 8px var(--teal-bright);
 }
 
 /* Product Card */
@@ -685,7 +694,7 @@ html {
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(5, 185, 181, 0.12);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: #ffffff;
+  background: var(--light-color);
 }
 
 #products .card:hover {
@@ -716,7 +725,7 @@ html {
 }
 
 #products .card-text {
-  color: #555;
+  color: var(--dark-color);
   font-size: 1rem;
   margin-bottom: 1.1rem;
   line-height: 1.5;
@@ -727,7 +736,7 @@ html {
   list-style: none;        /* Removes default bullets */
   padding-left: 0;         /* Aligns text with emoji */
   margin-bottom: 1.25rem;
-  color: #444;
+  color: #1d1d1d;
   font-size: 0.95rem;
 }
 
@@ -745,31 +754,31 @@ html {
   padding: 0.65rem 0;
   border-radius: 8px;
   background-color: #05b9b5;
-  color: #fff;
+  color: var(--light-color);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #products .btn-block:hover {
-  background-color: #048a8c;
+  background-color: var(--teal-bright);
   transform: translateY(-2px);
 }
 
 
 /* -----------------------------------
-   Testimonials (Refined)
+   Testimonials (Improved + Responsive Layout)
 ----------------------------------- */
 .testimonials {
-  background-color: #f8fafb;
+  background-color: var(--background-light);
   padding: 4rem 1rem;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--body-font);
 }
 
 .testimonials h2 {
   position: relative;
   font-weight: 700;
   font-size: 2.5rem;
-  color: #05b9b5;
+  color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 1.1px;
   padding-bottom: 0.5rem;
@@ -785,49 +794,132 @@ html {
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background-color: #05b9b5;
+  background-color: var(--primary-color);
   border-radius: 2px;
-  box-shadow: 0 0 8px #05b9b580;
+  box-shadow: 0 0 8px var(--primary-color);
 }
 
 .testimonials h2:hover {
-  color: #048a8c;
+  color: var(--secondary-color);
 }
 
 .testimonials p {
-  color: #555;
+  color: var(--dark-color);
   font-size: 1.15rem;
   max-width: 720px;
   margin: 0 auto 3rem;
   font-style: italic;
 }
 
-.testimonials blockquote {
-  font-style: italic;
-  margin: 1rem auto 2rem;
-  max-width: 700px;
-  color: #444;
-  background: #f9fdfd;
-  padding: 1.5rem 2rem;
-  border-left: 4px solid #05b9b5;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(5, 185, 181, 0.08);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+/* Carousel item base */
+.carousel-item {
+  text-align: center;
+  padding: 1.5rem;
 }
 
-.testimonials blockquote:hover {
-  box-shadow: 0 10px 20px rgba(5, 185, 181, 0.2);
+/* New layout wrapper inside each slide */
+.testimonial-slide-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .testimonial-slide-content {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .testimonial-slide-content img {
+    margin-right: 1rem;
+  }
+}
+
+/* Testimonial image */
+.testimonials img.rounded-circle {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 0 0 4px #ffffff;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.testimonials img.rounded-circle:hover {
+  transform: scale(1.05);
+}
+
+/* Testimonial text block */
+.testimonial-content {
+  background: var(--light-color);
+  padding: 1.5rem 2rem;
+  border-left: 4px solid var(--primary-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(1, 127, 124, 0.08);
+  max-width: 700px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.testimonial-content:hover {
+  box-shadow: 0 10px 20px rgba(1, 127, 124, 0.2);
   transform: translateY(-4px);
 }
 
-.testimonials cite {
+.testimonial-content blockquote {
+  font-style: italic;
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+}
+
+.testimonial-content cite {
   display: block;
-  margin-top: 0.75rem;
   font-style: normal;
-  color: #777;
   font-weight: 600;
+  color: var(--primary-color);
   letter-spacing: 0.5px;
 }
+
+/* Star rating */
+.testimonials .text-warning {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-top: 0.5rem;
+}
+
+/* Carousel control icons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  background-size: 60% 60%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
 /* -----------------------------------
    Final Call to Action (Refined Fix)
 ----------------------------------- */
@@ -865,14 +957,14 @@ html {
 }
 
 .cta-final h2:hover {
-  color: #02a099;
+  color: var(--teal-bright);
 }
 
 .cta-final p.lead {
   font-size: 1.1rem;
   max-width: 700px;
   margin: 0 auto 3rem;
-  color: #cbd5d1;
+  color: #eae8e5;
   font-style: italic;
 }
 
@@ -889,7 +981,7 @@ html {
   padding: 0.65rem 2rem;
   border-radius: 8px;
   background-color: #05b9b5;
-  color: #fff;
+  color: var(--light-color);
   transition: background-color 0.3s ease, color 0.3s ease;
   text-transform: uppercase;
   border: none;
@@ -905,7 +997,7 @@ html {
 ----------------------------------- */
 
 #contact {
-  background-color: #fff;
+  background-color: var(--light-color);
   padding: 4rem 1rem;
   font-family: 'Poppins', sans-serif;
   text-align: center;
@@ -932,12 +1024,12 @@ html {
   height: 4px;
   background-color: #05b9b5;
   border-radius: 2px;
-  box-shadow: 0 0 8px #05b9b580;
+  box-shadow: 0 0 8px var(--teal-bright);
 }
 
 #contact p {
   font-size: 1.1rem;
-  color: #555;
+  color: var(--dark-color);
   margin: 2rem auto 3rem;
   max-width: 700px;
   line-height: 1.6;
@@ -947,7 +1039,7 @@ html {
   max-width: 800px;
   margin: 0 auto;
   padding: 2.5rem;
-  background-color: #ffffff;
+  background-color: var(--light-color);
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(5, 185, 181, 0.1);
   text-align: left;
@@ -962,7 +1054,7 @@ html {
   font-weight: 600;
   margin-bottom: 0.5rem;
   font-size: 1rem;
-  color: #333;
+  color: #1d1d1d;
 }
 
 #contact input,
@@ -971,9 +1063,9 @@ html {
   padding: 0.75rem 1rem;
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
-  color: #333;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  color: #1d1d1d;
+  background-color: var(--light-color);
+  border: 1px solid #05b9b5;
   border-radius: 6px;
   transition: border-color 0.3s ease;
 }
@@ -991,7 +1083,7 @@ html {
 
 #contact button {
   background-color: #05b9b5;
-  color: #fff;
+  color: var(--light-color);
   padding: 0.75rem 2rem;
   font-size: 1rem;
   font-weight: 600;
@@ -1003,7 +1095,7 @@ html {
 }
 
 #contact button:hover {
-  background-color: #048a8c;
+  background-color: #028a85;
   transform: translateY(-2px);
 }
 
@@ -1067,7 +1159,7 @@ html {
 .footer-logo-text {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--light-color);
   text-decoration: none;
   display: inline-block;
   margin-bottom: 0.5rem;
@@ -1079,7 +1171,7 @@ html {
 }
 
 .footer-branding p {
-  color: #cbd5d1;
+  color: #a2ada9;
   font-size: 1rem;
   max-width: 300px;
   line-height: 1.5;
@@ -1095,14 +1187,14 @@ html {
 }
 
 .footer-nav a {
-  color: #ffffff;
+  color: var(--light-color);
   font-size: 1rem;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-nav a:hover {
-  color: #02a099;
+  color: var(--teal-bright);
   text-decoration: underline;
 }
 
@@ -1115,7 +1207,7 @@ html {
 }
 
 .footer-social a {
-  color: #ffffff;
+  color: var(--light-color);
   font-size: 1.5rem;
   transition: color 0.3s ease;
   display: inline-flex;
@@ -1124,7 +1216,7 @@ html {
 }
 
 .footer-social a:hover {
-  color: #02a099;
+  color: var(--teal-bright);
 }
 
 .footer-social .icon {
@@ -1215,7 +1307,7 @@ html {
 ----------------------------------- */
 
 #faq {
-  background-color: #f8fafb;
+  background-color: var(--background-light);
   padding: 4rem 1rem;
   font-family: 'Poppins', sans-serif;
 }
@@ -1251,7 +1343,7 @@ html {
 }
 
 .faq-item {
-  background: #ffffff;
+  background: var(--light-color);
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(5, 185, 181, 0.12);
   margin-bottom: 1.5rem;
@@ -1271,12 +1363,12 @@ html {
   padding: 1.2rem 1.5rem;
   cursor: pointer;
   position: relative;
-  background-color: #f0fdfd;
+  background-color: #f1fafa;
   transition: background-color 0.3s ease;
 }
 
 .faq-question:hover {
-  background-color: #e5fbfb;
+  background-color: var(--background-light);
 }
 
 .faq-icon {
@@ -1296,10 +1388,10 @@ html {
 
 .faq-answer {
   padding: 0 1.5rem;
-  background-color: #fff;
+  background-color: var(--light-color);
   max-height: 0;
   overflow: hidden;
-  color: #444;
+  color: var(--dark-color);
   font-size: 1rem;
   line-height: 1.6;
   transition: max-height 0.4s ease, padding 0.3s ease;
@@ -1365,12 +1457,14 @@ html {
   cursor: not-allowed;
 }
 
+
+
 /* -----------------------------
    BioVault Blog Card Styles
 ------------------------------ */
 
 .card {
-  border: 1px solid #e0e0e0;
+  border: 1px solid #eae8e5;
   border-radius: 0.75rem;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -1388,7 +1482,8 @@ html {
 .card-img-top {
   height: 220px;
   object-fit: cover;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eae8e5;
+  transition: transform 0.3s ease;
 }
 
 /* Card Body */
@@ -1538,7 +1633,7 @@ html {
 /* CTA Buttons */
 .btn-brand {
   background-color: #05b9b5;
-  color: #fff !important;              /* Ensures white text */
+  color: var(--light-color) !important;              /* Ensures white text */
   padding: 0.75rem 2rem;
   font-size: 1rem;
   font-weight: 600;
@@ -1553,9 +1648,9 @@ html {
 }
 
 .btn-brand:hover {
-  background-color: #048a8c;
+  background-color: var(--teal-bright);
   transform: translateY(-2px);
-  color: #fff !important;              /* Keeps text white on hover */
+  color: var(--light-color) !important;              /* Keeps text white on hover */
   text-decoration: none !important;    /* Prevents underline on hover */
 }
 
@@ -1565,7 +1660,7 @@ html {
 .blog-post hr {
   border: none;
   height: 1px;
-  background: linear-gradient(to right, #ccc, #eee, #ccc);
+  background: linear-gradient(to right, #05b9b5,#eae8e5, var(--teal-bright));
   margin: 2.5rem 0;
 }
 
@@ -1588,9 +1683,37 @@ html {
 }
 
 .blog-post ul li a:hover {
-  color: var(--secondary-color);
+  color: var(--teal-bright);
   text-decoration: none;
 }
+
+.blog-categories {
+  color: #023d3a;
+  font-family: var(--body-font);
+}
+
+.blog-categories h5 {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.blog-categories .btn {
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: var(--body-font);
+  color: var(--light-color);
+  border: 1px solid var(--light-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.blog-categories .btn:hover,
+.blog-categories .btn.active {
+  background-color: var(--primary-color); /* #017f7c */
+  color: var(--light-color);              /* var(--light-color) */
+  border-color: var(--primary-color);     /* #017f7c */
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
