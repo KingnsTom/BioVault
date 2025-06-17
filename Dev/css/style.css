@@ -122,9 +122,10 @@ section {
     padding: 3rem 0;
   }
 }
-
 /* === Typography === */
-h2, h3, h4, h5, h6 {
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font);
   font-weight: 700;
   margin-bottom: 1rem;
@@ -132,6 +133,7 @@ h2, h3, h4, h5, h6 {
   line-height: 1.3;
 }
 
+/* Lead paragraph */
 p.lead {
   color: var(--dark-color);
   font-size: 1.25rem;
@@ -139,7 +141,12 @@ p.lead {
   margin-bottom: 1.5rem;
 }
 
-/* Utility Classes */
+/* Body elements */
+p, li, span, a, button {
+  font-family: var(--body-font);
+}
+
+/* === Utility Classes === */
 .text-center { text-align: center; }
 .text-muted { color: var(--text-muted); }
 
@@ -2487,8 +2494,7 @@ form textarea:disabled {
   object-fit: cover;
   border-radius: inherit;
   box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.1);
-}
-/* -----------------------------
+}/* ----------------------------- 
    Section: Real Science Results
 ----------------------------- */
 .science-results {
@@ -2496,26 +2502,49 @@ form textarea:disabled {
   padding: 3rem 1.25rem;
 }
 
-.science-results h2 {
-  font-size: 1.75rem;
+.science-results h2,
+.science-results .section-title {
+  font-family: var(--heading-font);
   font-weight: 700;
-  color: var(--dark-color);
+  font-size: 1.75rem;
   text-align: center;
+  color: var(--dark-color);
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
+.science-results .lead {
+  font-family: var(--body-font);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--dark-color);
+  max-width: 750px;
+  margin: 0 auto 2rem;
 }
 
 .science-list {
-  padding: 0;
   list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--body-font);
   font-size: 1rem;
+  color: var(--dark-color);
 }
 
 .science-list li {
   display: flex;
   align-items: flex-start;
   margin-bottom: 1rem;
+  line-height: 1.6;
   font-weight: 500;
-  color: var(--dark-color);
-  line-height: 1.5;
+}
+
+.science-list li a {
+  font-size: 0.8rem;
+  font-family: var(--body-font);
+  color: var(--text-muted);
+  margin-left: 0.25rem;
 }
 
 .science-list span {
@@ -2526,13 +2555,46 @@ form textarea:disabled {
 }
 
 .testimonial {
+  font-family: var(--body-font);
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 2rem auto 0;
   color: var(--dark-color);
   max-width: 90%;
   text-align: center;
+  font-style: italic;
 }
+
+.testimonial cite {
+  display: block;
+  margin-top: 0.75rem;
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* -----------------------------
+   Responsive Enhancements
+----------------------------- */
+@media (min-width: 768px) {
+  .science-results h2 {
+    font-size: 2.25rem;
+  }
+
+  .science-results .lead {
+    font-size: 1.25rem;
+  }
+
+  .science-list {
+    font-size: 1.1rem;
+  }
+
+  .testimonial {
+    font-size: 1.05rem;
+    max-width: 750px;
+  }
+}
+
 
 /* -----------------------------
    Section: Final Call to Action
