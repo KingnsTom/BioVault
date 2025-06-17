@@ -66,3 +66,53 @@ document.addEventListener("click", function (e) {
     // Optional: send to analytics tool here
   }
 });
+
+// Dynamic date and read time calculation for blog cards
+// scripts.js - Dynamic date and read time calculation for blog cards
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".card-body").forEach(card => {
+    const dateStr = card.getAttribute("data-date");
+    if (!dateStr) return;
+
+    // Get content text for word count
+    const content = card.querySelector(".card-text")?.innerText || '';
+    const wordCount = content.trim().split(/\s+/).length;
+    const readTime = Math.max(1, Math.round(wordCount / 200)); // avg read speed
+
+    // Format date
+    const dateObj = new Date(dateStr);
+    const formattedDate = dateObj.toLocaleDateString(undefined, {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+
+    const metaEl = card.querySelector(".dynamic-meta");
+    if (metaEl) {
+      metaEl.textContent = `${formattedDate} • ${readTime} min read`;
+    }
+  });
+});
+
+// Dynamic date and read time calculation for blog posts
+document.addEventListener("DOMContentLoaded", function () {
+  const article = document.querySelector(".blog-post");
+
+  if (article) {
+    const dateStr = article.getAttribute("data-date");
+    const dateObj = new Date(dateStr);
+    const formattedDate = dateObj.toLocaleDateString(undefined, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    // Get word count from the article body
+    const text = article.innerText || "";
+    const wordCount = text.trim().split(/\s+/).length;
+    const readTime = Math.max(1, Math.round(wordCount / 200));
+
+    const meta = article.querySelector(".dynamic-meta");
+    if (meta) {
+      meta.textContent = `Published ${formattedDate} • ${readTime} min read`;
+    }
+  }
+});

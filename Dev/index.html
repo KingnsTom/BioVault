@@ -8,6 +8,7 @@
   <meta name="keywords" content="natural supplements, moringa magic, digestsync, pineal xt, gut health, mental clarity, energy boost, immune support, wellness, biovault" />
   <meta name="author" content="BioVault Health" />
   <meta name="robots" content="index, follow" />
+  <meta name="google-site-verification" content="bfJyjEb1927O12VsLryrDs3_xjES_udIGPFFvQ0CIWs" />
   <link rel="canonical" href="https://www.biovault.com/" />
 
   <!-- Favicons -->
@@ -123,18 +124,86 @@
     </div>
   </nav>
 </header>
+
 <main>
-<!-- Hero Section -->
-<section class="hero text-center py-5 bg-light">
-  <div class="container">
-    <h1 class="display-4 fw-bold">BioVault: Unlocking Natural Health</h1>
-    <p class="lead mt-3">
-      Discover 3 powerful, all-natural supplements designed to energize your body, heal your gut, and sharpen your mind — trusted by thousands.
-    </p>
-    <a href="#products" class="btn btn-primary btn-lg mt-3">Explore Top Picks</a>
+  <!-- Hero Carousel Section -->
+<section class="hero-carousel position-relative bg-light overflow-hidden">
+
+  <!-- Optional: subtle leaf background pattern -->
+  <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10 z-n1" style="background: url('/img/leaf-pattern.svg') repeat; opacity: 0.03;"></div>
+
+  <div id="productCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+
+    <!-- Indicators -->
+    <div class="carousel-indicators mb-4">
+      <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+
+    <div class="carousel-inner">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active" style="background-image: url('/img/Moringa banner.webp');">
+        <div class="overlay">
+          <div class="content-card">
+            <h2 class="fw-bold">🌿 Energy & Immunity</h2>
+            <p>Fuel your day with caffeine-free energy and a stronger immune system.</p>
+            <a href="https://www.officialmoringamagic.com/home-combo?aff=kingns24" target="_blank" rel="noopener sponsored" class="btn">Try Moringa Magic</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item" style="background-image: url('/img/ProDentim banner.webp');">
+        <div class="overlay">
+          <div class="content-card">
+            <h2 class="fw-bold">🦷 Oral Microbiome Support</h2>
+            <p>Not just toothpaste — nourish your smile from the inside out.</p>
+            <a href="https://prodentim24.com/text.php#aff=kingns24" target="_blank" rel="noopener sponsored" class="btn">Try ProDentim</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item" style="background-image: url('/img/Kerassentials banner.webp');">
+        <div class="overlay">
+          <div class="content-card">
+            <h2 class="fw-bold">💅 Nail & Skin Renewal</h2>
+            <p>A fresh, clean look—starting at the root. Banish fungus for good.</p>
+            <a href="https://www.checkout-ds24.com/redir/533765/kingns24/" target="_blank" rel="noopener sponsored" class="btn">Try Kerassentials</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="carousel-item" style="background-image: url('/img/DigestSync banner.webp');">
+        <div class="overlay">
+          <div class="content-card">
+            <h2 class="fw-bold">🧘 Bloating & Digestion</h2>
+            <p>Feel lighter and less sluggish. Gut relief backed by nature.</p>
+            <a href="https://digestsync24.com/text.php#aff=kingns24" target="_blank" rel="noopener sponsored" class="btn">Try DigestSync</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
 </section>
-<!-- END Hero Section -->
+
+
+
 
 <!-- Why Choose Section -->
 <section id="why-choose" class="why-choose py-5" aria-labelledby="whyChooseHeading">
@@ -185,30 +254,51 @@ At BioVault, we recommend supplements based on efficacy, ingredient integrity, a
 </section>
 
 <!-- End Why Choose Section -->
- 
-<!-- Products Section -->
+
+<!-- Products Intro Section Styled as CTA -->
+<section class="cta-final text-white text-center" id="products" data-aos="fade-up">
+  <div class="container">
+    <div class="mb-4">
+      <span class="d-inline-block mb-2" style="font-size: 1.5rem;">🌿</span>
+<h2 class="mb-3 text-white">Your Wellness Journey Starts Here</h2>
+    </div>
+
+    <p class="text-center mb-5 lead">
+      Discover 8 powerful, all-natural supplements carefully selected to energize your body, heal your gut, sharpen your mind, support hormonal balance, and more — trusted by thousands worldwide.
+    </p>
+
+    <div class="cta-buttons">
+      <a href="#product-grid" class="btn btn-light">
+        Explore All Supplements
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Products Grid Section -->
 <section id="products" class="py-5 bg-light">
   <div class="container">
     <h2 class="text-center mb-4">Our Featured Supplements</h2>
     <p class="text-center mb-5 lead">
-      Unlock natural energy, gut health, and inner clarity with our top 3 breakthrough formulas. Choose your transformation below:
+      Unlock natural energy, gut health, hormonal balance, and more with our top breakthrough formulas. Choose your transformation below:
     </p>
 
-    <div class="row justify-content-center">
-
+    <div class="row g-4">
       <!-- Moringa Magic -->
-      <div class="col-md-4 mb-4">
+      <div class="col-md-6 col-lg-4">
         <div class="card product-card h-100 border-0 shadow rounded-4 p-3 position-relative">
           <span class="position-absolute top-0 end-0 bg-success text-white px-2 py-1 rounded-start small shadow-sm">
             🌿 Bestseller
           </span>
           <img src="/img/moringa.png" class="card-img-top rounded-3 mb-3" alt="Moringa Magic Supplement Bottle">
           <h5 class="card-title fw-bold text-primary text-center">Moringa Magic</h5>
-          <p class="text-muted text-center small">Superleaf Energy • Focus • Immunity</p>
+          <p class="text-center small text-muted">Superleaf Energy • Focus • Immunity</p>
           <div class="alert alert-warning text-center small fw-semibold mb-3 rounded-3">
-            🎁 <strong>3 Bottles • 90 Day Supply</strong><br>
-            💰 <strong>$59/Bottle – You Save $420!</strong><br>
-            📘 Includes Free Ebook!
+            🎁 <strong>6 Bottles • 180 Day Supply</strong><br>
+            💰 <strong>$49/Bottle – You Save $900!</strong><br>
+            📘 Includes 2 Free Ebooks!
           </div>
           <ul class="small text-muted">
             <li>✅ Caffeine-free all-day energy</li>
@@ -225,67 +315,157 @@ At BioVault, we recommend supplements based on efficacy, ingredient integrity, a
         </div>
       </div>
 
-      <!-- Pineal XT -->
-      <div class="col-md-4 mb-4">
+      <!-- ProDentim -->
+      <div class="col-md-6 col-lg-4">
         <div class="card product-card h-100 border-0 shadow rounded-4 p-3 position-relative">
-          <span class="position-absolute top-0 end-0 bg-dark text-white px-2 py-1 rounded-start small shadow-sm">
-            💡 Most Popular
+          <span class="position-absolute top-0 end-0 bg-success text-white px-2 py-1 rounded-start small shadow-sm">
+            🦷 Oral Health
           </span>
-          <img src="/img/pineal.jpg" class="card-img-top rounded-3 mb-3" alt="Pineal XT Supplement Bottle">
-          <h5 class="card-title fw-bold text-dark text-center">Pineal XT</h5>
-          <p class="text-muted text-center small">Clarity • Deep Sleep • Inner Awakening</p>
-          <div class="alert alert-info text-center small fw-semibold mb-3 rounded-3">
-            🔮 <strong>6 Bottles • 6 Month Supply</strong><br>
-            💰 <strong>$29/Bottle – You Save $300!</strong><br>
-            🎁 3 Free Bonuses • 365-Day Guarantee
+          <img src="/img/prodentim.png" class="card-img-top rounded-3 mb-3" alt="ProDentim Supplement Bottle">
+          <h5 class="card-title fw-bold text-success text-center">ProDentim</h5>
+          <p class="text-center small text-muted">Oral Microbiome • Gum Defense</p>
+          <div class="alert alert-warning text-center small fw-semibold mb-3 rounded-3">
+            🎁 <strong>6 Bottles • 180 Day Supply</strong><br>
+            💰 <strong>$49/Bottle – You Save $300!</strong><br>
+            📘  2 Free Oral Health Guides
           </div>
           <ul class="small text-muted">
-            <li>✅ Supports lucid dreaming & deep sleep</li>
-            <li>✅ Clears mental fog fast</li>
-            <li>✅ Activates pineal gland "third eye"</li>
-            <li>✅ Encourages restful sleep cycles naturally</li>
+            <li>✅ Promotes healthy teeth & gums</li>
+            <li>✅ Rebuilds good oral bacteria</li>
+            <li>✅ Freshens breath from within</li>
+            <li>✅ Supports overall oral microbiome</li>
           </ul>
-          <a href="https://pxt.pinealxt.com/ds/presentation/index.php#aff=kingns24" target="_blank" class="btn btn-dark w-100 fw-semibold rounded-pill mt-2">
-            Sharpen Your Mind »
+          <a href="https://prodentim24.com/text.php#aff=kingns24" target="_blank" class="btn btn-success w-100 fw-semibold rounded-pill mt-2">
+            Restore Your Smile »
           </a>
           <p class="text-muted small text-center mt-3 mb-0">
-            🌙 Loved by lucid dreamers | Free Shipping | 365-Day Risk-Free
+            🌟 Loved by thousands | Clinically Inspired | 60-Day Guarantee
           </p>
         </div>
       </div>
+
+      <!-- GutOptin -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card product-card h-100 border-0 shadow rounded-4 p-3 position-relative">
+          <span class="position-absolute top-0 end-0 bg-info text-white px-2 py-1 rounded-start small shadow-sm">
+            🧬 Hormonal Support
+          </span>
+          <img src="/img/Gutoptin.png" class="card-img-top rounded-3 mb-3" alt="GutOptin Supplement Bottle">
+          <h5 class="card-title fw-bold text-info text-center">GutOptin</h5>
+          <p class="text-center small text-muted">Hormonal Balance • Digestion</p>
+          <div class="alert alert-info text-center small fw-semibold mb-3 rounded-3">
+            🎁 <strong>6 Bottles • 180 Day Supply</strong><br>
+            💰 <strong>$49/Bottle – You Save $120!</strong><br>
+            📘 Free Hormonal Health Guide
+          </div>
+          <ul class="small text-muted">
+            <li>✅ Balances hormones naturally</li>
+            <li>✅ Restores gut health & metabolism</li>
+            <li>✅ Supports mood & energy</li>
+            <li>✅ Promotes healthy digestion</li>
+          </ul>
+          <a href="https://gutoptim24.com/text.php#aff=kingns24" target="_blank" class="btn btn-info w-100 fw-semibold rounded-pill mt-2">
+            Balance From Within »
+          </a>
+          <p class="text-muted small text-center mt-3 mb-0">
+            🌟 Fast Shipping | Natural Formula | 60-Day Guarantee
+          </p>
+        </div>
+      </div>
+
+      <!-- Pineal XT -->
+<div class="col-md-6 col-lg-4">
+  <div class="card product-card h-100 border-0 shadow rounded-4 p-3 position-relative">
+    <span class="position-absolute top-0 end-0 bg-primary text-white px-2 py-1 rounded-start small shadow-sm">
+      🔮 Mental Clarity
+    </span>
+    <img src="/img/pineal.jpg" class="card-img-top rounded-3 mb-3" alt="Pineal XT Supplement Bottle">
+    <h5 class="card-title fw-bold text-primary text-center">Pineal XT</h5>
+    <p class="text-center small text-muted">Brain Detox • Manifestation Support</p>
+    <div class="alert alert-primary text-center small fw-semibold mb-3 rounded-3">
+      🎁 <strong>6 Bottles • 90 Day Supply</strong><br>
+      💰 <strong>$29/Bottle – Save $300!</strong><br>
+      📘 3 Free Manifestation Ebooks
+    </div>
+    <ul class="small text-muted">
+      <li>✅ Detoxifies pineal gland ("third eye")</li>
+      <li>✅ Boosts mental clarity & vision</li>
+      <li>✅ Promotes calm & emotional balance</li>
+      <li>✅ Spiritual alignment & manifestation focus</li>
+    </ul>
+    <a href="https://pxt.pinealxt.com/ds/presentation/index.php#aff=kingns24" target="_blank" class="btn btn-primary w-100 fw-semibold rounded-pill mt-2">
+      Activate Your Mind » 
+    </a>
+    <p class="text-muted small text-center mt-3 mb-0">
+      🌟 Unique Formula | Bestseller in Wellness | 60-Day Guarantee
+    </p>
+  </div>
+</div>
+
 
       <!-- DigestSync -->
-      <div class="col-md-4 mb-4">
+<div class="col-md-6 col-lg-4">
+  <div class="card product-card h-100 border-0 shadow rounded-4 p-3 position-relative">
+    <span class="position-absolute top-0 end-0 bg-secondary text-white px-2 py-1 rounded-start small shadow-sm">
+      🦠 Gut & Immunity
+    </span>
+    <img src="/img/digest.png" class="card-img-top rounded-3 mb-3" alt="DigestSync Supplement Bottle">
+    <h5 class="card-title fw-bold text-secondary text-center">DigestSync</h5>
+    <p class="text-center small text-muted">Gut Balance • Nutrient Absorption</p>
+    <div class="alert alert-secondary text-center small fw-semibold mb-3 rounded-3">
+      🎁 <strong>6 Bottles • 180 Day Supply</strong><br>
+      💰 <strong>$49/Bottle – Save $300!</strong><br>
+      📘 Includes 2 Gut Repair ebooks
+    </div>
+    <ul class="small text-muted">
+      <li>✅ Rebalances digestive tract</li>
+      <li>✅ Strengthens immune system</li>
+      <li>✅ Improves absorption of nutrients</li>
+      <li>✅ Relieves bloating & indigestion</li>
+    </ul>
+    <a href="https://digestsync24.com/text.php#aff=kingns24" target="_blank" class="btn btn-secondary w-100 fw-semibold rounded-pill mt-2">
+      Heal Your Gut » 
+    </a>
+    <p class="text-muted small text-center mt-3 mb-0">
+      🌟 Fast Results | Science-backed | 60-Day Guarantee
+    </p>
+  </div>
+</div>
+
+
+      <!-- GlucoTrust -->
+      <div class="col-md-6 col-lg-4">
         <div class="card product-card h-100 border-0 shadow rounded-4 p-3 position-relative">
-          <span class="position-absolute top-0 end-0 bg-primary text-white px-2 py-1 rounded-start small shadow-sm">
-            🔥 Limited Stock
+          <span class="position-absolute top-0 end-0 bg-danger text-white px-2 py-1 rounded-start small shadow-sm">
+            💉 Metabolic Support
           </span>
-          <img src="/img/digest.png" class="card-img-top rounded-3 mb-3" alt="DigestSync Supplement Bottle">
-          <h5 class="card-title fw-bold text-primary text-center">DigestSync</h5>
-          <p class="text-muted text-center small">Gut Balance • Bloat Relief • Daily Regularity</p>
-          <div class="alert alert-primary text-center small fw-semibold mb-3 rounded-3">
-            💪 <strong>6 Jars • 180 Day Supply</strong><br>
-            🌿 Long-term Gut Support with Daily Results
+          <img src="/img/Glucotrust.jpg" class="card-img-top rounded-3 mb-3" alt="GlucoTrust Supplement Bottle">
+          <h5 class="card-title fw-bold text-danger text-center">GlucoTrust</h5>
+          <p class="text-center small text-muted">Blood Sugar • Metabolic Support</p>
+          <div class="alert alert-danger text-center small fw-semibold mb-3 rounded-3">
+            🎁 <strong>6 Bottles • 180 Day Supply</strong><br>
+            💰 <strong>$9/Bottle – You Save $120!</strong><br>
+            📘 Free Metabolism Guide
           </div>
           <ul class="small text-muted">
-            <li>✅ Relieves bloating, gas & discomfort</li>
-            <li>✅ Promotes smooth digestion</li>
-            <li>✅ Rebuilds gut microbiome balance</li>
-            <li>✅ Increases nutrient absorption</li>
+            <li>✅ Helps regulate healthy blood sugar</li>
+            <li>✅ Promotes restful sleep & weight management</li>
+            <li>✅ Boosts metabolism naturally</li>
+            <li>✅ Supports cardiovascular health</li>
           </ul>
-          <a href="https://digestsync24.com/text.php#aff=kingns24" target="_blank" class="btn btn-primary w-100 fw-semibold rounded-pill mt-2">
-            Fix Your Gut »
+          <a href="https://getglucotrust.co/#aff=kingns24" target="_blank" class="btn btn-danger w-100 fw-semibold rounded-pill mt-2">
+            Support Healthy Levels »
           </a>
           <p class="text-muted small text-center mt-3 mb-0">
-            ⏳ Fast U.S. Shipping | 60-Day Risk-Free Trial
+            🌟 Clinically Inspired | Natural Ingredients | 60-Day Guarantee
           </p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-<!-- End Products Section -->
+<!-- End Products Grid Section -->
+
 
 
 
@@ -428,19 +608,19 @@ At BioVault, we recommend supplements based on efficacy, ingredient integrity, a
 <!-- Final Call to Action Section -->
 <section id="cta-final" class="cta-final text-white text-center">
   <div class="container">
-    <h2 class="mb-3">Discover the Natural Boost Your Body Deserves</h2>
+    <h2 class="mb-3">Support What Matters Most — Naturally</h2>
     <p class="text-center mb-5 lead">
-Experience wellness from within—choose the remedy your body’s been waiting for.
+      Whether it’s your smile, sugar levels, or hormonal balance — choose science-backed support your body can trust.
     </p>
     <div class="cta-buttons">
-      <a href="https://www.officialmoringamagic.com/home-combo?aff=kingns24" target="_blank" rel="noopener noreferrer" class="btn btn-light">
-        Moringa Magic
+      <a href="https://prodentim.com/text.php#aff=kingns24" target="_blank" rel="noopener noreferrer" class="btn btn-light">
+        Oral Health – ProDentim
       </a>
-      <a href="https://digestsync24.com/text.php#aff=kingns24" target="_blank" rel="noopener noreferrer" class="btn btn-light">
-        Gut Reset
+      <a href="https://glucotrust24.com/text.php#aff=kingns24" target="_blank" rel="noopener noreferrer" class="btn btn-light">
+        Blood Sugar – GlucoTrust
       </a>
-      <a href="https://pxt.pinealxt.com/ds/presentation/index.php#aff=kingns24" target="_blank" rel="noopener noreferrer" class="btn btn-light">
-        Brain Recharge
+      <a href="https://gutoptin.com/text.php#aff=kingns24" target="_blank" rel="noopener noreferrer" class="btn btn-light">
+        Gut & Hormones – GutOptin
       </a>
     </div>
   </div>
@@ -648,7 +828,7 @@ Experience wellness from within—choose the remedy your body’s been waiting f
 </script>
 
 <!-- Custom Scripts -->
-<script src="/scripts.js" defer></script>
+<script src="/scripts.js"></script>
 
 <script>
   // Testimonial Carousel Auto-scroll & Keyboard Navigation

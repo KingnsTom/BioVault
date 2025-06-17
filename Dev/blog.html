@@ -113,7 +113,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#why-choose">Why Us</a></li>
           <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
           <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
@@ -128,17 +127,17 @@
   </nav>
 </header>
 
-  <section class="hero text-center">
-    <div class="container">
-      <h1 class="display-4 fw-bold">BioVault Wellness Blog</h1>
-      <p class="lead mt-3">
-        Explore articles on natural health, clean supplements, mindful living, and insider tips to help you feel your best—naturally.
-      </p>
-          <a href="blog.html" class="btn btn-primary btn-lg mt-3">Explore Top Picks</a>
+<section class="hero text-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold">BioVault Wellness Blog</h1>
+    <p class="lead mt-3">
+      Explore articles on natural health, clean supplements, mindful living, and insider tips to help you feel your best—naturally.
+    </p>
+    <a href="blog.html" class="btn btn-primary btn-lg mt-3">Explore Our Blogs</a>
+  </div>
+</section>
 
-    </div>
-  </section>
- <!-- Blog Categories -->
+<!-- Blog Categories -->
 <section class="blog-categories py-4 bg-light">
   <div class="container text-center">
     <h5 class="mb-3 fw-semibold">Browse by Category</h5>
@@ -153,36 +152,30 @@
   </div>
 </section>
 
+<main class="py-5">
+  <div class="container">
+    <div class="row blog-list">
 
-
-
-
-  <main class="py-5">
-    <div class="container">
-      <div class="row">
-        <!-- Blog Post Card 1 -->
-        <div class="col-md-4 mb-4" data-category="mindfulness">
-          <div class="card h-100 shadow-sm">
-            <img src="/img/Mindfulness in the Workplace.webp" class="card-img-top" alt="Mindfulness in the Workplace">
-
-          
-          <div class="card-body">
-  <small class="text-muted d-block mb-2">June 10, 2025 • 3 min read</small>
-  <h5 class="card-title">5-Minute Mindfulness: Mental Reset Techniques for the Workplace</h5>
-  <p class="card-text">Discover simple, effective techniques to reduce stress and refocus in just minutes—perfect for busy professionals.</p>
-  <a href="/blogs/5-minute-mindfulness.html" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-block">Read More »</a>
+      <!-- Blog Post Card 1 -->
+<div class="col-md-4 mb-4 blog-card" data-category="mindfulness">
+  <div class="card h-100 shadow-sm">
+    <img src="/img/Mindfulness in the Workplace.webp" class="card-img-top" alt="Mindfulness in the Workplace">
+    <div class="card-body" data-date="2025-06-10">
+      <small class="text-muted d-block mb-2 dynamic-meta"></small>
+      <h5 class="card-title">5-Minute Mindfulness: Mental Reset Techniques for the Workplace</h5>
+      <p class="card-text">Discover simple, effective techniques to reduce stress and refocus in just minutes—perfect for busy professionals.</p>
+      <a href="/blogs/5-minute-mindfulness.html" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-block">Read More »</a>
+    </div>
+  </div>
 </div>
 
-          </div>
-        </div>
-
-        <!-- Blog Post Card 2 -->
-        <div class="col-md-4 mb-4" data-category="gut-health">
+<!-- Blog Post Card 2 -->
+<div class="col-md-4 mb-4 blog-card" data-category="gut-health">
   <div class="card h-100 shadow-sm">
     <img src="/img/gut-brain-connection-concept.webp" class="card-img-top" alt="Gut health tips">
-    <div class="card-body">
+    <div class="card-body" data-date="2025-06-05">
       <small class="text-muted d-block mb-1">Category: Gut Health</small>
-      <small class="text-muted d-block mb-2">June 5, 2025 • 5 min read</small>
+      <small class="text-muted d-block mb-2 dynamic-meta"></small>
       <h5 class="card-title">The Gut-Brain Connection: How Digestion Impacts Mental Clarity</h5>
       <p class="card-text">Did you know your gut health affects your mood and focus? Here’s how to reset your digestion naturally.</p>
       <a href="/blogs/gut-brain-connection.html" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-block">Read More »</a>
@@ -190,39 +183,26 @@
   </div>
 </div>
 
-
-        <!-- Blog Post Card 3 -->
-        <div class="col-md-4 mb-4" data-category="energy-focus">
-          <div class="card h-100 shadow-sm">
-            <img src="/img/blog3.jpg" class="card-img-top" alt="Immune Support Strategies">
-            <div class="card-body">
-              <small class="text-muted d-block mb-2">May 28, 2025 • 6 min read</small>
-              <h5 class="card-title">Top Herbs & Supplements to Strengthen Immunity This Season</h5>
-              <p class="card-text">Support your body’s defenses with time-tested natural remedies and modern insights.</p>
-              <a href="/blog/boost-energy-naturally.html" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-block">Read More »</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Pagination -->
-      <nav class="mt-5">
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled"><a class="page-link brand-page-link" href="#">Previous</a></li>
-          <li class="page-item active"><a class="page-link brand-page-link active" href="#">1</a></li>
-          <li class="page-item"><a class="page-link brand-page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link brand-page-link" href="#">Next</a></li>
-        </ul>
-      </nav>
+<!-- Blog Post Card 3 -->
+<div class="col-md-4 mb-4 blog-card" data-category="energy-focus, supplements">
+  <div class="card h-100 shadow-sm">
+    <img src="/img/immunity boosters.webp" class="card-img-top" alt="Immune Support Strategies">
+    <div class="card-body" data-date="2025-05-28">
+      <small class="text-muted d-block mb-2 dynamic-meta"></small>
+      <h5 class="card-title">Top Herbs & Supplements to Strengthen Immunity This Season</h5>
+      <p class="card-text">Support your body’s defenses with time-tested natural remedies and modern insights backed by data and watch your body grow stronger this season.</p>
+      <a href="/blogs/immune-support.html" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-block">Read More »</a>
     </div>
-  </main>
-</body>
+  </div>
+</div>
 
 
-
-
+    <!-- Pagination Placeholder -->
+    <nav class="mt-5">
+      <ul class="pagination justify-content-center"></ul>
+    </nav>
+  </div>
 </main>
-
 
 
   <footer class="footer">
@@ -309,7 +289,7 @@
 </script>
 
 <!-- Your Custom Scripts -->
-<script src="/js/scripts.js" defer></script>
+<script src="/scripts.js"></script>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -342,6 +322,92 @@
     });
   });
 </script>
+
+// Pagination and Filtering Script
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const postsPerPage = 9;
+    const blogCards = document.querySelectorAll(".blog-card");
+    const paginationContainer = document.querySelector(".pagination");
+    const filterButtons = document.querySelectorAll("[data-filter]");
+    
+    let currentPage = 1;
+    let currentFilter = "all";
+
+    function getFilteredPosts() {
+      return Array.from(blogCards).filter(card =>
+        currentFilter === "all" || card.dataset.category === currentFilter
+      );
+    }
+
+    function renderPosts() {
+      const filtered = getFilteredPosts();
+      const start = (currentPage - 1) * postsPerPage;
+      const end = start + postsPerPage;
+
+      blogCards.forEach(card => card.style.display = "none");
+      filtered.slice(start, end).forEach(card => card.style.display = "block");
+
+      renderPagination(filtered.length);
+    }
+
+    function renderPagination(totalPosts) {
+      const totalPages = Math.ceil(totalPosts / postsPerPage);
+      paginationContainer.innerHTML = "";
+
+      if (totalPages <= 1) return;
+
+      const createPageItem = (page, label = null, isDisabled = false, isActive = false) => {
+        const li = document.createElement("li");
+        li.className = `page-item ${isDisabled ? "disabled" : ""} ${isActive ? "active" : ""}`;
+        const a = document.createElement("a");
+        a.href = "#";
+        a.className = "page-link brand-page-link";
+        a.textContent = label || page;
+        a.dataset.page = page;
+        li.appendChild(a);
+        return li;
+      };
+
+      paginationContainer.appendChild(createPageItem(currentPage - 1, "« Prev", currentPage === 1));
+
+      for (let i = 1; i <= totalPages; i++) {
+        paginationContainer.appendChild(createPageItem(i, i, false, i === currentPage));
+      }
+
+      paginationContainer.appendChild(createPageItem(currentPage + 1, "Next »", currentPage === totalPages));
+
+      paginationContainer.querySelectorAll("a").forEach(a =>
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+          const selectedPage = parseInt(this.dataset.page);
+          if (!isNaN(selectedPage) && selectedPage !== currentPage) {
+            currentPage = selectedPage;
+            renderPosts();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        })
+      );
+    }
+
+    // Handle filter clicks
+    filterButtons.forEach(button => {
+      button.addEventListener("click", function (e) {
+        e.preventDefault();
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+
+        currentFilter = this.dataset.filter;
+        currentPage = 1;
+        renderPosts();
+      });
+    });
+
+    // Initial render
+    renderPosts();
+  });
+</script>
+
 
 
 </body>
