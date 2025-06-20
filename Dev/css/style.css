@@ -809,6 +809,14 @@ form textarea:disabled {
     max-width: 95%;
   }
 }
+.equal-height-img {
+  height: 100%;
+  max-height: 320px; /* Adjust based on your content height */
+  width: 100%;
+  object-fit: contain; /* or 'cover' if you want it to crop instead */
+  display: block;
+}
+
 
 
 /* -----------------------------------
@@ -2107,107 +2115,130 @@ form textarea:disabled {
 /* -----------------------------------
    BioVault Products Pages Styling
 ----------------------------------- */
-
 /* -----------------------------
-   Section: Hero with Background Image
+   Section: Hero with Static Right Image (Enhanced)
 ----------------------------- */
 .hero {
   background-color: var(--primary-color);
   color: var(--light-color);
-  padding: 4rem 1.25rem 3rem;
+  padding: 5rem 1.5rem 4rem;
   position: relative;
   overflow: hidden;
-  text-align: center;
+  font-family: var(--body-font);
 }
 
 .hero .container {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
   z-index: 1;
-  max-width: none; /* Let content stretch full width */
-}
-
-/* Decorative Bottle */
-.hero-bg-bottle {
-  position: absolute;
-  bottom: 0.5rem;
-  left: -2rem; /* 👈 Push bottle farther left — adjust this value */
-  width: 200px;
-  max-width: 35vw;
-  transform: rotate(-12deg);
-  z-index: 0;
-  opacity: 0.85;
-  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.3)) brightness(1.15);
-  pointer-events: none;
-}
-
-.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
   position: relative;
+}
+
+/* Hero Content */
+.hero-content {
+  text-align: center;
+  padding: 0 1rem;
   z-index: 2;
-  padding: 0.5rem 1rem;
-  max-width: 100%; /* 👈 Allow full-width content */
+  max-width: 600px;
+  animation: fadeInUp 1s ease-out both;
 }
 
 .hero-title {
-  font-size: 1.85rem;
-  font-weight: 700;
-  font-family: var(--heading-font);
-  margin-bottom: 0.75rem;
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
   line-height: 1.3;
-  white-space: normal; /* 👈 Ensure line-breaks occur naturally */
+  letter-spacing: -0.5px;
 }
 
 .hero-subtitle {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: var(--accent-color);
-  margin-bottom: 1rem;
-  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+  opacity: 0.95;
 }
 
 .hero-badge {
   display: inline-block;
-  background-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
   color: var(--light-color);
   font-size: 0.85rem;
-  padding: 0.4rem 0.9rem;
+  padding: 0.4rem 1rem;
   border-radius: 50px;
   font-weight: 500;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  transition: all 0.3s ease;
 }
 
 .hero-cta {
   background-color: var(--accent-color);
   color: var(--dark-color);
   font-weight: 700;
-  padding: 0.65rem 1.4rem;
-  border-radius: 50px;
-  font-size: 1rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 40px;
+  font-size: 1.05rem;
   text-decoration: none;
-  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: all 0.35s ease;
 }
 
 .hero-cta:hover {
-  background-color: #e0e0e0;
-  transform: scale(1.04);
+  background-color: #e6e6e6;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
 }
 
-/* Tablet */
+/* Bottle Image */
+.hero-bottle-static {
+  width: 240px;
+  max-width: 90vw;
+  z-index: 1;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3)) brightness(1.05);
+  pointer-events: none;
+  animation: fadeIn 1.2s ease-out both;
+}
+
+/* Remove Old Tilted Bottle */
+.hero-bg-bottle {
+  display: none !important;
+}
+
+/* Tablet & Up */
 @media (min-width: 768px) {
   .hero {
-    padding: 5rem 2rem 4rem;
+    padding: 6rem 2rem 5rem;
+    text-align: left;
+  }
+
+  .hero .container {
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  .hero-content {
+    text-align: left;
+    padding: 0;
+    max-width: 550px;
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
 
   .hero-subtitle {
     font-size: 1.25rem;
   }
 
-  .hero-bg-bottle {
-    width: 360px;
-    left: -3rem; /* 👈 Push farther left for larger screens */
-    bottom: -1rem;
+  .hero-bottle-static {
+    width: 320px;
   }
 
   .hero-cta {
@@ -2218,31 +2249,36 @@ form textarea:disabled {
 /* Desktop */
 @media (min-width: 1200px) {
   .hero {
-    padding: 6rem 2rem 4.5rem;
+    padding: 7rem 2.5rem 6rem;
   }
 
-  .hero-bg-bottle {
-    width: 400px;
-    left: -9rem;   /* 👈 Push farther left */
-    bottom: -4rem; /* 👈 Push downward (increase for more distance) */
+  .hero-bottle-static {
+    width: 360px;
   }
 }
-/* Mobile (under 768px) */
+
+/* Mobile Responsiveness */
+
 @media (max-width: 767px) {
   .hero {
-    padding: 3.5rem 1rem 2.5rem; /* Slightly smaller padding for smaller screens */
+    padding: 4rem 1rem 3rem;
+    text-align: center;
   }
 
-  .hero-bg-bottle {
-    width: 160px;       /* Smaller bottle */
-    left: -3rem;        /* Push farther left if overlapping */
-    bottom: -1.5rem;    /* Push slightly downward */
-    transform: rotate(-10deg); /* More subtle angle for small screens */
-    opacity: 0.8;
+  .hero .container {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 1rem; /* 👈 Add this instead of using margin-top/margin-bottom */
+  }
+
+  .hero-content {
+    padding: 0;
+    margin-top: 0; /* 👈 Remove extra spacing */
   }
 
   .hero-title {
-    font-size: 1.65rem;
+    font-size: 1.8rem;
   }
 
   .hero-subtitle {
@@ -2253,7 +2289,13 @@ form textarea:disabled {
     font-size: 0.95rem;
     padding: 0.6rem 1.2rem;
   }
+
+  .hero-bottle-static {
+    width: 200px;
+    margin-bottom: 0; /* 👈 Remove extra spacing */
+  }
 }
+
 
 
 
@@ -2494,6 +2536,11 @@ form textarea:disabled {
   object-fit: cover;
   border-radius: inherit;
   box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }/* ----------------------------- 
    Section: Real Science Results
 ----------------------------- */
@@ -2545,6 +2592,18 @@ form textarea:disabled {
   font-family: var(--body-font);
   color: var(--text-muted);
   margin-left: 0.25rem;
+}
+
+.science-results img {
+  max-height: 360px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+.science-results img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .science-list span {
@@ -2637,6 +2696,9 @@ form textarea:disabled {
   z-index: 10;
   overflow: visible;
 }
+.trust-badges + .trust-badges {
+  display: none;
+}
 
 /* Title Styling */
 .guarantee-title {
@@ -2661,6 +2723,8 @@ form textarea:disabled {
   line-height: 1.8;
   margin-top: 1rem;
 }
+
+
 
 /* Floating Badge Wrapper (outside section) */
 .guarantee-badge-wrapper {
