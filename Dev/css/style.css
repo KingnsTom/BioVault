@@ -999,6 +999,34 @@ form textarea:disabled {
   }
 }
 
+/* -----------------------------------
+   why-biovault Section
+----------------------------------- */
+
+#why-biovault h2 {
+  position: relative;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+#why-biovault h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--teal-bright);
+  border-radius: 2px;
+  box-shadow: 0 0 8px var(--teal-bright);
+}
+
 
 /* -----------------------------------
    Testimonials (Improved + Responsive Layout)
@@ -1671,6 +1699,7 @@ form textarea:disabled {
     right: 1rem;
   }
 }
+
 /* -----------------------------------
    FAQ Moringa Section (Cloned Style)
 ----------------------------------- */
@@ -1768,9 +1797,11 @@ form textarea:disabled {
   transition: max-height 0.4s ease, padding 0.3s ease;
 }
 
+}
+
 .faq-moringa-answer.open {
   padding: 1rem 1.5rem 1.5rem;
-  max-height: 400px;
+ 
 }
 
 @media (max-width: 768px) {
@@ -2057,7 +2088,6 @@ form textarea:disabled {
   color: var(--teal-bright);
   text-decoration: none;
 }
-
 .blog-categories {
   color: #023d3a;
   font-family: var(--body-font);
@@ -2069,22 +2099,22 @@ form textarea:disabled {
 }
 
 .blog-categories .btn {
-  border-radius: 2rem;
+  font-family: var(--body-font);
   font-size: 0.9rem;
   font-weight: 500;
-  font-family: var(--body-font);
-  color: var(--light-color);
+  border-radius: 2rem;
+  color: var(--deep-teal);
+  background-color: transparent;
   border: 1px solid var(--light-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .blog-categories .btn:hover,
 .blog-categories .btn.active {
-  background-color: var(--primary-color); /* #017f7c */
-  color: var(--light-color);              /* var(--light-color) */
-  border-color: var(--primary-color);     /* #017f7c */
+  background-color: var(--secondary-color);
+  color: var(--deep-teal);
+  border-color: var(--primary-color);
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -2110,6 +2140,46 @@ form textarea:disabled {
   }
 }
 
+/* Make all tables scrollable on smaller screens */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  display: block;
+}
+
+/* Table headers and cells */
+table th,
+table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Zebra striping */
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Header style override for teal branding */
+table thead tr {
+  background-color: #05b9b5;
+  color: white;
+}
+
+/* Make table text a bit smaller on mobile */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.9rem;
+  }
+
+  table th,
+  table td {
+    padding: 10px 8px;
+  }
+}
 
 
 /* -----------------------------------
