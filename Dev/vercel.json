@@ -18,6 +18,8 @@
     { "source": "/privacy-policy", "destination": "/privacy-policy.html" },
     { "source": "/terms-of-service", "destination": "/terms-of-service.html" },
     
-    { "source": "/:path*", "destination": "/:path*" }
+    { "source": "/:path*", "destination": "/:path*" },
+    { "source": "/thank-you", "destination": "/thank-you.html" },
+
   ]
 }

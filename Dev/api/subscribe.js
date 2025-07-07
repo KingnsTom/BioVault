@@ -25,24 +25,29 @@ export default async function handler(req, res) {
         service: 'gmail',
         auth: {
           user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
-        },
+          pass: process.env.EMAIL_PASS
+        }
       });
 
       await transporter.sendMail({
         from: `"BioVault Signup" <${process.env.EMAIL_USER}>`,
         to: process.env.EMAIL_USER,
         subject: '🧠 New Subscriber - BioVault Health',
-        text: `New subscriber: ${email}`,
+        text: `New subscriber: ${email}`
       });
 
-      // ✅ Redirect to your thank-you page
       res.writeHead(302, { Location: '/thank-you.html' });
       res.end();
     } catch (err) {
-      console.error('❌ Error sending email:', err);
+      console.error('❌ Email send error:', err);
       res.statusCode = 500;
-      res.end('Error sending email.');
+      res.end('Email failed.');
     }
   });
 }
+export const config = {
+  api: {
+    bodyParser: false,
+    externalResolver: true
+  }
+};
