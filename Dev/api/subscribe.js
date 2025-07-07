@@ -1,35 +1,50 @@
 import nodemailer from 'nodemailer';
+import { parse } from 'querystring';
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method Not Allowed' });
+    return res.status(405).send('Method Not Allowed');
   }
 
-  const { email } = req.body || {};
+  let body = '';
+  req.on('data', chunk => {
+    body += chunk.toString();
+  });
 
-  if (!email?.trim()) {
-    return res.status(400).json({ message: 'Email is required.' });
-  }
+  req.on('end', async () => {
+    const { email } = parse(body);
 
-  try {
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    if (!email || !email.trim()) {
+      return res.status(400).send('Email is required.');
+    }
 
-    await transporter.sendMail({
-      from: `"BioVault Signup" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,
-      subject: '🧠 New Subscriber - BioVault Health',
-      text: `New subscriber: ${email}`,
-    });
+    try {
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      });
 
-    return res.status(200).json({ message: 'Email sent successfully!' });
-  } catch (err) {
-    console.error('❌ Email send failed:', err);
-    return res.status(500).json({ message: 'Email failed to send.' });
-  }
+      await transporter.sendMail({
+        from: `"BioVault Signup" <${process.env.EMAIL_USER}>`,
+        to: process.env.EMAIL_USER,
+        subject: '🧠 New Subscriber - BioVault Health',
+        text: `New subscriber: ${email}`,
+      });
+
+      res.writeHead(302, { Location: '/thank-you.html' });
+      res.end();
+    } catch (error) {
+      console.error('❌ Email send error:', error);
+      return res.status(500).send('Failed to send email.');
+    }
+  });
 }
