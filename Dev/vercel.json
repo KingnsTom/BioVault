@@ -9,8 +9,8 @@
     { "source": "/prodentim", "destination": "/prodentim.html" },
     { "source": "/gutoptim", "destination": "/gutoptim.html" },
     
-    { "source": "/blog", "destination": "/blog.html" }
-    , { "source": "/blog/:path*", "destination": "/blog/:path*" },
+    { "source": "/blog", "destination": "/blog.html" },
+    { "source": "/blog/:path*", "destination": "/blog/:path*" },
     
     { "source": "/pinealxt-clean-foods", "destination": "/pinealxt-clean-foods.html" },
     { "source": "/pinealxt-clean-foods-opt-in", "destination": "/pinealxt-clean-foods.html" },
@@ -19,7 +19,6 @@
     { "source": "/terms-of-service", "destination": "/terms-of-service.html" },
     
     { "source": "/:path*", "destination": "/:path*" },
-    { "source": "/thank-you", "destination": "/thank-you.html" },
-
+    { "source": "/thank-you", "destination": "/thank-you.html" }
   ]
 }
