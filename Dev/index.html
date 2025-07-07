@@ -1055,7 +1055,12 @@ Unlocking Natural Health with expert-backed supplements for energy, gut balance,
   <h5 class="footer-heading" id="footer-heading">Get Wellness Tips</h5>
   <p>Join 10,000+ subscribers for free product guides & detox tips.</p>
 
- <form class="footer-form" action="/api/subscribe" method="POST">
+<form
+  class="footer-form"
+  action="/api/subscribe"
+  method="POST"
+  aria-labelledby="footer-heading"
+>
   <label for="footer-email" class="visually-hidden">Email address</label>
   <input
     type="email"
@@ -1064,9 +1069,11 @@ Unlocking Natural Health with expert-backed supplements for energy, gut balance,
     placeholder="Enter your email"
     required
     autocomplete="email"
+    aria-label="Email address"
   >
-  <button type="submit">Subscribe</button>
+  <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
 </form>
+
 
 
 </div>
