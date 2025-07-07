@@ -1,29 +1,23 @@
 import nodemailer from 'nodemailer';
 import { parse } from 'querystring';
 
-export const config = {
-  api: {
-    bodyParser: false, // We'll handle body manually
-  },
-};
-
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).send('Method Not Allowed');
+    res.statusCode = 405;
+    return res.end('Method Not Allowed');
   }
 
-  // Collect raw form data
   let body = '';
   req.on('data', chunk => {
     body += chunk.toString();
   });
 
   req.on('end', async () => {
-    const parsedBody = parse(body);
-    const email = parsedBody.email;
+    const { email } = parse(body);
 
-    if (!email?.trim()) {
-      return res.status(400).send('Email is required.');
+    if (!email || !email.trim()) {
+      res.statusCode = 400;
+      return res.end('Email is required.');
     }
 
     try {
@@ -35,22 +29,20 @@ export default async function handler(req, res) {
         },
       });
 
-      const mailOptions = {
+      await transporter.sendMail({
         from: `"BioVault Signup" <${process.env.EMAIL_USER}>`,
         to: process.env.EMAIL_USER,
-        subject: '🧠 New Newsletter Signup - BioVault Health',
+        subject: '🧠 New Subscriber - BioVault Health',
         text: `New subscriber: ${email}`,
-      };
+      });
 
-      await transporter.sendMail(mailOptions);
-
-      // ✅ Redirect to thank-you page
+      // ✅ Redirect to your thank-you page
       res.writeHead(302, { Location: '/thank-you.html' });
-      return res.end();
-    } catch (error) {
-      console.error('Email send failed:', error);
-      return res.status(500).send('Email send failed.');
+      res.end();
+    } catch (err) {
+      console.error('❌ Error sending email:', err);
+      res.statusCode = 500;
+      res.end('Error sending email.');
     }
   });
 }
-
