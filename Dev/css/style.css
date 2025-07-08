@@ -377,28 +377,31 @@ form textarea:disabled {
   background-color: #fff;
   border: none;
 }
-
-/* Mobile Overrides to Restore Bootstrap Behavior */
-@media (max-width: 768px) {
-  /* Re-enable positioning logic for dropdown parent */
+/* Mobile Overrides to Restore Bootstrap Dropdown Behavior */
+@media (max-width: 991px) {
   .navbar-nav .dropdown.position-static {
     position: relative !important;
   }
-  /* Hide by default, show when JS adds .show */
+
   .dropdown-menu.dropdown-mega {
-    display: none;
+    display: none !important;
     position: absolute;
     top: 100%;
-    left: 0 !important;
+    left: 0;
+    right: 0;
     transform: none !important;
-    width: 95vw;
+    width: 100vw;
     padding: 1.5rem;
-    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    z-index: 999;
   }
-  .dropdown-menu.dropdown-mega.show {
-    display: block;
+
+  .dropdown.show .dropdown-menu.dropdown-mega {
+    display: block !important;
   }
 }
+
 
 /* General Mobile Tweaks */
 @media (max-width: 900px) {
