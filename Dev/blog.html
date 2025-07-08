@@ -51,7 +51,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
 
     <!-- Open Graph / Facebook -->
@@ -157,44 +158,61 @@
 </head>
 
 <body>
- <!-- ✅ Bootstrap 5-Compatible Header Navigation -->
+  <!-- ✅ BioVault Responsive Navbar -->
 <header class="site-header">
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-    <div class="container">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <!-- Brand Logo -->
       <a class="navbar-brand" href="/">
-        <img src="/img/logo.png" alt="BioVault Logo" width="120">
+        <img src="/img/logo.png" alt="BioVault Logo" width="100">
       </a>
 
-      <!-- ✅ Fixed for Bootstrap 5 -->
-      <button class="navbar-toggler" type="button" 
-              data-bs-toggle="collapse" 
-              data-bs-target="#navbarNav" 
-              aria-controls="navbarNav" 
-              aria-expanded="false" 
-              aria-label="Toggle navigation">
+      <!-- Mobile Toggle for Navbar -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+      <!-- Navbar Content (Links) -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-lg-center">
+
+          <!-- Why Us Section -->
           <li class="nav-item">
-            <a class="nav-link" href="/#why-choose">Why Us</a>
+            <a class="nav-link" href="/#why-biovault">
+              <i class="fas fa-info-circle me-2"></i>Why Us
+            </a>
           </li>
+
+          <!-- Testimonials Section -->
           <li class="nav-item">
-            <a class="nav-link" href="/#products">Products</a>
+            <a class="nav-link" href="#testimonials">
+              <i class="fas fa-comments me-2"></i>Testimonials
+            </a>
           </li>
+
+          <!-- Blog Link -->
           <li class="nav-item">
-            <a class="nav-link" href="/#testimonials">Testimonials</a>
+            <a class="nav-link" href="/blog.html">
+              <i class="fas fa-blog me-2"></i>Blog
+            </a>
           </li>
+
+          <!-- Contact Us Section -->
           <li class="nav-item">
-            <a class="nav-link active" href="/blog.html">Blog</a>
+            <a class="nav-link" href="/#contact">
+              <i class="fas fa-phone-alt me-2"></i>Contact
+            </a>
           </li>
+
+          <!-- Call-to-Action Button to Order -->
           <li class="nav-item">
-            <a class="nav-link" href="/#contact">Contact</a>
+            <a class="btn btn-success text-white px-4 ms-2" href="/#products">
+              <i class="fas fa-cart-plus me-2"></i>Order Now
+            </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-success text-white px-4" href="/#products">Order Now</a>
-          </li>
+
         </ul>
       </div>
     </div>

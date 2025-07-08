@@ -116,3 +116,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+document.querySelectorAll('a[href="/#products"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+      e.preventDefault();
+      document.querySelector('#products')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+// Smooth scroll for "Order Now" button
+document.querySelectorAll('a[href="/#products"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+      e.preventDefault();
+      document.querySelector('#products')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+}); 

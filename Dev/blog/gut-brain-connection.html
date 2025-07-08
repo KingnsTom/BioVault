@@ -48,8 +48,7 @@
 <meta name="geo.position" content="-33.8688;151.2093">
 <meta name="ICBM" content="-33.8688, 151.2093">
 
-  <link rel="stylesheet" href="/cssbootstrap.min.css">
-  <link rel="stylesheet" href="/css/style.css">
+
 
   <!-- Favicons -->
   <link rel="icon" href="/imgfavicon-16x16.png" type="image/x-icon">
@@ -65,6 +64,8 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
   
 
@@ -234,44 +235,54 @@
 </head>
 
 <body>
-<!-- ========================================
-     Blog Post Header Section
-======================================== -->
 <!-- ✅ Simplified Navbar for Blog Page -->
 <header class="site-header">
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
     <div class="container d-flex align-items-center justify-content-between">
+      
+      <!-- Logo -->
       <a class="navbar-brand" href="/">
         <img src="/img/logo.png" alt="BioVault Logo" width="100">
       </a>
 
+      <!-- Mobile Toggle -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
+      <!-- Navbar Links -->
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav align-items-center">
 
+          <!-- Home Link -->
           <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/">
+              <i class="fas fa-home me-2"></i>Home
+            </a>
           </li>
 
+          <!-- Blog Link -->
           <li class="nav-item">
-            <a class="nav-link" href="/blog.html">Blog</a>
+            <a class="nav-link" href="/blog.html">
+              <i class="fas fa-blog me-2"></i>Blog
+            </a>
           </li>
 
+          <!-- Contact Link -->
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link" href="#contact">
+              <i class="fas fa-envelope me-2"></i>Contact
+            </a>
           </li>
 
-           <!-- CTA Button: Order Now -->
+          <!-- CTA: Order Now -->
           <li class="nav-item">
             <a class="nav-link btn btn-success text-white ms-lg-3 px-3 py-2 btn-cta" 
-              href="/biovaulthealth/digestsync.html" 
-              target="_blank" 
-              rel="noopener noreferrer">
-              Order Now
+               href="/biovaulthealth/digestsync.html" 
+               target="_blank" 
+               rel="noopener noreferrer">
+              <i class="fas fa-cart-plus me-2"></i>Try DigestSync
             </a>
           </li>
 
@@ -280,8 +291,9 @@
     </div>
   </nav>
 </header>
-
 <!-- End of Header Section -->
+
+
 
    <main class="container py-5">
   <article class="blog-post">
@@ -330,10 +342,10 @@
     <h3>3. Add a Gut-Brain Supplement</h3>
     <p>Modern stress, poor food quality, and environmental toxins make it hard to stay balanced with food alone. That’s where supplements come in.</p>
 
-    <h4 class="mt-4">💊 <strong>Top Pick: DigestSync24</strong></h4>
-    <p><strong>DigestSync24</strong> supports healthy digestion and neurotransmitter production using probiotics, enzymes, and herbal adaptogens.</p>
+    <h4 class="mt-4">💊 <strong>Top Pick: DigestSync</strong></h4>
+    <p><strong>DigestSync</strong> supports healthy digestion and neurotransmitter production using probiotics, enzymes, and herbal adaptogens.</p>
     <p>
-      <a href="/biovaulthealth/digestsync.html" target="_blank" rel="noopener noreferrer" class="btn btn-brand">👉 Try DigestSync24</a>
+      <a href="/biovaulthealth/digestsync.html" target="_blank" rel="noopener noreferrer" class="btn btn-brand">👉 Try DigestSync</a>
     </p>
 
     <h4 class="mt-4">🌌 <strong>Bonus: Reboot Your Brain with Pineal XT</strong></h4>
@@ -341,46 +353,67 @@
     <p>
       <a href="https://pxt.pinealxt.com/ds/presentation/indexnodatc.php" target="_blank" rel="noopener noreferrer" class="btn btn-brand">👉 Unlock your third eye</a>
     </p>
+<h2>Gut Health vs. Mental Clarity: What the Science Says</h2>
+<p>Your gut and brain are in constant communication through what's called the <strong>gut-brain axis</strong>. When your digestive system is off balance, your mental clarity, mood, and energy levels often suffer. Here’s how different gut issues impact your brain — and what you can do to support both:</p>
 
-    <h2>Gut Health vs. Mental Clarity: What the Science Says</h2>
-    <table class="table table-bordered table-striped mt-3">
-      <thead>
-        <tr>
-          <th>Gut Imbalance</th>
-          <th>Effect on the Brain</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Leaky gut / inflammation</td>
-          <td>Brain fog, low motivation</td>
-        </tr>
-        <tr>
-          <td>Dysbiosis (bad bacteria > good)</td>
-          <td>Cravings, anxiety, mood swings</td>
-        </tr>
-        <tr>
-          <td>Low nutrient absorption</td>
-          <td>Poor memory, fatigue</td>
-        </tr>
-        <tr>
-          <td>Disrupted vagus nerve signals</td>
-          <td>Slow thinking, poor sleep</td>
-        </tr>
-      </tbody>
-    </table>
+<table class="table table-bordered table-striped mt-3">
+  <thead class="table-success">
+    <tr>
+      <th>Gut Imbalance</th>
+      <th>Effect on the Brain</th>
+      <th>Support Strategy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Leaky gut / chronic inflammation</strong></td>
+      <td>Triggers brain fog, low drive, and sluggish cognition due to increased systemic inflammation.</td>
+      <td>
+        <a href="/biovaulthealth/digestsync.html" target="_blank">DigestSync</a> to soothe and seal gut lining<br>
+        + anti-inflammatory foods (turmeric, greens, omega-3s)
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Dysbiosis (bad bacteria > good)</strong></td>
+      <td>Leads to mood instability, irritability, sugar cravings, and even mild depression or anxiety.</td>
+      <td>
+        Daily fermented foods (kimchi, yogurt, kefir)<br>
+        + targeted probiotics like Lactobacillus & Bifidobacterium
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Poor nutrient absorption</strong></td>
+      <td>Results in low B vitamins and magnesium — key players in focus, memory, and energy production.</td>
+      <td>
+        Digestive enzymes before meals<br>
+        + nutrient-dense whole foods (nuts, seeds, leafy greens)
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Disrupted vagus nerve signaling</strong></td>
+      <td>Weakens gut-brain communication, impairing sleep quality, decision-making, and stress response.</td>
+      <td>
+        <a href="/biovaulthealth/pineal-xt.html" target="_blank">Pineal XT</a> for gland detox + nervous system support<br>
+        + deep breathing, vagal toning exercises, and meditation
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-    <h2>Start Your Gut-Brain Reset Today</h2>
-    <p>Optimizing your gut isn’t just about digestion — it’s a strategy for <strong>clear thinking, sharper focus, and elevated mood</strong>. Start small. Begin with:</p>
-    <ul>
-      <li>✅ A daily mindfulness break</li>
-      <li>✅ More fermented foods</li>
-      <li>✅ <a href="/biovaulthealth/digestsync.html" target="_blank">DigestSync24 for brain-friendly digestion</a></li>
-      <li>✅ <a href="/biovaulthealth/pineal-xt.html" target="_blank">Pineal XT to detox your pineal gland</a></li>
-    </ul>
 
-    <p class="mt-4"><strong>Your body and mind are on the same team.</strong> Fuel them both — and start thinking clearer from the inside out.</p>
+<h2>Start Your Gut-Brain Reset Today</h2>
+<p>Optimizing your gut isn’t just about digestion — it’s a strategy for <strong>clear thinking, sharper focus, and elevated mood</strong>. Start small. Begin with:</p>
+<ul>
+  <li>✅ A daily mindfulness break</li>
+  <li>✅ More fermented foods</li>
+  <li>✅ <a href="/biovaulthealth/digestsync.html" target="_blank">DigestSync for brain-friendly digestion</a></li>
+  <li>✅ <a href="/biovaulthealth/pineal-xt.html" target="_blank">Pineal XT to detox your pineal gland</a></li>
+</ul>
+
+<p class="mt-4"><strong>Your body and mind are on the same team.</strong> Fuel them both — and start thinking clearer from the inside out.</p>
 <hr>
+
+
     <!-- Affiliate & Wellness Disclaimer -->
 <p class="text-muted" style="font-size: 0.9rem;">
   Some links in this article are affiliate links. That means we may earn a small commission if you choose to make a purchase—<strong>at no additional cost to you</strong>. We only recommend products we’ve researched or personally believe in. This content is for informational purposes and is not a substitute for medical advice. Always consult a qualified professional before starting any supplement.

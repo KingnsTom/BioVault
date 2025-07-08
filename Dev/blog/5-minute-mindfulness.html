@@ -45,6 +45,8 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
@@ -330,37 +332,50 @@
 <header class="site-header">
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
     <div class="container d-flex align-items-center justify-content-between">
+      
+      <!-- Logo -->
       <a class="navbar-brand" href="/">
         <img src="/img/logo.png" alt="BioVault Logo" width="100">
       </a>
 
+      <!-- Mobile Toggle -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
+      <!-- Navbar Links -->
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav align-items-center">
 
+          <!-- Home Link -->
           <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/">
+              <i class="fas fa-home me-2"></i>Home
+            </a>
           </li>
 
+          <!-- Blog Link -->
           <li class="nav-item">
-            <a class="nav-link" href="/blog.html">Blog</a>
+            <a class="nav-link" href="/blog.html">
+              <i class="fas fa-blog me-2"></i>Blog
+            </a>
           </li>
 
+          <!-- Contact Link -->
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link" href="#contact">
+              <i class="fas fa-envelope me-2"></i>Contact
+            </a>
           </li>
 
-           <!-- CTA Button: Order Now -->
+          <!-- CTA: Order Now -->
           <li class="nav-item">
             <a class="nav-link btn btn-success text-white ms-lg-3 px-3 py-2 btn-cta" 
-              href="/biovaulthealth/moringa.html" 
-              target="_blank" 
-              rel="noopener noreferrer">
-              Order Now
+               href="/biovaulthealth/moringa.html" 
+               target="_blank" 
+               rel="noopener noreferrer">
+              <i class="fas fa-cart-plus me-2"></i>Order Moringa
             </a>
           </li>
 
@@ -370,6 +385,7 @@
   </nav>
 </header>
 <!-- End of Header Section -->
+
 
    <main class="container py-5">
     <article class="blog-post">

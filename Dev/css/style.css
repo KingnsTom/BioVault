@@ -284,52 +284,61 @@ form textarea:disabled {
   color: var(--light-color);
 }
 
+/* ===============================
+   Navbar Styling (Modern Responsive)
+================================== */
 
-/* -------------------------
-   Navbar Styling (Bootstrap Extended)
--------------------------- */
+/* Sticky Navbar Container */
 .navbar {
-  background: rgba(2, 61, 58, 0.98);
+  background: rgba(2, 61, 58, 0.98); /* dark teal with transparency */
   color: #eae8e5;
   padding: 0.7rem 0;
   position: sticky;
   top: 0;
   z-index: 9999;
   box-shadow: 0 2px 12px rgba(2, 61, 58, 0.18);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px); /* subtle blur effect */
   font-family: 'Poppins', sans-serif;
   transition: background 0.3s, box-shadow 0.3s;
 }
 
+/* Container Wrapper for Navbar Content */
 .navbar-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.2rem;
 }
 
-/* Logo */
+/* Logo Styling */
 .logo img {
   height: 40px;
   width: auto;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(5,185,181,0.07);
+  box-shadow: 0 2px 8px rgba(5, 185, 181, 0.07);
   transition: transform 0.25s cubic-bezier(.4,2,.6,1);
 }
-
 .logo:hover img {
   transform: scale(1.07) rotate(-2deg);
 }
 
-/* Nav Links */
+/* ======================
+   Nav Links
+====================== */
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(1, 127, 124);
+}
+
 .navbar-nav .nav-link {
-  color: #198754;
+  color: var(--primary-color);
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   padding: 0.5rem 0.8rem;
   position: relative;
   transition: color 0.25s, text-shadow 0.25s;
+  text-align: center; /* center nav links on mobile */
 }
+
 .navbar-nav .nav-link::after {
   content: '';
   display: block;
@@ -341,6 +350,7 @@ form textarea:disabled {
   border-radius: 1px;
   transition: width 0.3s;
 }
+
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
   color: #05b9b5;
@@ -351,7 +361,9 @@ form textarea:disabled {
   width: 100%;
 }
 
-/* CTA Button */
+/* ======================
+   CTA Button
+====================== */
 .navbar-nav .btn-cta {
   background: linear-gradient(90deg, #05b9b5 60%, #017f7c 100%);
   color: #fff;
@@ -363,7 +375,9 @@ form textarea:disabled {
   letter-spacing: 0.04em;
   box-shadow: 0 4px 16px rgba(5,185,181,0.13);
   transition: background 0.25s, color 0.25s, box-shadow 0.25s, transform 0.18s;
+  text-align: center;
 }
+
 .navbar-nav .btn-cta:hover,
 .navbar-nav .btn-cta:focus {
   background: linear-gradient(90deg, #017f7c 60%, #05b9b5 100%);
@@ -372,7 +386,9 @@ form textarea:disabled {
   outline: none;
 }
 
-/* Mega Dropdown Menu */
+/* ======================
+   Mega Dropdown (Desktop Only)
+====================== */
 .dropdown-menu.dropdown-mega {
   width: 100%;
   max-width: 1000px;
@@ -382,7 +398,10 @@ form textarea:disabled {
   background-color: #fff;
   border: none;
 }
-/* Mobile Overrides to Restore Bootstrap Dropdown Behavior */
+
+/* ======================
+   Mobile-Specific Styles
+====================== */
 @media (max-width: 991px) {
   .navbar-nav .dropdown.position-static {
     position: relative !important;
@@ -394,8 +413,8 @@ form textarea:disabled {
     top: 100%;
     left: 0;
     right: 0;
-    transform: none !important;
     width: 100vw;
+    transform: none !important;
     padding: 1.5rem;
     background-color: #fff;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
@@ -405,31 +424,93 @@ form textarea:disabled {
   .dropdown.show .dropdown-menu.dropdown-mega {
     display: block !important;
   }
-}
+}/* =========================================
+   Responsive Navbar Styling & Mobile Layout
+============================================ */
 
-
-/* General Mobile Tweaks */
-@media (max-width: 900px) {
-  .navbar-container { padding: 0 0.7rem; }
-}
-@media (max-width: 768px) {
-  .navbar-nav .nav-link {
-    font-size: 1.15rem;
-    padding: 0.5rem 1rem;
+/* Mobile: Up to 991px */
+@media (max-width: 991px) {
+  /* Collapse Nav: center items */
+  .navbar .navbar-collapse {
+    justify-content: center !important;
+    text-align: center;
   }
-  .navbar-nav .btn-cta {
+
+  /* Logo stays left on mobile */
+  .navbar .navbar-brand {
+    margin-left: 0;
+    margin-right: auto;
+    display: block;
+    text-align: left;
+  }
+
+  /* Stack nav links vertically */
+  .navbar .navbar-nav {
+    flex-direction: column;
+    align-items: center !important;
+    width: 100%;
+  }
+
+  .navbar .nav-item {
     width: 100%;
     text-align: center;
-    font-size: 1.08rem;
-    padding: 0.7rem 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .navbar .btn-cta {
+    width: 90%;
+    max-width: 300px;
+    margin-top: 0.75rem;
+    text-align: center;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    text-align: center;
   }
 }
-@media (max-width: 480px) {
-  .navbar-container { padding: 0 0.2rem; }
-  .logo img { height: 32px; }
+
+/* Tablet: Up to 900px */
+@media (max-width: 900px) {
+  .navbar-container {
+    padding: 0 0.7rem;
+  }
 }
 
+/* Small Tablet: Up to 768px */
+@media (max-width: 768px) {
+  .navbar-nav .nav-link {
+    font-size: 1.05rem;
+    padding: 0.5rem 1rem;
+  }
 
+  .navbar-nav .btn-cta {
+    font-size: 1.05rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+/* Phone: Up to 480px */
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 0.4rem;
+  }
+
+  .logo img {
+    height: 32px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .navbar-nav .btn-cta {
+    font-size: 1rem;
+    padding: 0.65rem 1rem;
+  }
+}
 
 
 /* ---------------------------------
@@ -2047,14 +2128,19 @@ form textarea:disabled {
     height: 180px;
   }
 }
+
+/* =========================================
+   Blog Post Layout – Mobile-First & Elegant
+========================================= */
+
 /* Blog Post Container */
 .blog-post {
   font-family: var(--body-font);
-  font-size: 1.08rem;
+  font-size: 1.06rem;
   line-height: 1.75;
   color: var(--dark-color);
   background-color: var(--light-color);
-  padding: 3rem 1rem;      /* Small horizontal padding to prevent text cutoff */
+  padding: 2.5rem 0; /* full-width on mobile */
   margin: 0;
   width: 100%;
   max-width: none;
@@ -2062,12 +2148,18 @@ form textarea:disabled {
   box-shadow: none;
   transition: all 0.3s ease-in-out;
 }
-.blog-post:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-5px);
+
+@media (min-width: 768px) {
+  .blog-post {
+    padding: 3rem 1.25rem; /* subtle side breathing space */
+  }
 }
 
-
+/* Hover effect */
+.blog-post:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transform: translateY(-3px);
+}
 
 /* Headings */
 .blog-post h1,
@@ -2075,34 +2167,34 @@ form textarea:disabled {
 .blog-post h3,
 .blog-post h4 {
   font-family: var(--heading-font);
-  color: var(--secondary-color);
   font-weight: 700;
-  margin-top: 2.75rem;
-  margin-bottom: 1.25rem;
   line-height: 1.3;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.4px;
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
+  color: var(--secondary-color);
 }
 
 .blog-post h1 {
-  font-size: 2.85rem;
-  padding-bottom: 0.75rem;
+  font-size: 2.5rem;
+  padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--secondary-color);
 }
 
 .blog-post h2 {
-  font-size: 2.1rem;
-  border-left: 4px solid var(--secondary-color);
+  font-size: 1.9rem;
   padding-left: 0.85rem;
+  border-left: 4px solid var(--secondary-color);
 }
 
 .blog-post h3 {
-  font-size: 1.6rem;
+  font-size: 1.45rem;
   font-style: italic;
   color: var(--primary-color);
 }
 
 .blog-post h4 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
@@ -2110,33 +2202,15 @@ form textarea:disabled {
 .blog-post .text-muted {
   color: var(--text-muted);
   font-size: 0.95rem;
-  margin-bottom: 1.25rem;
   font-style: italic;
-  display: block;
-}
-
-/* Images */
-.blog-post img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.blog-post img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.25rem;
 }
 
 /* Paragraphs */
 .blog-post p {
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.6rem;
+  font-size: 1.06rem;
   font-weight: 400;
-  font-size: 1.08rem;
 }
 
 /* Lists */
@@ -2148,8 +2222,8 @@ form textarea:disabled {
 
 .blog-post ul li {
   margin-bottom: 0.75rem;
-  position: relative;
   padding-left: 1rem;
+  position: relative;
 }
 
 .blog-post ul li::before {
@@ -2161,6 +2235,23 @@ form textarea:disabled {
   top: 0.1rem;
 }
 
+/* Images */
+.blog-post img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 1rem;
+  margin: 2rem 0;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.1);
+}
+
 /* Emphasis */
 .blog-post strong {
   font-weight: 600;
@@ -2168,23 +2259,36 @@ form textarea:disabled {
 }
 
 .blog-post em {
-  color: var(--secondary-color);
   font-style: italic;
+  color: var(--secondary-color);
 }
 
-/* Buttons */
+/* Inline Links */
+.blog-post a {
+  color: var(--secondary-color);
+  font-weight: 500;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.blog-post a:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* CTA Button */
 .btn-brand {
   background-color: var(--primary-color);
   color: var(--light-color) !important;
-  padding: 0.85rem 2.2rem;
+  padding: 0.8rem 2rem;
   font-size: 1rem;
   font-weight: 600;
-  border: none;
   border-radius: 2rem;
+  border: none;
   cursor: pointer;
   text-transform: uppercase;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  text-decoration: none !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
   display: inline-block;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
@@ -2203,52 +2307,27 @@ form textarea:disabled {
   border-radius: 1rem;
 }
 
-/* Inline Links */
-.blog-post a {
-  color: var(--secondary-color);
-  text-decoration: underline;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.blog-post a:hover {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-/* List Item Links */
-.blog-post ul li a {
-  font-weight: 500;
-  color: var(--primary-color);
-}
-
-.blog-post ul li a:hover {
-  color: var(--teal-bright);
-}
-
 /* Blog Categories */
 .blog-categories {
-  color: #023d3a;
   font-family: var(--body-font);
+  color: var(--primary-color);
   margin-top: 2rem;
 }
 
 .blog-categories h5 {
-  color: var(--primary-color);
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
 .blog-categories .btn {
-  font-family: var(--body-font);
   font-size: 0.9rem;
   font-weight: 500;
   border-radius: 2rem;
+  margin: 0.25rem;
   color: var(--deep-teal);
   background-color: transparent;
   border: 1px solid var(--light-color);
   transition: all 0.3s ease;
-  margin: 0.25rem;
 }
 
 .blog-categories .btn:hover,
@@ -2258,28 +2337,25 @@ form textarea:disabled {
   border-color: var(--primary-color);
 }
 
+/* Full Width CTA Section */
 .full-width-cta {
   width: 100%;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   padding: 2rem 1rem;
-  background-color: #017f7c;
+  background-color: var(--primary-color);
   color: #fff;
   text-align: center;
   border-radius: 0.5rem;
 }
 
-/* Responsive CTA Button */
+/* CTA Button Inside CTA Section */
 .cta-button {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  border: none;
-  transition: all 0.3s ease;
   color: #017f7c;
+  transition: all 0.3s ease;
+  border: none;
 }
-
 
 .cta-button:hover {
   background-color: #017f7c;
@@ -2287,6 +2363,7 @@ form textarea:disabled {
   border: 2px solid #ffffff;
 }
 
+/* Responsive Adjustments */
 @media (max-width: 576px) {
   .cta-button {
     width: 100%;
@@ -2296,51 +2373,27 @@ form textarea:disabled {
 }
 
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .blog-post {
-    padding: 2rem;
-  }
+/* ========================================
+   Responsive Table Styling for Ingredient Comparison
+   Targets: <table class="ingredient-table">
+   Purpose: Improve readability and mobile responsiveness
+======================================== */
 
-  .blog-post h1 {
-    font-size: 2.4rem;
-  }
-
-  .blog-post h2 {
-    font-size: 1.85rem;
-  }
-
-  .blog-post h3 {
-    font-size: 1.4rem;
-  }
+/* Allow content to wrap within cells and maintain readability */
+.ingredient-table th,
+.ingredient-table td {
+  white-space: normal !important;   /* Allows multi-line text */
+  word-break: break-word;           /* Breaks long words or URLs */
+  vertical-align: top;              /* Align text to the top of each cell */
+  min-width: 180px;                 /* Ensures columns don't collapse too tightly */
 }
 
-@media (max-width: 768px) {
-  .blog-post {
-    padding: 1.5rem;
-  }
-
-  .blog-post h1 {
-    font-size: 2.1rem;
-  }
-
-  .blog-post h2 {
-    font-size: 1.6rem;
-    padding-left: 0.5rem;
-  }
-
-  .blog-post h3 {
-    font-size: 1.3rem;
-  }
-
-  .blog-post img {
-    max-height: 220px;
-    object-position: center top;
-  }
-
-  .btn-brand {
-    width: 100%;
-    text-align: center;
+/* Mobile Optimizations for small screens (≤576px) */
+@media (max-width: 576px) {
+  .ingredient-table td,
+  .ingredient-table th {
+    font-size: 0.85rem;             /* Slightly smaller font for mobile */
+    padding: 0.75rem 0.5rem;        /* Reduced padding for better fit */
   }
 }
 
@@ -2781,7 +2834,7 @@ table thead tr {
   color: #dc3545;
 }
 .pricing-section .text-success {
-  color: #198754;
+  color: var(--primary-color);
 }
 .pricing-section .text-muted {
   color: var(--text-muted);
