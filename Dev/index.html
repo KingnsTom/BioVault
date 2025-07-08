@@ -300,46 +300,43 @@
 
 
 <body>
- <!-- ✅ Navbar Header with Fixed Mega Dropdown Support -->
+ <!-- ✅ BioVault Header with Mega Dropdown Menu -->
 <header class="site-header">
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-    <div class="container d-flex align-items-center justify-content-between">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <!-- Brand Logo -->
       <a class="navbar-brand" href="/">
         <img src="/img/logo.png" alt="BioVault Logo" width="100">
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- Mobile Toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav align-items-center">
+      <!-- Navbar Content -->
+      <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+        <ul class="navbar-nav align-items-lg-center">
 
           <li class="nav-item">
             <a class="nav-link" href="#why-biovault">Why Us</a>
           </li>
 
-          <!-- ✅ Mega Menu Trigger with all required attributes -->
-          <li class="nav-item dropdown position-static">
-            <a class="nav-link dropdown-toggle"
-               href="#"
-               id="productsDropdown"
-               role="button"
-               data-bs-toggle="dropdown"
-               aria-expanded="false"
-               data-bs-auto-close="outside">
+          <!-- ✅ Mega Dropdown Menu -->
+          <li class="nav-item dropdown position-lg-static">
+            <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
               Products
             </a>
 
-            <!-- ✅ Mega Dropdown Menu -->
-            <div class="dropdown-menu dropdown-mega w-100 shadow-lg p-4 mt-0 border-0"
-                 aria-labelledby="productsDropdown"
-                 style="max-width: 1000px; background-color: #fff;">
+            <div class="dropdown-menu dropdown-mega shadow-lg p-4 border-0 mt-0 w-100" aria-labelledby="productsDropdown"
+              style="max-width: 1000px; background-color: #fff;">
               <div class="row">
-                
+
                 <!-- Column 1 -->
-                <div class="col-md-4">
+                <div class="col-md-4 mb-3 mb-md-0">
                   <h6 class="dropdown-header text-primary"><i class="fas fa-seedling me-1"></i> Gut & Digestive</h6>
                   <a class="dropdown-item" href="/digestsync.html"><i class="fas fa-leaf me-2 text-success"></i> DigestSync</a>
                   <a class="dropdown-item" href="/gutoptim.html"><i class="fas fa-balance-scale me-2 text-warning"></i> Gutoptim</a>
@@ -349,7 +346,7 @@
                 </div>
 
                 <!-- Column 2 -->
-                <div class="col-md-4">
+                <div class="col-md-4 mb-3 mb-md-0">
                   <h6 class="dropdown-header text-primary"><i class="fas fa-eye me-1"></i> Mental & Spiritual</h6>
                   <a class="dropdown-item" href="/pinealxt.html"><i class="fas fa-star-and-crescent me-2 text-info"></i> Pineal XT</a>
                   <hr class="dropdown-divider">
@@ -361,8 +358,8 @@
                 <div class="col-md-4">
                   <h6 class="dropdown-header text-primary"><i class="fas fa-tooth me-1"></i> Oral Health</h6>
                   <a class="dropdown-item" href="/prodentim.html"><i class="fas fa-smile-beam me-2 text-primary"></i> ProDentim</a>
-                  <hr class="dropdown-divider">
                 </div>
+
               </div>
             </div>
           </li>
@@ -370,12 +367,15 @@
           <li class="nav-item">
             <a class="nav-link" href="#testimonials">Testimonials</a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="/blog.html">Blog</a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact</a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link btn btn-success text-white btn-cta px-4" href="#products">Order Now</a>
           </li>
@@ -385,6 +385,7 @@
     </div>
   </nav>
 </header>
+
 
 <main>
   <!-- Hero Carousel Section -->
@@ -1128,13 +1129,18 @@ Unlocking Natural Health with expert-backed supplements for energy, gut balance,
 </footer>
 
 
-<!-- Core Dependencies -->
+<!-- jQuery (only if used elsewhere) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- ✅ Bootstrap 5.3 Bundle (includes Popper + Collapse) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Optional Libraries -->
+<!-- Your custom scripts -->
+<script src="scripts.js" defer></script>
+
+<!-- Optional UX Enhancements -->
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js" async></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>

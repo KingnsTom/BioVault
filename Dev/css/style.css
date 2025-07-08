@@ -18,6 +18,11 @@
   background: linear-gradient(90deg, #f5fff5, #e0f7ea);
   border-radius: 1rem;
   padding: 2rem 1rem;
+  --z-base: 1;
+  --z-header: 100;
+  --z-dropdown: 200;
+  --z-modal: 1000;
+  --z-critical-ui: 2147483647;
 }
 
 .highlight-badge {
@@ -106,7 +111,7 @@ select {
   margin: 0 auto;
   padding: 2rem 1rem;
   position: relative;
-  z-index: 10;
+
 }
 
 section {
@@ -1359,7 +1364,7 @@ form textarea:disabled {
   }
 
   #contact .row {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
   
 }/* -----------------------------------
@@ -2049,18 +2054,20 @@ form textarea:disabled {
   line-height: 1.75;
   color: var(--dark-color);
   background-color: var(--light-color);
-  padding: 3rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease-in-out;
-  max-width: 1200px;
+  padding: 3rem 1rem;      /* Small horizontal padding to prevent text cutoff */
+  margin: 0;
   width: 100%;
-  margin: auto;
+  max-width: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: all 0.3s ease-in-out;
 }
 .blog-post:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transform: translateY(-5px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
 }
+
+
 
 /* Headings */
 .blog-post h1,
@@ -2250,6 +2257,44 @@ form textarea:disabled {
   color: var(--light-color);
   border-color: var(--primary-color);
 }
+
+.full-width-cta {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1rem;
+  background-color: #017f7c;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.5rem;
+}
+
+/* Responsive CTA Button */
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  transition: all 0.3s ease;
+  color: #017f7c;
+}
+
+
+.cta-button:hover {
+  background-color: #017f7c;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+@media (max-width: 576px) {
+  .cta-button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+}
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -2640,7 +2685,7 @@ table thead tr {
   }
 
   .hero .container {
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 1rem; /* 👈 Add this instead of using margin-top/margin-bottom */
