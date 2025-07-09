@@ -12,11 +12,14 @@
     { "source": "/blog", "destination": "/blog.html" },
     { "source": "/blog/:path*", "destination": "/blog/:path*" },
     
-    { "source": "/pinealxt-clean-foods", "destination": "/pinealxt-clean-foods.html" },
+  {
+  "rewrites": [
     { "source": "/pinealxt-clean-foods-opt-in", "destination": "/pinealxt-clean-foods.html" },
+    { "source": "/pinealxt-clean-foods-opt-in/:path*", "destination": "/pinealxt-clean-foods.html" }
+  ]
+}
+
     
-    { "source": "/privacy-policy", "destination": "/privacy-policy.html" },
-    { "source": "/terms-of-service", "destination": "/terms-of-service.html" },
     
     { "source": "/:path*", "destination": "/:path*" },
     { "source": "/thank-you", "destination": "/thank-you.html" }
