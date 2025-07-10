@@ -32,7 +32,7 @@
 
 <!-- SEO Meta Tags -->
 <title>BioVault Health Blog | Natural Wellness Tips & Supplement Insights</title>
-<meta name="description" content="Read expert-written articles on natural wellness, gut health, metabolism, sleep, energy, and smart supplements. BioVault Health Blog is your trusted wellness guide.">
+<meta name="description" content=" Read expert-written articles on natural wellness, gut health, metabolism, sleep, energy, and smart supplements. BioVault Health Blog is your trusted wellness guide.">
 <meta name="keywords" content="natural wellness blog, gut health tips, supplement reviews, sleep support, metabolism boost, BioVault Health blog, healthy lifestyle, herbal solutions">
 <meta name="author" content="BioVault Health Editorial Team">
 <meta name="robots" content="index, follow">
@@ -61,7 +61,7 @@
   <meta property="og:site_name" content="BioVaultHealth">
   <meta property="og:url" content="https://www.biovault.com/">
   <meta property="og:title" content="BioVaultHealth® | Natural Supplements for Energy, Gut Health & Mental Clarity">
-  <meta property="og:description" content="Unlock peak wellness with BioVault Health’s premium natural supplements—Moringa Magic, DigestSync, and Pineal XT. Backed by science, trusted by thousands.">
+  <meta property="og:description" content=" Unlock peak wellness with BioVault Health’s premium natural supplements—Moringa Magic, DigestSync, and Pineal XT. Backed by science, trusted by thousands.">
   <meta property="og:image" content="https://www.biovault.com/img/og-image.jpg">
 
   <!-- Twitter -->
@@ -196,13 +196,6 @@
           <li class="nav-item">
             <a class="nav-link" href="/blog.html">
               <i class="fas fa-blog me-2"></i>Blog
-            </a>
-          </li>
-
-          <!-- Contact Us Section -->
-          <li class="nav-item">
-            <a class="nav-link" href="/#contact">
-              <i class="fas fa-phone-alt me-2"></i>Contact
             </a>
           </li>
 
@@ -400,6 +393,8 @@
 </main>
 
 
+
+
 <footer class="footer">
   <div class="container footer-container">
 
@@ -410,7 +405,7 @@
       <div class="footer-branding">
         <a href="/index.html" class="footer-logo-text">BioVault Health</a>
         <p>
-Unlocking Natural Health with expert-backed supplements for energy, gut balance, brain clarity, blood sugar support, hormonal health, and oral wellness.
+          Empowering natural wellness through trusted supplements & science-backed education.
 
         </p>
       </div>
@@ -435,7 +430,10 @@ Unlocking Natural Health with expert-backed supplements for energy, gut balance,
           <li><a href="/blog.html">Health Blog</a></li>
           <li><a href="#why-choose">Why BioVault</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="/quiz.html">Supplement Match Quiz</a></li>
+             <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
         </ul>
       </div>
 
@@ -514,16 +512,14 @@ Unlocking Natural Health with expert-backed supplements for energy, gut balance,
 
   </div>
 </footer>
-<!-- jQuery (only if used elsewhere) -->
+
+<!-- jQuery (if needed) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- ✅ Bootstrap 5.3 Bundle (includes Popper + Collapse) -->
+<!-- Bootstrap Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Your custom scripts -->
-<script src="scripts.js" defer></script>
-
-<!-- Optional UX Enhancements -->
+<!-- LazySizes (image performance) -->
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js" async></script>
 
 <!-- Google Analytics -->
@@ -535,130 +531,11 @@ Unlocking Natural Health with expert-backed supplements for energy, gut balance,
   gtag('config', 'G-XXXXXXX');
 </script>
 
-<!-- Your Custom Scripts -->
-<script src="/scripts.js"></script>
+<!-- Main Custom Scripts (deferred) -->
+<script src="/scripts.js" defer></script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".blog-categories .btn");
-    const posts = document.querySelectorAll("[data-category]");
-
-    buttons.forEach(btn => {
-      btn.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        // Remove active state from all buttons
-        buttons.forEach(b => b.classList.remove("active", "btn-success"));
-        buttons.forEach(b => b.classList.add("btn-outline-success"));
-
-        // Add active state to clicked button
-        this.classList.remove("btn-outline-success");
-        this.classList.add("active", "btn-success");
-
-        const category = this.textContent.trim().toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-");
-
-        posts.forEach(post => {
-          const postCategory = post.getAttribute("data-category");
-          if (category === "all" || postCategory === category) {
-            post.style.display = "";
-          } else {
-            post.style.display = "none";
-          }
-        });
-      });
-    });
-  });
-</script>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const postsPerPage = 12;
-    const blogCards = document.querySelectorAll(".blog-card");
-    const paginationContainer = document.querySelector(".pagination");
-    const filterButtons = document.querySelectorAll("[data-filter]");
-    
-    let currentPage = 1;
-    let currentFilter = "all";
-
-    function getFilteredPosts() {
-      return Array.from(blogCards).filter(card =>
-        currentFilter === "all" || card.dataset.category === currentFilter
-      );
-    }
-
-    function renderPosts() {
-      const filtered = getFilteredPosts();
-      const start = (currentPage - 1) * postsPerPage;
-      const end = start + postsPerPage;
-
-      blogCards.forEach(card => card.style.display = "none");
-      filtered.slice(start, end).forEach(card => card.style.display = "block");
-
-      renderPagination(filtered.length);
-    }
-
-    function renderPagination(totalPosts) {
-      const totalPages = Math.ceil(totalPosts / postsPerPage);
-      paginationContainer.innerHTML = "";
-
-      if (totalPages <= 1) return;
-
-      const createPageItem = (page, label = null, isDisabled = false, isActive = false) => {
-        const li = document.createElement("li");
-        li.className = `page-item ${isDisabled ? "disabled" : ""} ${isActive ? "active" : ""}`;
-        const a = document.createElement("a");
-        a.href = "#";
-        a.className = "page-link brand-page-link";
-        a.textContent = label || page;
-        a.dataset.page = page;
-        li.appendChild(a);
-        return li;
-      };
-
-      paginationContainer.appendChild(createPageItem(currentPage - 1, "« Prev", currentPage === 1));
-
-      for (let i = 1; i <= totalPages; i++) {
-        paginationContainer.appendChild(createPageItem(i, i, false, i === currentPage));
-      }
-
-      paginationContainer.appendChild(createPageItem(currentPage + 1, "Next »", currentPage === totalPages));
-
-      paginationContainer.querySelectorAll("a").forEach(a =>
-        a.addEventListener("click", function (e) {
-          e.preventDefault();
-          const selectedPage = parseInt(this.dataset.page);
-          if (!isNaN(selectedPage) && selectedPage !== currentPage) {
-            currentPage = selectedPage;
-            renderPosts();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }
-        })
-      );
-    }
-
-    // Handle filter clicks
-    filterButtons.forEach(button => {
-      button.addEventListener("click", function (e) {
-        e.preventDefault();
-        filterButtons.forEach(btn => btn.classList.remove("active"));
-        this.classList.add("active");
-
-        currentFilter = this.dataset.filter;
-        currentPage = 1;
-        renderPosts();
-      });
-    });
-
-    // Initial render
-    renderPosts();
-  });
-</script>
-
-
-
-
-<!-- Add ConvertKit Exit-Intent Script Here -->
+<!-- ConvertKit Exit-Intent -->
 <script async data-uid="c95fa218c8" src="https://biovault-health.kit.com/c95fa218c8/index.js"></script>
+
 </body>
 </html>

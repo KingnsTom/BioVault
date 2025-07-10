@@ -2,46 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Thanks for Subscribing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You’re In! | BioVault Health</title>
   <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Thanks for subscribing to BioVault Health. Your first wellness tip is on the way!" />
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f5f5f5;
-      color: #1d1d1d;
-      text-align: center;
-      padding: 100px 20px;
+      background: #eae8e5;
+      margin: 0;
+      padding: 2rem;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
     }
+
     .message {
       background: #ffffff;
-      padding: 2rem;
-      border-radius: 8px;
-      max-width: 500px;
-      margin: 0 auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 16px;
+      max-width: 540px;
+      padding: 3rem 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      text-align: center;
+      animation: fadeIn 1.2s ease-out forwards;
+      opacity: 0;
     }
-    
+
     .message h1 {
-      color: #017f7c;
+      color: #05b9b5;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      animation: bounceIn 0.8s ease-out;
     }
-    .message a {
+
+    .message p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 1rem 0;
+      animation: fadeIn 1.4s ease-out;
+    }
+
+    .cta {
+      margin-top: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 1s ease-out 1.2s forwards;
+    }
+
+    .cta a {
+      text-decoration: none;
       display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #05b9b5;
+      color: white;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .cta a:hover {
+      background: #048c89;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #666;
       margin-top: 1.5rem;
-      color: #017f7c;
-      text-decoration: underline;
+      animation: fadeIn 1.8s ease-out;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      0% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+      }
     }
   </style>
 </head>
-
 <body>
+
   <div class="message">
     <h1>🎉 You’re In!</h1>
-    <p>Thanks for subscribing to BioVault Health tips. Check your inbox for your first guide!</p>
-    <a href="/">← Back to Homepage</a>
+    <p>Thanks for joining <strong>BioVault Health</strong>.</p>
+    <p>Your first wellness tip, guide, or freebie is on its way to your inbox. We’re excited to support your journey to better health.</p>
+
+    <div class="cta">
+      <a href="/#products">🔍 Explore Our Top Supplements</a>
+    </div>
+
+    <p class="note">Didn’t receive it? Check your spam or promotions tab just in case.</p>
   </div>
 
-<!-- Add ConvertKit Exit-Intent Script Here -->
-<script async data-uid="c95fa218c8" src="https://biovault-health.kit.com/c95fa218c8/index.js"></script>
 </body>
 </html>

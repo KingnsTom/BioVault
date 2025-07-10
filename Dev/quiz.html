@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supplement Match Quiz | BioVault Health</title>
+  <meta name="description" content="Find the perfect supplement for your body in 30 seconds. Personalized quiz by BioVault Health." />
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f6f8f9;
+      color: #222;
+    }
+    .container {
+      max-width: 720px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .quiz-section {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      animation: fadeIn 0.8s ease;
+    }
+    h1, h2 {
+      color: #05b9b5;
+      text-align: center;
+    }
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    #progress {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
+      margin-bottom: 1rem;
+    }
+    .progress-bar {
+      background: #eee;
+      height: 8px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    #progress-fill {
+      background: #05b9b5;
+      height: 100%;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+    .answers button {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 2px solid #05b9b5;
+      background: #fff;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .answers button:hover {
+      background: #05b9b5;
+      color: #fff;
+      transform: scale(1.02);
+    }
+    .result-section {
+      display: none;
+      text-align: center;
+    }
+    .result-section.active {
+      display: block;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: #05b9b5;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+    .product-image {
+      max-width: 180px;
+      margin: 1rem auto;
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="quiz-section" id="quiz">
+      <h1>🔍 Find Your Perfect Supplement</h1>
+      <p id="progress"></p>
+      <div class="progress-bar"><div id="progress-fill"></div></div>
+      <p class="question" id="question"></p>
+      <div class="answers" id="answers"></div>
+    </section>
+
+    <section class="quiz-section result-section" id="result"></section>
+  </main>
+
+  <script>
+    const quizData = [
+      { q: "What do you want to improve most right now?", a: ["Energy Levels", "Digestion & Bloating", "Mental Clarity", "Hormonal Balance", "Blood Sugar", "Oral Health"] },
+      { q: "What’s your most annoying symptom?", a: ["Fatigue", "Gas / Bloating", "Brain Fog", "Mood Swings / PMS", "Cravings", "Bleeding Gums"] },
+      { q: "What best describes your supplement habits?", a: ["Daily User", "Occasional", "Newbie"] }
+    ];
+
+    const productMap = {
+      "Energy Levels": "Moringa Magic", "Fatigue": "Moringa Magic",
+      "Gas / Bloating": "DigestSync", "Digestion & Bloating": "DigestSync",
+      "Mental Clarity": "Pineal XT", "Brain Fog": "Pineal XT",
+      "Hormonal Balance": "GutOptim", "Mood Swings / PMS": "GutOptim",
+      "Blood Sugar": "GlucoTrust", "Cravings": "GlucoTrust",
+      "Oral Health": "ProDentim", "Bleeding Gums": "ProDentim"
+    };
+
+    const productImages = {
+      "Moringa Magic": "/img/moringa.png",
+      "DigestSync": "/img/digestsync_6_bottle.png",
+      "Pineal XT": "/img/pineal.jpg",
+      "GutOptim": "/img/Gutoptim.png",
+      "GlucoTrust": "/img/Glucotrust.jpg",
+      "ProDentim": "/img/prodentim.png"
+    };
+
+    const productLinks = {
+      "Moringa Magic": "/biovaulthealth/moringa.html",
+      "DigestSync": "/biovaulthealth/digestsync.html",
+      "Pineal XT": "/biovaulthealth/pinealxt.html",
+      "GutOptim": "/biovaulthealth/gutoptim.html",
+      "GlucoTrust": "/biovaulthealth/glucotrust.html",
+      "ProDentim": "/biovaulthealth/prodentim.html"
+    };
+
+    const planMap = {
+      "Moringa Magic": "7-Day Energy Reset Plan",
+      "DigestSync": "7-Day Gut Reset Plan",
+      "Pineal XT": "3-Day Pineal Activation Guide",
+      "GutOptim": "7-Day Hormone Balance Plan",
+      "GlucoTrust": "7-Day Blood Sugar Reset Plan",
+      "ProDentim": "7-Day Oral Health Routine"
+    };
+
+    let step = 0;
+    let match = "";
+
+    const questionEl = document.getElementById("question");
+    const answersEl = document.getElementById("answers");
+    const resultEl = document.getElementById("result");
+    const progressEl = document.getElementById("progress");
+    const progressFill = document.getElementById("progress-fill");
+
+    function loadStep() {
+      const current = quizData[step];
+      questionEl.textContent = current.q;
+      progressEl.textContent = `Step ${step + 1} of ${quizData.length}`;
+      progressFill.style.width = ((step + 1) / quizData.length) * 100 + "%";
+      answersEl.innerHTML = "";
+      current.a.forEach((answer) => {
+        const btn = document.createElement("button");
+        btn.textContent = answer;
+        btn.onclick = () => handleAnswer(answer);
+        answersEl.appendChild(btn);
+      });
+    }
+
+    function handleAnswer(answer) {
+      if (!match && productMap[answer]) match = productMap[answer];
+      step++;
+      if (step < quizData.length) loadStep();
+      else showResult();
+    }
+
+    function showResult() {
+      document.getElementById("quiz").style.display = "none";
+      resultEl.classList.add("active");
+      resultEl.innerHTML = `
+        <h2>Your Match: ${match}</h2>
+        <img src="${productImages[match]}" class="product-image" alt="${match}" />
+        <p>This supplement is tailored to support your current wellness goal.</p>
+        <a href="${productLinks[match]}?utm_source=quiz&utm_medium=match&utm_campaign=conversion" class="cta-btn" target="_blank">View ${match} →</a>
+        <form action="https://app.kit.com/forms/8291346/subscriptions" method="post" style="margin-top:2rem;background:#EAE8E5;padding:1.5rem;border-radius:12px;">
+          <div style="font-weight:600;font-size:1.2rem;margin-bottom:0.5rem;">🎯 Get Your Personalized Plan</div>
+          <p>We'll email you your <strong>${planMap[match]}</strong> for <strong>${match}</strong>.</p>
+          <input type="email" name="email_address" placeholder="Your email" required style="width:100%;padding:0.5rem;border-radius:6px;border:1px solid #ccc;" />
+          <button type="submit" style="margin-top:1rem;padding:0.75rem 1.5rem;background:#05b9b5;color:white;border:none;border-radius:30px;font-weight:bold;">Send It to Me</button>
+          <small>We respect your privacy. Unsubscribe anytime.</small>
+        </form>
+      `;
+    }
+
+    loadStep();
+  </script>
+</body>
+</html>

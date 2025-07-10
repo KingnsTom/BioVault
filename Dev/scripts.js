@@ -176,3 +176,110 @@ window.addEventListener("load", function () {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Blog Category Filtering
+  const buttons = document.querySelectorAll(".blog-categories .btn");
+  const posts = document.querySelectorAll("[data-category]");
+  if (buttons.length && posts.length) {
+    buttons.forEach(btn => {
+      btn.addEventListener("click", e => {
+        e.preventDefault();
+        buttons.forEach(b => {
+          b.classList.remove("active", "btn-success");
+          b.classList.add("btn-outline-success");
+        });
+        btn.classList.remove("btn-outline-success");
+        btn.classList.add("active", "btn-success");
+
+        const category = btn.textContent.trim()
+          .toLowerCase()
+          .replace(/ & /g, "-")
+          .replace(/\s+/g, "-");
+
+        posts.forEach(post => {
+          post.style.display =
+            category === "all" || post.dataset.category === category
+              ? ""
+              : "none";
+        });
+      });
+    });
+  }
+
+  // 2. Blog Pagination
+  const blogCards = document.querySelectorAll(".blog-card");
+  const paginationContainer = document.querySelector(".pagination");
+  const filterButtons = document.querySelectorAll("[data-filter]");
+  if (paginationContainer && blogCards.length) {
+    const postsPerPage = 12;
+    let currentPage = 1, currentFilter = "all";
+
+    const getFilteredPosts = () =>
+      Array.from(blogCards).filter(
+        card => currentFilter === "all" || card.dataset.category === currentFilter
+      );
+
+    const renderPosts = () => {
+      const filtered = getFilteredPosts();
+      const start = (currentPage - 1) * postsPerPage;
+      const end = start + postsPerPage;
+
+      blogCards.forEach(card => (card.style.display = "none"));
+      filtered.slice(start, end).forEach(card => (card.style.display = "block"));
+      renderPagination(filtered.length);
+    };
+
+    const renderPagination = totalPosts => {
+      const totalPages = Math.ceil(totalPosts / postsPerPage);
+      paginationContainer.innerHTML = "";
+      if (totalPages <= 1) return;
+
+      const createPageItem = (page, label, isDisabled, isActive) => {
+        const li = document.createElement("li");
+        li.className = `page-item ${isDisabled ? "disabled" : ""} ${isActive ? "active" : ""}`;
+        const a = document.createElement("a");
+        a.href = "#";
+        a.className = "page-link brand-page-link";
+        a.textContent = label || page;
+        a.dataset.page = page;
+        li.appendChild(a);
+        return li;
+      };
+
+      paginationContainer.appendChild(createPageItem(
+        currentPage - 1, "« Prev", currentPage === 1, false));
+      for (let i = 1; i <= totalPages; i++) {
+        paginationContainer.appendChild(createPageItem(i, null, false, i === currentPage));
+      }
+      paginationContainer.appendChild(createPageItem(
+        currentPage + 1, "Next »", currentPage === totalPages, false));
+
+      paginationContainer.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", e => {
+          e.preventDefault();
+          const selected = parseInt(a.dataset.page, 10);
+          if (!isNaN(selected) && selected !== currentPage) {
+            currentPage = selected;
+            renderPosts();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        });
+      });
+    };
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", e => {
+        e.preventDefault();
+        filterButtons.forEach(b => b.classList.remove("active"));
+        button.classList.add("active");
+        currentFilter = button.dataset.filter;
+        currentPage = 1;
+        renderPosts();
+      });
+    });
+
+    renderPosts();
+  }
+});
+

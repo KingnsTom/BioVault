@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You’re In! | BioVault Health</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Thanks for completing the BioVault Health quiz. Your personalized supplement plan is on its way to your inbox!" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #eae8e5;
+      margin: 0;
+      padding: 2rem;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .message {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 560px;
+      padding: 3rem 2rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      text-align: center;
+      animation: fadeInUp 1.2s ease-out;
+      border: 2px solid #05b9b5;
+    }
+
+    .message h1 {
+      font-size: 2.2rem;
+      color: #05b9b5;
+      margin-bottom: 1rem;
+      animation: popIn 0.8s ease-out;
+    }
+
+    .message h1 span {
+      display: inline-block;
+      animation: bounce 2s infinite;
+    }
+
+    .message p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 1rem 0;
+      animation: fadeIn 1.6s ease-out;
+    }
+
+    .product-image {
+      max-width: 160px;
+      margin: 1rem auto;
+      display: block;
+      border-radius: 12px;
+      animation: fadeIn 1.4s ease-out;
+    }
+
+    .cta {
+      margin-top: 2rem;
+      animation: slideUp 1.6s ease-out;
+    }
+
+    .cta a {
+      text-decoration: none;
+      display: inline-block;
+      padding: 0.75rem 1.6rem;
+      background: #05b9b5;
+      color: white;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .cta a:hover {
+      background: #048c89;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 1.5rem;
+      animation: fadeIn 1.8s ease-out;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.9); }
+      60% { opacity: 1; transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="message" id="thankYouContent">
+    <!-- Dynamic quiz result injected here -->
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const match = params.get("match");
+
+    const data = {
+      "Moringa Magic": {
+        img: "/img/moringa.png",
+        link: "/biovaulthealth/moringa.html"
+      },
+      "DigestSync": {
+        img: "/img/digestsync_6_bottle.png",
+        link: "/biovaulthealth/digestsync.html"
+      },
+      "Pineal XT": {
+        img: "/img/pineal.jpg",
+        link: "/biovaulthealth/pinealxt.html"
+      },
+      "GutOptim": {
+        img: "/img/Gutoptim.png",
+        link: "/biovaulthealth/gutoptim.html"
+      },
+      "GlucoTrust": {
+        img: "/img/Glucotrust.jpg",
+        link: "/biovaulthealth/glucotrust.html"
+      },
+      "ProDentim": {
+        img: "/img/prodentim.png",
+        link: "/biovaulthealth/prodentim.html"
+      }
+    };
+
+    const content = document.getElementById("thankYouContent");
+
+    if (match && data[match]) {
+      const { img, link } = data[match];
+
+      content.innerHTML = `
+        <h1><span>🎉</span> You’re In!</h1>
+        <img src="${img}" alt="${match}" class="product-image" />
+        <p>Thanks for completing the quiz.</p>
+        <p>Your <strong>personalized 7-day plan</strong> is on its way to your inbox — starting with your matched supplement.</p>
+        <div class="cta">
+          <a href="${link}" target="_blank">🔍 Explore ${match}</a>
+        </div>
+        <p class="note">Didn’t receive it? Check spam or promotions tab just in case.</p>
+      `;
+    } else {
+      content.innerHTML = `
+        <h1><span>🎉</span> You’re In!</h1>
+        <p>Thanks for completing the quiz.</p>
+        <p>Your <strong>personalized 7-day plan</strong> is on its way to your inbox — starting with your matched supplement.</p>
+        <div class="cta">
+          <a href="/#products">🔍 Explore Other Supplements</a>
+        </div>
+        <p class="note">Didn’t receive it? Check spam or promotions tab just in case.</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
