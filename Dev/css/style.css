@@ -572,6 +572,9 @@ form textarea:disabled {
   width: 100%;
   background: #016b68;
 }
+.navbar-light .navbar-nav .nav-link {
+  color: #017f7c;
+}
 
 /* ======================
    CTA Button
@@ -2549,7 +2552,7 @@ form textarea:disabled {
 .btn-success {
   background-color: var(--primary-color);
   border: none;
-  color: var(--light-color);
+  color: var(--light-color) !important;
   font-weight: 500;
   transition: all 0.3s ease;
   padding: 0.5rem 1rem;
