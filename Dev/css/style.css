@@ -763,6 +763,7 @@ form textarea:disabled {
   padding: 2rem;
 }
 
+
 /* Content card (glassmorphism style) */
 .hero-carousel .content-card {
   backdrop-filter: blur(10px);
@@ -833,43 +834,6 @@ form textarea:disabled {
   position: relative;
   z-index: 3;
 }
-
-.carousel-control-prev,
-.carousel-control-next {
-  top: 50% !important;
-  bottom: auto !important;
-  transform: translateY(-50%);
-  width: auto;
-  font-size: 2rem;
-  padding: 0.75rem;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 50%;
-  transition: background 0.3s ease;
-  z-index: 10;
-}
-
-/* ⬅️ Move arrows closer to center */
-.carousel-control-prev {
-  left: 1rem; /* Was 2rem */
-}
-
-.carousel-control-next {
-  right: 1rem; /* Was 2rem */
-}
-
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-  background: rgba(0, 0, 0, 0.5);
-}
-
-/* Carousel indicators */
-@media (max-width: 768px) {
-  .hero-carousel .carousel-item {
-    height: 75vh;
-    min-height: 450px;
-  }
-
   .hero-carousel .overlay {
     padding: 1rem;
     align-items: center; /* ✅ Center the content vertically */
@@ -878,6 +842,7 @@ form textarea:disabled {
   .hero-carousel .content-card {
     padding: 1rem 1rem;
     border-radius: 0.75rem;
+    
     margin: 0 1rem;
     transform: translateY(-1rem); /* ✅ Slight uplift */
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
@@ -901,14 +866,7 @@ form textarea:disabled {
     bottom: 1rem;
   }
 
-  .carousel-control-prev,
-.carousel-control-next {
-  top: 50% !important;             /* ✅ Vertically center */
-  bottom: auto !important;         /* ✅ Cancel previous positioning */
-  transform: translateY(-50%);     /* ✅ Perfect centering */
-  font-size: 1.5rem;
-  padding: 0.5rem;
-}
+
 
 }
 
@@ -1055,6 +1013,90 @@ form textarea:disabled {
   font-size: 0.85rem;
   font-style: italic;
 }
+/* ================================
+   Why Pineal XT Works Section
+   Enhanced Full-Height Image + Animations
+================================ */
+
+/* 1. Force the wrapper to maintain full height */
+#why-choose .col-lg-6.order-lg-2 {
+  display: flex;
+}
+
+#why-choose .col-lg-6.order-lg-2 > .rounded {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;       /* for neon-glow before */
+  transform-style: preserve-3d; /* for 3D tilt */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* 2. Make the image cover the entire wrapper */
+#why-choose .equal-height-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ======================================================
+   3. Floating Keyframe Animation
+====================================================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* ======================================================
+   4. 3D Tilt on Hover
+====================================================== */
+#why-choose .col-lg-6.order-lg-2 > .rounded:hover {
+  transform: perspective(600px) rotateY(4deg) rotateX(2deg);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ======================================================
+   5. Neon-Glow Border on Hover
+====================================================== */
+#why-choose .col-lg-6.order-lg-2 > .rounded::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#why-choose .col-lg-6.order-lg-2 > .rounded:hover::before {
+  opacity: 1;
+  box-shadow:
+    0 0 20px rgba(5, 185, 181, 0.6),
+    0 0 40px rgba(5, 185, 181, 0.4);
+}
+
+/* ======================================================
+   6. Fade-In on Scroll (CSS-Only Staggered)
+====================================================== */
+@keyframes fadeInUp {
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+#why-choose .row.align-items-center .col-lg-6 {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+#why-choose .row.align-items-center .col-lg-6:nth-child(1) {
+  animation-delay: 0.2s;
+}
+#why-choose .row.align-items-center .col-lg-6:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -1074,6 +1116,13 @@ form textarea:disabled {
   width: 1000px ;
   object-fit: contain; /* or 'cover' if you want it to crop instead */
   display: block;
+}
+/* ======================================================
+   3. Floating Keyframe Animation
+====================================================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
 }
 
 /* === Product Comparison Table === */
@@ -1237,7 +1286,13 @@ form textarea:disabled {
   border-radius: 12px;
   padding: 1rem;
 }
-
+/* ======================================================
+   3. Floating Keyframe Animation
+====================================================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
 /* Card Body */
 .product-card .card-body {
   padding: 1.75rem 1.5rem;
@@ -1591,29 +1646,65 @@ form textarea:disabled {
     text-align: left;
   }
 }
+/* =============================
+   Client Avatar Styling
+   (Gradient ring + circular image)
+   ============================= */
 
-/* Avatar Container */
-.testimonial-avatar {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  padding: 3px;
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 0 0 4px #ffffff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Gradient ring wrapper */
+.client-avatar-ring {
+    background: linear-gradient(120deg, #05b9b5, #000);
+  color: #eae8e5;  /* Gradient ring */
+    padding: 0.25rem;              /* Ring thickness (4px) */
+    border-radius: 50%;            /* Circular shape */
+    display: flex;                 /* Center inner image */
+    justify-content: center;
+    align-items: center;
+    width: 6.75rem;                /* 108px */
+    height: 6.75rem;               /* 108px */
+    margin-bottom: 0.625rem;       /* 10px spacing below */
+    box-sizing: border-box;        /* Prevent padding from increasing size */
 }
 
-.testimonial-avatar:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 0 4px #fff, 0 0 12px rgba(1, 127, 124, 0.4);
+/* Inner circular image container */
+.client-image {
+    width: 6.25rem;                /* 100px */
+    height: 6.25rem;               /* 100px */
+    border-radius: 50%;            /* Circular clipping */
+    overflow: hidden;              /* Hide overflow */
+    background-color: white;       /* Prevent color bleeding from ring */
 }
 
-.testimonial-avatar img {
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
+/* Actual image inside the container */
+.client-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;             /* Maintain aspect ratio while covering */
+    display: block;                /* Eliminate inline spacing */
+    border-radius: 50%;            /* Ensure circular shape */
 }
+/* ======================================================
+   3. Floating Keyframe Animation
+====================================================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* ========== Responsive Adjustment for Small Screens ========== */
+@media (max-width: 30rem) { /* 480px */
+    .client-avatar-ring {
+        width: 4.5rem;             /* 72px */
+        height: 4.5rem;
+        padding: 0.1875rem;        /* 3px */
+    }
+
+    .client-image {
+        width: 4.125rem;           /* 66px */
+        height: 4.125rem;
+    }
+}
+
 
 /* Testimonial Content Box */
 .testimonial-content {
@@ -1673,35 +1764,82 @@ form textarea:disabled {
   margin-top: 0.5rem;
   text-shadow: 0 1px 1px rgba(0,0,0,0.05);
 }
-
-/* Carousel Controls */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: var(--primary-color);
-  border-radius: 50%;
-  padding: 10px;
-  width: 40px;
-  height: 40px;
-  background-size: 60% 60%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
+/* 🎯 Carousel Navigation Buttons */
 .carousel-control-prev,
 .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  z-index: 10;
   opacity: 0.85;
-  transition: opacity 0.3s ease;
+  transition: background 0.3s ease, opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* 🔁 Hover State */
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.6);
   opacity: 1;
 }
 
-.carousel-control-prev-icon::after,
-.carousel-control-next-icon::after {
-  font-size: 1.5rem;
-  color: #fff;
+/* ⬅️➡️ Positioning */
+.carousel-control-prev {
+  left: 1rem;
 }
+
+.carousel-control-next {
+  right: 1rem;
+}
+
+/* 🎨 Icons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: var(--primary-color);
+  mask-size: 60% 60%;
+  -webkit-mask-size: 60% 60%;
+  background-size: 60% 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+/* 📱 Mobile Tweaks */
+@media (max-width: 768px) {
+  .carousel-control-prev {
+    left: 0.25rem; /* Slight push but keeps it visible */
+  }
+
+  .carousel-control-next {
+    right: 0.25rem;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    background-size: 50% 50%;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    font-size: 1.25rem;
+    padding: 0.4rem;
+  }
+}
+
+
+
 
 /* Responsive Tuning */
 @media (max-width: 576px) {
@@ -1960,13 +2098,14 @@ form textarea:disabled {
     flex-direction: column;
   }
   
-}/* -----------------------------------
-   Footer Styles - BioVault Health
------------------------------------ */
-/* -----------------------------------
-   Reusable Floating CTA Styles
------------------------------------ */
+}
 
+/* ================================
+   Floating CTA Button Styles (Global)
+   Used across all 6 product pages
+================================ */
+
+/* Base Style */
 .floating-cta {
   position: fixed;
   bottom: 1.5rem;
@@ -1985,12 +2124,11 @@ form textarea:disabled {
   pointer-events: none;
 }
 
-/* Hover state */
+/* Hover State */
 .floating-cta:hover {
   background-color: #ffffff;
   color: #05b9b5;
   border: 2px solid #05b9b5;
-  text-decoration: none;
 }
 
 /* Mobile: Centered at bottom */
@@ -2001,7 +2139,7 @@ form textarea:disabled {
   }
 }
 
-/* Desktop: Bottom-right */
+/* Desktop: Bottom-right corner */
 @media (min-width: 769px) {
   .floating-cta {
     right: 1.5rem;
@@ -2524,6 +2662,13 @@ form textarea:disabled {
   border-bottom: 1px solid #eae8e5;
   transition: transform 0.3s ease;
 }
+/* ======================================================
+   3. Floating Keyframe Animation
+====================================================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
 
 /* Card Body */
 .card-body {
@@ -2690,6 +2835,13 @@ form textarea:disabled {
   margin: 2rem 0;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* ======================================================
+   3. Floating Keyframe Animation
+====================================================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
 }
 
 .blog-post img:hover {
@@ -3419,6 +3571,8 @@ table tbody tr:nth-child(even) {
 
 .animate-pop {
   animation: popIn 0.9s ease-out both;
+  transform-origin: center bottom;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 /* -----------------------------------
    🔥 WOW-Level Moringa Pricing Cards
@@ -4112,11 +4266,58 @@ table tbody tr:nth-child(even) {
   margin-bottom: 1rem;
 }
 
-/* Card description */
+/* =============================================================================
+   reCAPTCHA Badge: Move Off‑Screen (All Devices)
+============================================================================= */
 .grecaptcha-badge {
   position: fixed !important;
-  left: 10px !important;
-  right: auto !important;
-  bottom: 10px !important;
-  z-index: 9999 !important;
+  left: -9999px !important;
+  bottom: -9999px !important;
+  visibility: hidden !important;
+  z-index: -1 !important;
+}
+
+
+/* 🔥 Countdown Timer Styles */
+.countdown-timer-box {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 600px; /* Increased to allow wider layout */
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow-x: auto; /* Prevents wrap on small screens */
+}
+
+.countdown-timer {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  justify-content: center;
+  gap: 1rem;
+  min-width: 320px; /* Optional safeguard */
+}
+
+.countdown-timer > div {
+  background: #ffffff;
+  border: 2px solid #05b9b5;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  min-width: 60px;
+  text-align: center;
+  white-space: nowrap; /* Keep inner content on one line */
+  flex-shrink: 0;
+}
+
+.countdown-timer > div span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #05b9b5;
+}
+.countdown-timer-box::-webkit-scrollbar {
+  display: none;
+}
+.countdown-timer-box {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

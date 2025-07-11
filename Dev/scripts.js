@@ -283,3 +283,48 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// ⏳ Scarcity Countdown: 10 Minutes per Visitor (localStorage-based)
+function startScarcityCountdown() {
+  const el = document.getElementById("countdown");
+  if (!el) return;
+
+  const STORAGE_KEY = el.dataset.timerKey || "scarcity_offer_timer"; // Allow per-product override
+  const now = new Date().getTime();
+
+  // Get or set countdown start time
+  let startTime = localStorage.getItem(STORAGE_KEY);
+  if (!startTime) {
+    startTime = now;
+    localStorage.setItem(STORAGE_KEY, startTime);
+  } else {
+    startTime = parseInt(startTime);
+  }
+
+  const countdownLength = 10 * 60 * 1000; // 10 minutes in ms
+  const endTime = startTime + countdownLength;
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const timeLeft = Math.max(endTime - now, 0);
+
+    const m = Math.floor((timeLeft / (1000 * 60)) % 60);
+    const s = Math.floor((timeLeft / 1000) % 60);
+
+    el.innerHTML = `
+      <div><span class="text-success">${String(m).padStart(2, '0')}</span>m</div>
+      <div><span class="text-success">${String(s).padStart(2, '0')}</span>s</div>
+    `;
+
+    if (timeLeft <= 0) {
+      el.innerHTML = `<span class="text-danger fw-bold">⏳ Offer Expired</span>`;
+    }
+  }
+
+  updateCountdown();
+  const timer = setInterval(() => {
+    updateCountdown();
+    if (new Date().getTime() >= endTime) clearInterval(timer);
+  }, 1000);
+}
+
+document.addEventListener("DOMContentLoaded", startScarcityCountdown);
