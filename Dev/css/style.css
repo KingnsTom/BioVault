@@ -2282,30 +2282,38 @@ form textarea:disabled {
 /* Copyright */
 .footer-bottom {
   display: flex;
+  flex-direction: row; /* ✅ Default: inline layout for desktop */
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding-top: 1rem;
-  margin-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.85rem;
   color: var(--light-color);
   text-align: center;
+  line-height: 1.5;
+  padding-top: 1rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.footer-bottom .recaptcha-line {
+  display: inline; /* ✅ Default: inline on desktop */
+}
 
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-  .footer-top {
-    grid-template-columns: repeat(2, 1fr);
+/* ✅ Force two-line layout on mobile */
+@media (max-width: 480px) {
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-bottom .recaptcha-line {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 0.25rem 0;
   }
 }
 
-@media (max-width: 600px) {
-  .footer-top {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
 
   .footer-branding,
   .footer-nav,
