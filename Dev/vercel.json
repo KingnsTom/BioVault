@@ -3,20 +3,6 @@
   "cleanUrls": true,
   "trailingSlash": false,
 
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "biovaulthealth.com"
-        }
-      ],
-      "destination": "https://www.biovaulthealth.com/:1",
-      "permanent": true
-    }
-  ],
-
   "headers": [
     {
       "source": "/(.*)",
@@ -26,12 +12,6 @@
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     }
-  ],
-
-  "builds": [
-    { "src": "index.html", "use": "@vercel/static" },
-    { "src": "*.html", "use": "@vercel/static" },
-    { "src": "blog/*.html", "use": "@vercel/static" }
   ],
 
   "routes": [
@@ -48,8 +28,6 @@
     { "src": "/terms-of-service", "dest": "/terms-of-service.html" },
     { "src": "/thank-you", "dest": "/thank-you.html" },
 
-    { "handle": "filesystem" },
-    { "src": "/.*", "status": 404, "dest": "/404.html" },
-    { "src": "/500", "status": 500, "dest": "/500.html" }
+    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
   ]
 }
