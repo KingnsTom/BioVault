@@ -1,26 +1,55 @@
 {
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+
   "redirects": [
     {
-      "source": "https://biovaulthealth.com/:path*",
-      "destination": "https://www.biovaulthealth.com/:path*",
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "biovaulthealth.com"
+        }
+      ],
+      "destination": "https://www.biovaulthealth.com/:1",
       "permanent": true
     }
   ],
-  "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/pinealxt", "destination": "/pinealxt.html" },
-    { "source": "/moringa", "destination": "/moringa.html" },
-    { "source": "/digestsync", "destination": "/digestsync.html" },
-    { "source": "/glucotrust", "destination": "/glucotrust.html" },
-    { "source": "/prodentim", "destination": "/prodentim.html" },
-    { "source": "/gutoptim", "destination": "/gutoptim.html" },
-    { "source": "/blog", "destination": "/blog.html" },
-    { "source": "/blog/:path*", "destination": "/blog/:path*" },
-    { "source": "/pinealxt-clean-foods", "destination": "/pinealxt-clean-foods.html" },
-    { "source": "/pinealxt-clean-foods-opt-in", "destination": "/pinealxt-clean-foods.html" },
-    { "source": "/privacy-policy", "destination": "/privacy-policy.html" },
-    { "source": "/terms-of-service", "destination": "/terms-of-service.html" },
-    { "source": "/thank-you", "destination": "/thank-you.html" },
-    { "source": "/:path*", "destination": "/:path*" }
+
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ],
+
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "*.html", "use": "@vercel/static" },
+    { "src": "blog/*.html", "use": "@vercel/static" }
+  ],
+
+  "routes": [
+    { "src": "/pinealxt", "dest": "/pinealxt.html" },
+    { "src": "/moringa", "dest": "/moringa.html" },
+    { "src": "/digestsync", "dest": "/digestsync.html" },
+    { "src": "/glucotrust", "dest": "/glucotrust.html" },
+    { "src": "/prodentim", "dest": "/prodentim.html" },
+    { "src": "/gutoptim", "dest": "/gutoptim.html" },
+    { "src": "/blog/(.*)", "dest": "/blog/$1" },
+    { "src": "/pinealxt-clean-foods", "dest": "/pinealxt-clean-foods.html" },
+    { "src": "/pinealxt-clean-foods-opt-in", "dest": "/pinealxt-clean-foods.html" },
+    { "src": "/privacy-policy", "dest": "/privacy-policy.html" },
+    { "src": "/terms-of-service", "dest": "/terms-of-service.html" },
+    { "src": "/thank-you", "dest": "/thank-you.html" },
+
+    { "handle": "filesystem" },
+    { "src": "/.*", "status": 404, "dest": "/404.html" },
+    { "src": "/500", "status": 500, "dest": "/500.html" }
   ]
 }
