@@ -81,7 +81,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-NZWGBLF4');</script>
 <!-- End Google Tag Manager -->
 
-  <!-- Structured Data: WebPage + Product Overview for AI Overviews -->
+  <!-- ✅ WebPage Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -101,6 +101,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
 
+<!-- ✅ Product Schema with AggregateOffer & Review -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
@@ -116,11 +117,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "@type": "WebPage",
     "@id": "https://www.biovaulthealth.com/gutoptim"
   },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "88"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Jasmine K."
+      },
+      "datePublished": "2025-06-22",
+      "reviewBody": "I’ve had bloating issues for years — GutOptim is the first thing that actually helped. I feel lighter, more energetic, and less cranky.",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      }
+    }
+  ],
   "offers": {
     "@type": "AggregateOffer",
     "url": "https://biovaulthealth.com/gutoptim.html",
     "priceCurrency": "USD",
-    "price": "49.00",
     "lowPrice": "49.00",
     "highPrice": "69.00",
     "offerCount": 3,
@@ -157,8 +178,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
 
-
-<!-- Structured Data: Gutoptim FAQ Schema for Google Rich Results -->
+<!-- ✅ FAQ Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -182,17 +202,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     },
     {
       "@type": "Question",
-      "name": "Is Gutoptim safe for everyday use?",
+      "name": "Is GutOptim safe for everyday use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, Gutoptim is made from safe, natural ingredients and is free from common allergens. Consult your doctor if you're pregnant, nursing, or on medications."
+        "text": "Yes, GutOptim is made from safe, natural ingredients and is free from common allergens. Consult your doctor if you're pregnant, nursing, or on medications."
       }
     }
   ]
 }
 </script>
 
-<!-- Structured Data: Organization Schema for E-A-T & Knowledge Panel Trust -->
+<!-- ✅ Organization Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -208,7 +228,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
 
-<!-- Structured Data: Website SearchAction for Sitelinks & AI compatibility -->
+<!-- ✅ Website Schema with SearchAction -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -222,6 +242,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 }
 </script>
+
+<!-- ✅ BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.biovaulthealth.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Products",
+      "item": "https://www.biovaulthealth.com/#products"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "GutOptim",
+      "item": "https://www.biovaulthealth.com/gutoptim"
+    }
+  ]
+}
+</script>
+
 
 </head>
 
@@ -312,167 +361,294 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <main>
-    
-<!-- ========================================
-     Hero Section
-======================================== -->
-<section class="hero">
+
+    <!-- ================================
+     GutOptim Hero Section
+================================ -->
+<section class="hero py-5" style="background-color: #017f7c; color: #eae8e5;">
   <div class="container">
-    <div class="hero-content" data-aos="fade-up" data-aos-delay="100">
-      <h1 class="hero-title">Hormonal Balance Starts in the Gut</h1>
-      <p class="hero-subtitle">Support your mood, energy, and metabolism with nature-powered gut & endocrine harmony</p>
-      <p class="hero-badge">✅ Made in USA – GMP Certified</p>
-      <a href="/biovaulthealth/gutoptim.html" target="_blank" rel="noopener" class="btn btn-primary hero-cta">Buy Now & Reclaim Balance</a>
+    <div class="row align-items-center gy-5">
+
+      <!-- 🌿 Image Column -->
+      <div class="col-lg-6 order-1 order-lg-2 text-center text-lg-end" data-aos="fade-left" data-aos-delay="200">
+        <div class="position-relative d-inline-block">
+          <img 
+            src="/img/gutoptim-cover-image.webp" 
+            alt="GutOptim Bottle" 
+            class="img-fluid hero-bottle-static animate-pop"
+            style="max-width: 100%; height: auto; width: 100%;"
+          />
+        </div>
+      </div>
+
+      <!-- 🧬 Text Content Column -->
+      <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- Trust Badge -->
+        <span class="badge text-white bg-success px-3 py-1 rounded-pill mb-3 d-inline-block">
+          🧬 Trusted by 14,000+ Women for Gut & Hormone Relief
+        </span>
+
+        <!-- Headline -->
+        <h1 class="display-5 fw-bold lh-sm mb-3" style="color: #ffffff;">
+          Hormonal Balance Starts<br />
+          <span class="text-accent" style="color: #f5f5f5;">with a Healthy Gut</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="lead mb-4" style="color: #f5f5f5;">
+          Support your mood, energy, and metabolism naturally with 
+          <strong>GutOptim’s synbiotic formula</strong> — designed to restore gut flora and rebalance hormones.
+        </p>
+
+        <!-- Guarantee / Certification -->
+        <p class="text-light fw-semibold mb-4" style="opacity: 0.85;">
+          ✅ Plant-Based • Non-GMO • 60-Day Guarantee
+        </p>
+
+        <!-- CTAs -->
+        <div class="d-flex flex-column flex-sm-row gap-3">
+          <a href="/biovaulthealth/gutoptim.html" target="_blank" rel="noopener" class="hero-secondary-cta">
+            🛒 Buy Now – Save Up to 60%
+          </a>
+          <a href="#order" class="hero-cta">
+            💚 View Bundle Options
+          </a>
+        </div>
+
+      </div>
+
     </div>
-    <img src="img/Gutoptim cover.png" alt="GutOptim Supplement Bottles" class="hero-bottle-static" data-aos="fade-left" data-aos-delay="200" />
+  </div>
+</section>
+
+<!-- ========================================
+     What Is GutOptim? – Hormonal Balance & Gut Reset
+======================================== -->
+<section class="bvh-product-section section-divider" id="what-gutoptim">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="special-offer-header text-center mb-5 position-relative">
+      <h2 class="section-title">
+        🔄 What Is <span class="text-success">GutOptim</span>?
+      </h2>
+      <p class="text-muted fs-5 mb-0">
+        A synbiotic formula designed to rebalance your gut, reduce bloating, and support hormonal harmony — without synthetic hormones or harsh cleanses.
+      </p>
+    </div>
+
+    <!-- Image + Text Layout -->
+    <div class="row align-items-center g-5 flex-column-reverse flex-md-row">
+
+      <!-- 📦 Image Column -->
+      <div class="col-md-6 text-center">
+        <img 
+          src="/img/Gutoptim-1-bottle.png" 
+          alt="GutOptim Supplement Bottle" 
+          class="img-fluid"
+          loading="lazy"
+        >
+      </div>
+
+      <!-- 📘 Text Column -->
+      <div class="col-md-6">
+
+        <p class="text-muted">
+          <strong class="text-dark">GutOptim</strong> is a synergistic blend of probiotics, fiber-rich prebiotics, detox botanicals, and gentle adaptogens — all working together to support the gut–hormone connection.
+        </p>
+
+        <p class="text-muted">
+          It includes clinically researched strains like 
+          <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6452183/" target="_blank" rel="noopener">Lactobacillus Acidophilus</a> for digestion, plus 
+          <a href="https://pubmed.ncbi.nlm.nih.gov/27319047/" target="_blank" rel="noopener">Aloe Vera</a> and 
+          <a href="https://pubmed.ncbi.nlm.nih.gov/31192099/" target="_blank" rel="noopener">Black Walnut</a> to soothe inflammation and support gentle cleansing.
+        </p>
+
+        <p class="text-muted">
+          Fiber-rich ingredients like flaxseed, oats, and apple pectin nourish good bacteria — while 
+          <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3573577/" target="_blank" rel="noopener">Maca</a> and 
+          <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6979308/" target="_blank" rel="noopener">Ashwagandha</a> help balance stress hormones and support emotional well-being.
+        </p>
+
+        <div class="highlight-block">
+          🌿 Two capsules a day. No hormones. No quick fixes. Just smoother digestion, lighter cycles, and clearer moods — trusted by women worldwide.
+        </div>
+
+      </div>
+    </div>
   </div>
 </section>
 
 
 <!-- ========================================
-     Why Choose GutOptim Section
+     Why GutOptim Works (EEAT Upgraded)
 ======================================== -->
 <section id="why-choose" class="features-section py-5 bg-light section-divider">
   <div class="container">
 
-    <!-- Section Heading -->
-    <h2 class="text-center mb-3 section-title">
-      Why <span class="text-success">Gutoptim</span> Works
-    </h2>
-    <p class="text-center mb-5 lead">
-      A unique synergy of probiotics, adaptogens, and herbal extracts to restore hormonal balance by healing the gut–hormone connection.
-    </p>
+    <!-- Standardized Header -->
+    <div class="special-offer-header text-center mb-4 position-relative">
+      <h2 class="section-title">
+        🌿 Gut-First Healing for <span class="text-success">Hormonal Harmony</span>
+      </h2>
+      <p class="text-muted fs-5 mb-1">
+        GutOptim blends synbiotics, adaptogens, and herbal extracts to restore hormonal balance by healing your gut — backed by science, trusted by thousands.
+      </p>
+    </div>
+
 
     <div class="row align-items-center gy-5">
 
-      <!-- Left: Key Benefits -->
-      <div class="col-lg-6">
-        <ul class="list-unstyled feature-list px-2">
-          <li class="mb-3 d-flex align-items-start">
-            <span class="me-2 fs-4" role="img" aria-label="Leaf">🌿</span>
-            <div>
-              <strong>Balances Hormones Naturally:</strong> Supports estrogen, cortisol & thyroid regulation through gut flora
-            </div>
-          </li>
-          <li class="mb-3 d-flex align-items-start">
-            <span class="me-2 fs-4" role="img" aria-label="Fire">🔥</span>
-            <div>
-              <strong>Boosts Metabolism & Energy:</strong> Encourages better nutrient absorption and fat metabolism
-            </div>
-          </li>
-          <li class="mb-3 d-flex align-items-start">
-            <span class="me-2 fs-4" role="img" aria-label="Brain">🧠</span>
-            <div>
-              <strong>Improves Mood & Focus:</strong> Gut–brain axis support helps regulate serotonin and reduce fatigue
-            </div>
-          </li>
-          <li class="mb-3 d-flex align-items-start">
-            <span class="me-2 fs-4" role="img" aria-label="Shield">🛡️</span>
-            <div>
-              <strong>Reduces Inflammation:</strong> Herbal antioxidants ease bloating, cramps, and skin flare-ups
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Right: Static Image Instead of Video -->
-      <div class="col-lg-6">
+      <!-- Image Column -->
+      <div class="col-lg-6 order-lg-2">
         <div class="rounded shadow-sm overflow-hidden">
           <img 
-            src="/img/How-Gutoptim-Works.webp" 
-            alt="How Gutoptim Works – Hormone & Gut Synergy" 
+            src="/img/gutoptim-benefits.webp" 
+            alt="GutOptim Hormonal Gut Healing Support" 
             class="img-fluid rounded equal-height-img" 
             loading="lazy"
           />
         </div>
       </div>
 
+      <!-- Bullet List Column -->
+      <div class="col-lg-6 order-lg-1">
+        <ul class="list-unstyled feature-list px-2">
+
+          <li class="mb-4 d-flex align-items-start">
+            <span class="me-3 fs-3">🌿</span>
+            <div>
+              <strong>Balances Hormones Naturally</strong><br>
+              Supports estrogen, cortisol, and thyroid function by nourishing your gut microbiome.
+              <a href="https://pubmed.ncbi.nlm.nih.gov/33488583/" target="_blank" rel="noopener noreferrer" class="text-muted" style="font-size:0.8rem;">[Study]</a>
+            </div>
+          </li>
+
+          <li class="mb-4 d-flex align-items-start">
+            <span class="me-3 fs-3">🔥</span>
+            <div>
+              <strong>Boosts Metabolism & Energy</strong><br>
+              Helps optimize fat metabolism and nutrient absorption to reduce fatigue and support weight balance.
+              <a href="https://pubmed.ncbi.nlm.nih.gov/35635767/" target="_blank" rel="noopener noreferrer" class="text-muted" style="font-size:0.8rem;">[Study]</a>
+            </div>
+          </li>
+
+          <li class="mb-4 d-flex align-items-start">
+            <span class="me-3 fs-3">🧠</span>
+            <div>
+              <strong>Improves Mood & Focus</strong><br>
+              Gut–brain axis support that promotes serotonin regulation, mental clarity, and emotional stability.
+              <a href="https://pubmed.ncbi.nlm.nih.gov/30336735/" target="_blank" rel="noopener noreferrer" class="text-muted" style="font-size:0.8rem;">[Study]</a>
+            </div>
+          </li>
+
+          <li class="mb-4 d-flex align-items-start">
+            <span class="me-3 fs-3">🛡️</span>
+            <div>
+              <strong>Reduces Inflammation</strong><br>
+              Plant-based antioxidants like flaxseed and aloe vera help soothe bloating, cramps, and skin flare-ups.
+              <a href="https://pubmed.ncbi.nlm.nih.gov/32131082/" target="_blank" rel="noopener noreferrer" class="text-muted" style="font-size:0.8rem;">[Study]</a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
     </div>
   </div>
 </section>
-    <!-- ================================
+
+   <!-- ================================
      Special Offer Section – Gutoptim
-     ================================ -->
-<section id="order" class="pricing-section container py-5 section-divider">
-  <div class="special-offer-header text-center mb-5 position-relative">
-    <h2 class="section-title text-center">
-      Special <span class="text-success">Offer</span>: <span class="highlight-badge">#GutoptimBundles</span>
-    </h2>
-    <p class="text-muted fs-5">
-      Rebalance your gut and hormones naturally. Choose from discounted bundles with free bonuses and shipping.
-    </p>
-  </div>
+================================ -->
+<section id="order" class="pricing-section py-5 section-divider" style="background: linear-gradient(to bottom, #f8f9fa, #ffffff); border-top: 2px solid #05b9b5; border-bottom: 2px solid #05b9b5;">
+  <div class="container">
 
-  <div class="row g-4 text-center">
-
-    <!-- 1 Bottle -->
-    <div class="col-md-4">
-      <div class="card h-100 border-0 shadow rounded-4 p-4">
-        <h4 class="text-success fw-bold">1 BOTTLE</h4>
-        <p class="text-muted small">30 Day Supply</p>
-        <img src="/img/Gutoptim 1 bottle.png" alt="1 Bottles GutOptim" class="img-fluid mb-3">
-        <h3 class="fw-bold text-dark">$69 <span class="fs-6 fw-normal text-muted">/Bottle</span></h3>
-        <p class="text-danger fw-semibold small">YOU SAVE 10!</p>
-        <p class="text-muted small mb-1"><del>$79</del> → $69</p>
-        <p class="text-success small">🚚 FREE SHIPPING</p>
-        <a href="/biovaulthealth/gutoptim.html" target="_blank" class="btn btn-success w-100 fw-bold mt-2 rounded-pill">ADD TO CART</a>
-      </div>
+    <!-- Section Header -->
+    <div class="special-offer-header text-center mb-5 position-relative">
+      <h2 class="section-title text-center">
+        🌿 Special <span class="text-success">Offer</span>: <span class="highlight-badge">#GutoptimBundles</span>
+      </h2>
+      <p class="text-muted fs-5">
+        Rebalance your gut and hormones naturally — with exclusive bundle pricing, bonus ebooks, and free shipping.
+      </p>
+      <p class="text-center text-warning fw-bold small mb-4">🎁 Limited Time: Get FREE Bonuses + Shipping on Select Bundles!</p>
     </div>
 
-    <!-- 6 Bottles -->
-    <div class="col-md-4">
-      <div class="card h-100 border-0 shadow-lg rounded-4 p-4 position-relative">
-        <span class="position-absolute top-0 start-0 bg-warning text-dark px-3 py-1 rounded-bottom fw-bold small shadow-sm">🔥 BEST DEAL</span>
-        <h4 class="text-success fw-bold">6 BOTTLES</h4>
-        <p class="text-muted small">180 Day Supply</p>
-        <img src="/img/Gutoptim 6 bottles.png" alt="6 Bottles package of GutOptim" class="img-fluid mb-3">
-        <h3 class="fw-bold text-dark">$49 <span class="fs-6 fw-normal text-muted">/Bottle</span></h3>
-        <p class="text-danger fw-semibold small">YOU SAVE $120!</p>
-        <p class="text-muted small mb-1"><del>$414</del> → $294</p>
-        <p class="text-success small">✅ 2 FREE EBOOKS</p>
-        <p class="text-success small">🚚 FREE SHIPPING</p>
-        <a href="/biovaulthealth/gutoptim.html" target="_blank" class="btn btn-success w-100 fw-bold mt-2 rounded-pill">ADD TO CART</a>
-      </div>
-    </div>
+    <div class="row g-4 text-center">
 
-    <!-- 3 Bottles -->
-    <div class="col-md-4">
-      <div class="card h-100 border-0 shadow rounded-4 p-4">
-        <h4 class="text-success fw-bold">3 BOTTLES</h4>
-        <p class="text-muted small">90 Day Supply</p>
-        <img src="/img/Gutoptim 3 bottles.png" alt="3 Bottles GutOptim" class="img-fluid mb-3">
-        <h3 class="fw-bold text-dark">$59 <span class="fs-6 fw-normal text-muted">/Bottle</span></h3>
-        <p class="text-danger fw-semibold small">YOU SAVE $30!</p>
-        <p class="text-muted small mb-1"><del>$207</del> → $177</p>
-                <p class="text-success small">✅ 2 FREE EBOOKS</p>
-        <p class="text-success small">🚚 FREE SHIPPING</p>
-        <a href="/biovaulthealth/gutoptim.html" target="_blank" class="btn btn-success w-100 fw-bold mt-2 rounded-pill">ADD TO CART</a>
+      <!-- 1 Bottle -->
+      <div class="col-md-4">
+        <div class="card glow-card h-100 border-0 rounded-4 p-4 position-relative">
+          <h4 class="text-success fw-bold">1 Bottle</h4>
+          <p class="text-muted small">30 Day Supply</p>
+          <img src="/img/Gutoptim-1-bottle.png" alt="1 Bottle GutOptim" class="img-fluid mb-3">
+          <h3 class="fw-bold text-dark">$69 <span class="fs-6 fw-normal text-muted">($2.30/day)</span></h3>
+          <p class="text-danger fw-semibold small">YOU SAVE $10!</p>
+          <p class="text-muted small mb-2"><del>$79</del> → <strong>$69</strong></p>
+          <p class="text-muted small">✅ 1 Month Support</p>
+          <a href="/biovaulthealth/gutoptim.html" target="_blank" class="btn btn-success w-100 fw-bold mt-2 rounded-pill">ADD TO CART</a>
+          <div class="card-highlight">✨ Great for new users</div>
+        </div>
       </div>
-    </div>
 
+      <!-- 6 Bottles -->
+      <div class="col-md-4">
+        <div class="card glow-card h-100 border-0 rounded-4 p-4 position-relative">
+          <span class="position-absolute top-0 start-0 bg-warning text-dark px-3 py-1 rounded-bottom fw-bold small shadow-sm">🔥 BEST DEAL</span>
+          <h4 class="text-success fw-bold">6 Bottles</h4>
+          <p class="text-muted small">180 Day Supply</p>
+          <img src="/img/Gutoptim 6 bottles.png" alt="6 Bottles GutOptim" class="img-fluid mb-3">
+          <h3 class="fw-bold text-dark">$49 <span class="fs-6 fw-normal text-muted">($1.63/day)</span></h3>
+          <p class="text-danger fw-semibold small">YOU SAVE $120!</p>
+          <p class="text-muted small mb-2"><del>$414</del> → <strong>$294</strong></p>
+          <p class="text-success small">✅ 2 Free Ebooks</p>
+          <p class="text-success small">🚚 Free Shipping</p>
+          <a href="/biovaulthealth/gutoptim.html" target="_blank" class="btn btn-success w-100 fw-bold mt-2 rounded-pill">ADD TO CART</a>
+          <div class="card-highlight">✨ Best for long-term gut balance</div>
+        </div>
+      </div>
+
+      <!-- 3 Bottles -->
+      <div class="col-md-4">
+        <div class="card glow-card h-100 border-0 rounded-4 p-4 position-relative">
+          <h4 class="text-success fw-bold">3 Bottles</h4>
+          <p class="text-muted small">90 Day Supply</p>
+          <img src="/img/Gutoptim 3 bottles.png" alt="3 Bottles GutOptim" class="img-fluid mb-3">
+          <h3 class="fw-bold text-dark">$59 <span class="fs-6 fw-normal text-muted">($1.96/day)</span></h3>
+          <p class="text-danger fw-semibold small">YOU SAVE $30!</p>
+          <p class="text-muted small mb-2"><del>$207</del> → <strong>$177</strong></p>
+          <p class="text-success small">✅ Free Ebook</p>
+          <p class="text-success small">🚚 Free Shipping</p>
+          <a href="/biovaulthealth/gutoptim.html" target="_blank" class="btn btn-success w-100 fw-bold mt-2 rounded-pill">ADD TO CART</a>
+          <div class="card-highlight">✨ Great for consistent results</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
-
 
 <!-- ================================
      Floating Guarantee Badge
-=============================== -->
+================================ -->
 <div class="guarantee-badge-wrapper">
   <img src="/img/100 guaranteed.png" alt="100% Money Back Guarantee" class="guarantee-badge">
 </div>
 
 <!-- ================================
-     Gutoptim Guarantee Section
-=============================== -->
+     GutOptim Guarantee Section (Upgraded)
+================================ -->
 <section class="guarantee-section text-center">
   <div class="angle-top"></div>
   <div class="container py-5">
     <h2 class="guarantee-title">
-      BALANCE YOUR HORMONES WITH PEACE OF MIND<br>
+      BALANCED HORMONES. HAPPIER DIGESTION. ZERO RISK.<br>
       <span class="text-glow">100% MONEY BACK GUARANTEE</span>
     </h2>
     <p class="guarantee-description mx-auto">
-      We're confident Gutoptim will help reset your hormones and digestive wellness. If you're not absolutely satisfied within 60 days, we’ll refund every penny — no hassle, no questions.
+      We're confident GutOptim will help restore your hormonal balance, reduce bloating, and boost your energy naturally. But if you’re not satisfied within 60 days, we’ll refund every penny — no questions asked.
     </p>
     <div class="guarantee-highlight mt-4 mx-auto">
       ✅ 60-Day Risk-Free Trial • Full Refund • No Questions Asked
@@ -480,203 +656,644 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Trust Badges -->
     <div class="trust-badges mt-5 text-center">
-      <img src="/img/FDA Registered Facility.png" alt="Trusted Certifications" class="trust-badges-img">
+      <img src="/img/FDA Registered Facility.png" alt="FDA Registered Facility and Certifications" class="trust-badges-img">
     </div>
+  </div>
 </section>
 
 <!-- ================================
-     Who Is Gutoptim For?
-=============================== -->
+
+     Who Is GutOptim For? (Styled Like Pineal XT)
+================================ -->
 <section id="who" class="ideal-users py-5 bg-light section-divider">
   <div class="container">
-    <h2 class="section-title text-center mb-3">
-      Who Is <span class="text-success">Gutoptim</span> For?
-    </h2>
-    <p class="text-center mb-4 lead">
-      Whether you're struggling with bloating, mood swings, or hormone imbalances, <strong>Gutoptim</strong> is designed to support your gut and hormonal health naturally.
-    </p>
+    
+    <!-- 🌿 Section Header -->
+    <div class="special-offer-header text-center mb-4 position-relative">
+      <h2 class="section-title text-center">
+        🧬 Who <span class="text-success">GutOptim</span> Is For
+      </h2>
+      <p class="text-muted fs-5 mb-1">
+        Whether you're struggling with bloating, mood swings, or hormonal imbalances — GutOptim supports your gut and hormone health from the inside out.
+      </p>
+    </div>
 
-    <div class="row g-4 align-items-center">
-      <!-- Image -->
-      <div class="col-lg-6 order-lg-2">
+    <div class="row g-5 align-items-center">
+
+      <!-- 😊 Image Column -->
+      <div class="col-lg-6 order-lg-2 text-center" data-aos="fade-left">
         <div class="ideal-img-wrapper">
-          <img src="img/Gutoptim-users-women-men-happy.webp" 
-               alt="Happy Gutoptim users feeling balanced" class="img-fluid rounded shadow">
+          <img 
+            src="/img/happy-women-natural-hormone-balance.webp" 
+            alt="Happy diverse women feeling balanced with GutOptim" 
+            class="img-fluid rounded shadow-lg"
+            loading="lazy"
+          >
         </div>
       </div>
 
-      <!-- Content -->
-      <div class="col-lg-6 order-lg-1 text-lg-start text-center">
-        <h4 class="fw-semibold mb-3 text-success">Natural Balance For Every Body</h4>
-        <p class="mb-3">Gutoptim is for anyone who wants to feel better from the inside out — by healing the gut and supporting hormonal harmony through natural probiotic and adaptogenic ingredients.</p>
-        <p class="mb-4">Perfect for busy professionals, parents, women in hormonal transition, and anyone seeking more energy, clarity, and calm.</p>
-        
-        <ul class="ideal-users-list list-unstyled">
-          <li><span>✅</span> Irregular cycles or PMS symptoms</li>
-          <li><span>✅</span> Bloating, gas, or sluggish digestion</li>
-          <li><span>✅</span> Low energy, poor focus, or mood swings</li>
-          <li><span>✅</span> Weight fluctuation due to hormonal imbalance</li>
-          <li><span>✅</span> Looking to restore gut–hormone balance naturally</li>
+      <!-- 🌱 Text Column -->
+      <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+        <h4 class="fw-semibold mb-3 text-success">
+          Natural Balance — For Real Bodies
+        </h4>
+        <p class="mb-3 text-muted">
+          GutOptim is a gentle, gut-healing formula crafted for people who want to feel better without stimulants, extreme diets, or hormone disruptors.
+        </p>
+
+        <ul class="list-unstyled ideal-users-list ps-2">
+          <li class="mb-2">✅ Irregular cycles or PMS symptoms</li>
+          <li class="mb-2">✅ Bloating, gas, or sluggish digestion</li>
+          <li class="mb-2">✅ Low energy, poor focus, or mood swings</li>
+          <li class="mb-2">✅ Weight changes due to hormonal imbalance</li>
+          <li class="mb-2">✅ Want to restore gut–hormone harmony naturally</li>
         </ul>
+
+        <p class="mt-4 fw-semibold text-success">
+          🌿 Real balance. Real calm. Real gut harmony.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-
 <!-- ================================
-     Real Science, Real Results
-     ================================ -->
-<section id="results" class="science-results py-5 bg-light section-divider">
-  <div class="container">
-    <h2 class="section-title text-center mb-3">
-      Backed by Science. <span class="text-success">Proven by Balance.</span>
+     Need Help Choosing Section – GutOptim
+================================ -->
+<section style="background-color: #017f7c; padding: 3rem 1rem;">
+  <div class="container text-center">
+    
+    <!-- 🧬 Icon -->
+    <span class="d-inline-block mb-2 fs-1" aria-hidden="true">🧬</span>
+
+    <!-- Headline -->
+    <h2 class="mb-3 text-white fw-bold display-5">
+      Not Sure If <span class="text-accent" style="color:#eae8e5;">GutOptim</span> Is Right for You?
     </h2>
-    <p class="text-center mb-4 lead">
-      Discover how Gutoptim’s advanced blend of probiotics and adaptogens helps restore hormone health through the gut-brain connection — naturally and effectively.
+
+    <!-- Subtitle -->
+    <p class="lead text-white mb-4" style="max-width: 720px; margin-inline: auto;">
+      Take the 60-second quiz to discover which gut–hormone formula fits your body best — whether you’re battling bloat, mood swings, or cycle chaos.
     </p>
 
-    <div class="row g-4 align-items-center">
-      <div class="col-md-6">
-        <ul class="science-list list-unstyled mb-4">
-          <li>
-            💚 Improves estrogen balance via <em>Lactobacillus Acidophilus</em>
-            <a href="https://pubmed.ncbi.nlm.nih.gov/28534878/" target="_blank" rel="noopener noreferrer" class="text-muted" style="font-size:0.8rem;">[Study]</a>
-          </li>
-          <li>
-            💚 Reduces cortisol and stress symptoms with <em>Ashwagandha</em>
-            <a href="https://pubmed.ncbi.nlm.nih.gov/23439798/" target="_blank" rel="noopener noreferrer" class="text-muted" style="font-size:0.8rem;">[Study]</a>
-          </li>
-          <li>
-            💚 Supports gut-liver detox axis and hormone clearance
-            <a href="https://pubmed.ncbi.nlm.nih.gov/30378552/" target="_blank" rel="noopener noreferrer" class="text-muted" style="font-size:0.8rem;">[Study]</a>
-          </li>
-        </ul>
+    <!-- CTA Button -->
+    <a href="/quiz.html" target="_blank" class="btn btn-light btn-lg fw-bold rounded-pill px-4 py-2 shadow">
+      🧠 Take the Quiz — Find My Best Match
+    </a>
 
-        <p class="text-muted small">
-          Unlike hormone pills or synthetic cleanses, Gutoptim works with your body’s natural rhythms — balancing cortisol, detox pathways, and gut flora for full-body hormonal harmony.
-        </p>
+  </div>
+</section>
 
-        <p class="text-muted small">
-          With a targeted combination of <em>Probiotics, Maca Root, and Milk Thistle</em>, Gutoptim supports mood, metabolism, cycle regularity, and digestive ease — all from within.
-        </p>
-      </div>
+<!-- ================================
+     Real Science, Real Balance – GutOptim
+================================ -->
+<section id="results" class="science-results py-5 bg-light section-divider">
+  <div class="container">
 
-      <div class="col-md-6">
-        <img src="img/gutoptim-benefits-chart.webp" alt="Gutoptim gut-hormone benefits chart" class="img-fluid rounded shadow">
-      </div>
+    <!-- Section Header -->
+    <div class="special-offer-header text-center mb-4 position-relative">
+      <h2 class="section-title">
+        🔬 Backed by Science. <span class="text-success">Proven by Balance.</span>
+      </h2>
+      <p class="text-muted fs-5 mb-1">
+        Discover how GutOptim’s targeted blend of probiotics and adaptogens supports natural hormonal balance through the gut-brain connection.
+      </p>
     </div>
 
-    <blockquote class="testimonial mt-5 text-center fst-italic px-3">
-      “My energy’s back, my mood swings are gone, and my digestion’s smooth. I finally feel balanced again.”
-      <br>
-      <cite class="d-block mt-2 text-muted">— Verified Buyer, USA</cite>
-    </blockquote>
+    <!-- Content Row -->
+    <div class="row g-4 align-items-center flex-column-reverse flex-md-row">
+
+      <!-- Left: Ingredient Science List -->
+      <div class="col-md-6">
+        <ul class="science-list list-unstyled mb-4">
+
+          <li class="mb-4">
+            <div>💚 <strong>Lactobacillus Acidophilus</strong></div>
+            <div class="text-muted small">Clinically shown to improve estrogen balance and gut lining health</div>
+            <div>
+              <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8929479/" target="_blank" rel="noopener noreferrer" class="text-muted" style="font-size:0.8rem;">[Study]</a>
+            </div>
+          </li>
+
+          <li class="mb-4">
+            <div>💚 <strong>Ashwagandha Root</strong></div>
+            <div class="text-muted small">Reduces cortisol levels, improves stress resilience, and stabilizes mood</div>
+            <div>
+              <a href="https://pubmed.ncbi.nlm.nih.gov/23439798/" target="_blank" rel="noopener noreferrer" class="text-muted" style="font-size:0.8rem;">[Study]</a>
+            </div>
+          </li>
+
+          <li class="mb-4">
+            <div>💚 <strong>Milk Thistle & Maca Root</strong></div>
+            <div class="text-muted small">Supports liver detox pathways for improved hormone clearance and energy</div>
+            <div>
+              <a href="https://pubmed.ncbi.nlm.nih.gov/29369884/" target="_blank" rel="noopener noreferrer" class="text-muted" style="font-size:0.8rem;">[Study]</a>
+            </div>
+          </li>
+
+        </ul>
+
+        <p class="text-muted small mb-2">
+          🧬 Unlike synthetic hormone pills or fad detoxes, GutOptim works with your natural rhythms — rebalancing the microbiome, stress response, and detox axis from within.
+        </p>
+        <p class="text-muted small">
+          ✅ 100% natural, non-GMO capsules — safe for daily use, even during cycle shifts or hormonal transitions.
+        </p>
+      </div>
+
+      <!-- Right: Visual Placeholder -->
+      <div class="col-md-6 text-center">
+        <img 
+          src="/img/gut-hormone-science-graphic.webp" 
+          alt="Scientific chart of gut-hormone ingredients" 
+          class="img-fluid rounded shadow" 
+          loading="lazy"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================
+     Special Offer – Trusted by Wellness Seekers (GutOptim)
+================================ -->
+<section class="product-offer-section py-5 bg-light section-divider">
+  <div class="container">
+    <div class="special-offer-header text-center mb-4 position-relative">
+     <h2 class="section-title text-center">
+  🎁 Special GutOptim Offers — <span class="text-success">Trusted by Thousands</span>
+</h2>
+<p class="text-muted fs-5 mb-1">
+  Choose your bundle below and save on the gut–hormone support thousands rely on for real balance and daily relief.
+</p>
+
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- 3 Bottles -->
+      <div class="col-md-4">
+        <div class="card shadow-lg h-100 border-2 border-success hover-zoom">
+          <div class="card-header bg-success text-white fw-semibold rounded-top py-2">
+            💚 Most Popular
+          </div>
+          <div class="card-body">
+            <img src="/img/Gutoptim 3 bottles.png" alt="GutOptim 3 Bottle Bundle" class="img-fluid mb-3 rounded" loading="lazy">
+            <h5 class="fw-bold">3 Bottles + Hormone Guide</h5>
+            <p class="text-muted mb-1">Save 30% – Just <strong>$59/bottle</strong></p>
+            <p class="text-muted small">Free Shipping Included</p>
+            <a href="/biovaulthealth/gutoptim.html" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 fw-semibold mt-2 shadow-sm">Get This Deal</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1 Bottle -->
+      <div class="col-md-4">
+        <div class="card shadow h-100 hover-zoom">
+          <div class="card-header bg-secondary text-white fw-semibold rounded-top py-2">
+            💡 Starter Pack
+          </div>
+          <div class="card-body">
+            <img src="/img/Gutoptim-1-bottle.png" alt="GutOptim Single Bottle" class="img-fluid mb-3 rounded" loading="lazy">
+            <h5 class="fw-bold">1 Bottle</h5>
+            <p class="text-muted mb-1">Only <strong>$69</strong></p>
+            <p class="text-muted small">+ Small Shipping Fee</p>
+            <a href="/biovaulthealth/gutoptim.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-success w-100 fw-semibold mt-2 shadow-sm">Try It Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 Bottles -->
+      <div class="col-md-4">
+        <div class="card shadow-lg h-100 border-2 border-success hover-zoom">
+          <div class="card-header bg-success text-white fw-semibold rounded-top py-2">
+            🏆 Best Value
+          </div>
+          <div class="card-body">
+            <img src="/img/Gutoptim 6 bottles.png" alt="GutOptim 6 Bottle Bundle" class="img-fluid mb-3 rounded" loading="lazy">
+            <h5 class="fw-bold">6 Bottles + Free Wellness Ebooks</h5>
+            <p class="text-muted mb-1">Save 50% – Just <strong>$49/bottle</strong></p>
+            <p class="text-muted small">Free Shipping + Bonuses</p>
+            <a href="/biovaulthealth/gutoptim.html" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 fw-semibold mt-2 shadow-sm">Claim Offer</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="mt-4 text-muted small">
+      ✔️ 60-Day Guarantee • Secure Checkout • Ships Fast
+    </p>
+  </div>
+</section>
+
+<!-- ================================
+     Gut–Hormone Support Compared
+================================ -->
+<section id="gut-comparison" class="product-comparison py-5 bg-light section-divider">
+  <div class="container">
+    <div class="special-offer-header text-center mb-4 position-relative">
+      <h2 class="section-title">
+        🌿 Gut–Hormone <span class="text-success">Support Compared</span>
+      </h2>
+      <p class="text-muted fs-5 mb-1">
+        How does <strong>GutOptim</strong> compare to common gut and hormone solutions? See what makes it the natural choice for full-body balance.
+      </p>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered text-center align-middle">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">Feature / Benefit</th>
+            <th scope="col">GutOptim</th>
+            <th scope="col">Synthetic Hormone Pills</th>
+            <th scope="col">Laxative Detox Teas</th>
+            <th scope="col">Generic Probiotics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🌸 Supports Hormonal Balance Naturally</td>
+            <td>✅</td>
+            <td>⚪</td>
+            <td>X</td>
+            <td>⚪</td>
+          </tr>
+
+          <tr>
+            <td>🧠 Gut–Brain Axis Support</td>
+            <td>✅</td>
+            <td>X</td>
+            <td>X</td>
+            <td>⚪</td>
+          </tr>
+
+          <tr>
+            <td>💚 Adaptogens for Stress & Cortisol</td>
+            <td>✅</td>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+          </tr>
+
+          <tr>
+            <td>🌀 Gut–Liver Detox Support</td>
+            <td>✅</td>
+            <td>X</td>
+            <td>✅</td>
+            <td>X</td>
+          </tr>
+
+          <tr>
+            <td>🌿 100% Natural, Non-GMO Formula</td>
+            <td>✅</td>
+            <td>X</td>
+            <td>⚪</td>
+            <td>⚪</td>
+          </tr>
+
+          <tr>
+            <td>📦 Bundle Deals + Free Bonuses</td>
+            <td>🎁</td>
+            <td>X</td>
+            <td>X</td>
+            <td>X</td>
+          </tr>
+
+          <tr class="table-info fw-bold">
+            <td>🏆 Best For</td>
+            <td>Hormone & Gut Balance from Within</td>
+            <td>Symptom Masking</td>
+            <td>Short-Term Cleansing</td>
+            <td>Basic Gut Flora Support</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
 
 <!-- ================================
-     Call to Action
-     ================================ -->
-<section class="cta-final text-center text-white py-5 section-divider cta-bg-primary">
+     The 7-Day Gut–Hormone Shift (GutOptim)
+================================ -->
+<section class="prodentim-projection py-5 text-center bg-white section-divider">
   <div class="container">
-    <h2 class="mb-3">Reset Your Hormones with Gutoptim</h2>
-    <p class="lead mb-2">Feel lighter, clearer, and more in control — backed by gut-focused hormonal science.</p>
-    <p class="mb-4 text-warning fw-bold">🎁 Limited-Time Offer – Save Up to 60% + Free Shipping</p>
-    <a href="/biovaulthealth/gutoptim.html" target="_blank" rel="noopener" class="btn btn-light btn-lg px-4 py-2 fw-semibold shadow">Get Gutoptim Now</a>
+
+    <div class="special-offer-header text-center mb-4 position-relative">
+      <h2 class="section-title text-center">
+        🌿 Imagine This After Just <span class="text-success">7 Days</span>...
+      </h2>
+      <p class="text-muted fs-5 mb-1">
+        Your belly feels lighter. Your mood more steady. Digestion smoother. Your body finally feels like it’s working *with* you again.
+      </p>
+    </div>
+
+    <div class="row g-4 mt-4 justify-content-center">
+      
+      <!-- Day 1–2: Gut Calm Begins -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <div class="fs-1 text-success mb-3">🫖</div>
+            <h5 class="fw-bold mb-2">Bloating Starts to Ease</h5>
+            <p class="text-muted mb-0">Probiotics begin rebalancing gut flora while adaptogens soothe gut lining and stress signals.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 3–5: Mood & Energy Lift -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <div class="fs-1 text-success mb-3">🔋</div>
+            <h5 class="fw-bold mb-2">Hormonal Clarity Kicks In</h5>
+            <p class="text-muted mb-0">Ashwagandha and Maca begin regulating cortisol, helping lift fog, fatigue, and mood swings.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 6–7: Balance You Can Feel -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body">
+            <div class="fs-1 text-success mb-3">✨</div>
+            <h5 class="fw-bold mb-2">Digestion, Mood & Cycles Align</h5>
+            <p class="text-muted mb-0">Hormones feel steadier, bloating stays down, and your system runs smoother — day and night.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="mt-4 text-muted">
+      All from just <strong>2 capsules of GutOptim daily</strong>. No harsh cleanses. No synthetic hormones. Just real ingredients supporting real body balance.
+    </p>
+    
   </div>
 </section>
 
 
 <!-- ================================
-     Social Proof
-     ================================ -->
-<section class="social-proof text-center py-5">
+     Final Call to Action – GutOptim
+================================ -->
+<section class="cta-final text-center text-white py-5 section-divider" style="background-color: var(--primary-color);">
   <div class="container">
-    <h4 class="mb-3">💬 What People Are Saying: <span class="text-success">#GutoptimResults</span></h4>
-    <p class="mb-4">Join thousands rebalancing their gut and hormones naturally — and reclaiming their glow.</p>
-    <img src="img/gutoptim-testimonials.webp" alt="Happy Gutoptim users reviews" class="img-fluid rounded shadow">
+    <h2 class="mb-3">Balance Your Body with GutOptim</h2>
+    <p class="lead mb-2">Feel lighter, clearer, and more in control with daily gut–hormone support — powered by nature.</p>
+    <p class="mb-4 text-warning fw-bold">🎁 Limited-Time Offer – Save Up to 50% + Free Wellness Bonuses</p>
+    <a href="/biovaulthealth/gutoptim.html" target="_blank" rel="noopener" class="btn btn-light btn-lg px-4 py-2 fw-semibold shadow">Get GutOptim Now</a>
+  </div>
+</section>
+
+<!-- ================================
+     Real Users Section – Testimonials (GutOptim)
+================================ -->
+<section id="real-users" class="social-proof text-center py-5 bg-light section-divider">
+  <div class="container">
+    <div class="special-offer-header text-center mb-4 position-relative">
+      <h2 class="section-title text-center">
+        💬 What Real Users Say About <span class="text-success">GutOptim</span>
+      </h2>
+      <p class="text-muted fs-5 mb-1">
+        From stubborn bloating to PMS relief — see how GutOptim is transforming daily health from within.
+      </p>
+    </div>
+
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000" data-bs-pause="hover">
+      <div class="carousel-inner">
+
+        <!-- Testimonial 1 -->
+        <div class="carousel-item active">
+          <div class="testimonial-slide-content flex-column align-items-center text-center">
+            <div class="testimonial-avatar mb-3">
+              <div class="client-avatar-ring">
+                <div class="client-image">
+                  <img src="img/lena.webp" alt="Lena V testimonial - GutOptim">
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <blockquote>
+                “I used to feel heavy and moody during my cycle. GutOptim helped me feel lighter, clearer, and way more balanced — even in week 1.”
+              </blockquote>
+              <cite>Lena V. – Vancouver, Canada <span class="badge bg-success ms-2">✔ Verified Buyer</span></cite>
+              <small class="text-muted">Purchased 6 Bottles Package</small>
+              <div class="text-warning">★★★★★</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="carousel-item">
+          <div class="testimonial-slide-content flex-column align-items-center text-center">
+            <div class="testimonial-avatar mb-3">
+              <div class="client-avatar-ring">
+                <div class="client-image">
+                  <img src="img/jared.webp" alt="Jared M testimonial - GutOptim">
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <blockquote>
+                “GutOptim has totally changed my mornings. No more gas or fog — just energy and calm. I even sleep better now.”
+              </blockquote>
+              <cite>Jared M. – Melbourne, Australia <span class="badge bg-success ms-2">✔ Verified Buyer</span></cite>
+              <small class="text-muted">Purchased 3 Bottles Package</small>
+              <div class="text-warning">★★★★★</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="carousel-item">
+          <div class="testimonial-slide-content flex-column align-items-center text-center">
+            <div class="testimonial-avatar mb-3">
+              <div class="client-avatar-ring">
+                <div class="client-image">
+                  <img src="img/mei.webp" alt="Mei L testimonial - GutOptim">
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <blockquote>
+                “After trying countless detox teas, I finally found something that actually works without sending me to the bathroom all day.”
+              </blockquote>
+              <cite>Mei L. – Singapore <span class="badge bg-success ms-2">✔ Verified Buyer</span></cite>
+              <small class="text-muted">Purchased 2 Bottles Package</small>
+              <div class="text-warning">★★★★☆</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="carousel-item">
+          <div class="testimonial-slide-content flex-column align-items-center text-center">
+            <div class="testimonial-avatar mb-3">
+              <div class="client-avatar-ring">
+                <div class="client-image">
+                  <img src="img/tash.webp" alt="Tasha G testimonial - GutOptim">
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <blockquote>
+                “GutOptim is like a daily reset button. My skin looks better, I’m less bloated, and even my mood feels lighter.”
+              </blockquote>
+              <cite>Tasha G. – Cape Town, South Africa <span class="badge bg-success ms-2">✔ Verified Buyer</span></cite>
+              <small class="text-muted">Purchased 1 Bottle</small>
+              <div class="text-warning">★★★★★</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 5 -->
+        <div class="carousel-item">
+          <div class="testimonial-slide-content flex-column align-items-center text-center">
+            <div class="testimonial-avatar mb-3">
+              <div class="client-avatar-ring">
+                <div class="client-image">
+                  <img src="img/bruno.webp" alt="Bruno H testimonial - GutOptim">
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <blockquote>
+                “I was skeptical, but this blend really works. My digestion is smooth, my stress is lower, and my workouts feel easier too.”
+              </blockquote>
+              <cite>Bruno H. – Lisbon, Portugal <span class="badge bg-success ms-2">✔ Verified Buyer</span></cite>
+              <small class="text-muted">Purchased 4 Bottles Package</small>
+              <div class="text-warning">★★★★☆</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
   </div>
 </section>
 
 <!-- =============================
-     FAQ Section (Gutoptim Page)
-============================== -->
-
-<section id="faq-moringa" class="py-5 section-divider bg-light">
+     FAQ Section (ProDentim Page)
+============================= -->
+<section id="faq-prodentim" class="py-5 bg-light section-divider" itemscope itemtype="https://schema.org/FAQPage">
   <div class="container">
-    <h2 class="section-title text-center mb-3">
-      <span style="color: #1d1d1d;">Frequently Asked</span> <span class="text-success">Questions</span>
-    </h2>
 
-    <p class="text-center mb-5 lead">
-      Everything you need to know about Gutoptim and how to order it online.
-    </p>
+    <!-- Section Header -->
+    <div class="special-offer-header text-center mb-4 position-relative">
+      <h2 class="section-title text-center">
+        ❓ Frequently Asked <span class="text-success">Questions</span>
+      </h2>
+      <p class="text-muted fs-5 mb-1">
+        Answers to common questions about ProDentim — how it works, who it’s for, and how to get the best results.
+      </p>
+    </div>
 
     <div class="faq-moringa-accordion">
+
+      <!-- Q1 -->
       <div class="faq-moringa-item">
         <div class="faq-moringa-question">
-          Is Gutoptim available in physical stores?
+          What is ProDentim and how does it support oral health?
           <span class="faq-moringa-icon">+</span>
         </div>
         <div class="faq-moringa-answer">
-          No. Gutoptim is only available online through the official website to ensure product quality, freshness, and exclusive promotional pricing.
+          ProDentim is a chewable probiotic supplement that helps restore the balance of good bacteria in your mouth. Its unique formula supports gum health, reduces inflammation, and promotes long-lasting fresh breath — all by working with your body’s natural oral ecosystem.
         </div>
       </div>
 
+      <!-- Q2 -->
       <div class="faq-moringa-item">
         <div class="faq-moringa-question">
-          How long does shipping take?
+          Is ProDentim available in stores or pharmacies?
           <span class="faq-moringa-icon">+</span>
         </div>
         <div class="faq-moringa-answer">
-          U.S. orders usually arrive within 5–7 business days. International deliveries may take 10–15 business days based on customs and destination.
+          No. ProDentim is only sold online through authorized partner sites to guarantee authenticity, freshness, and exclusive discounts. Avoid third-party resellers to prevent counterfeit risk.
         </div>
       </div>
 
+      <!-- Q3 -->
       <div class="faq-moringa-item">
         <div class="faq-moringa-question">
-          Do I need a prescription to use Gutoptim?
+          How soon will I see results?
           <span class="faq-moringa-icon">+</span>
         </div>
         <div class="faq-moringa-answer">
-          No prescription is needed. Gutoptim is a natural dietary supplement formulated for adults to support hormone balance and gut health.
+          Most users notice fresher breath, reduced plaque, and less gum bleeding within the first 7–14 days. For full microbiome balance and long-term oral improvements, 60–90 days of consistent use is ideal.
         </div>
       </div>
 
+      <!-- Q4 -->
       <div class="faq-moringa-item">
         <div class="faq-moringa-question">
-          Are there any side effects?
+          Can I take ProDentim if I already use toothpaste or mouthwash?
           <span class="faq-moringa-icon">+</span>
         </div>
         <div class="faq-moringa-answer">
-          Gutoptim uses natural, well-researched ingredients and is generally well tolerated. If you’re pregnant, breastfeeding, or on medication, consult your healthcare provider first.
+          Yes. ProDentim is designed to complement your dental routine — not replace it. Brush and floss as usual, and take ProDentim daily to reinforce the oral microbiome with good bacteria.
         </div>
       </div>
 
+      <!-- Q5 -->
       <div class="faq-moringa-item">
         <div class="faq-moringa-question">
-          Is this an official Gutoptim website?
+          Is ProDentim safe for daily use?
           <span class="faq-moringa-icon">+</span>
         </div>
         <div class="faq-moringa-answer">
-          No — this is an affiliate website. We may earn a small commission if you purchase via our link, at no additional cost to you. We only promote products we trust and use.
+          Absolutely. ProDentim is made in the USA in a GMP-certified, FDA-inspected facility. It’s non-GMO, stimulant-free, and safe for daily use by most adults. Always follow the label instructions and consult your dentist if unsure.
         </div>
       </div>
+
+      <!-- Q6 -->
+      <div class="faq-moringa-item">
+        <div class="faq-moringa-question">
+          Is this the official ProDentim website?
+          <span class="faq-moringa-icon">+</span>
+        </div>
+        <div class="faq-moringa-answer">
+          This is a trusted BioVault Health affiliate page. We may earn a commission when you order — at no extra cost to you. We only promote products backed by science and trusted by our health community.
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="faq-moringa-item">
+        <div class="faq-moringa-question">
+          What if ProDentim doesn’t work for me?
+          <span class="faq-moringa-icon">+</span>
+        </div>
+        <div class="faq-moringa-answer">
+          Every order is backed by a 60-day money-back guarantee. If you don’t notice any improvements in your oral health, simply return your bottles for a full refund — no hassle, no questions asked.
+        </div>
+      </div>
+
     </div>
-     <!-- Affiliate Disclaimer -->
+
+    <!-- Affiliate & Medical Disclaimer -->
     <div class="affiliate-disclaimer mt-4" style="font-size: 0.85rem; color: #6c757d; line-height: 1.6;">
       <hr>
       <p>
         <strong>🛡️ Affiliate & Medical Disclaimer:</strong><br>
-        This site contains affiliate links. We may earn a small commission if you purchase through our link—at no extra cost to you.
-        All opinions are our own. This content is for informational purposes only and does not constitute medical advice.
-        Always consult your healthcare provider before starting any supplement.
+        This page includes affiliate links. We may receive a small commission if you make a purchase through one of our links — at no additional cost to you. The information shared here is for educational purposes only and not a substitute for medical advice. Please consult your dentist or physician before using any supplement.
       </p>
     </div>
+
   </div>
 </section>
+
+
 
 
 
@@ -800,10 +1417,139 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- Copyright -->
-    <small class="footer-bottom">&copy; 2025 BioVault Health. All rights reserved.</small>
+<p class="footer-bottom">
+  <span class="recaptcha-line">
+    This site is protected by reCAPTCHA and the Google&nbsp;
+  </span>
+  <span class="recaptcha-line">
+    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and
+    <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> apply.
+  </span>
+</p>
+
+
+
+<small class="footer-bottom">&copy; 2025 BioVault Health. All rights reserved.</small>
 
   </div>
 </footer>
+
+
+<!-- Floating CTA Button (Mobile Only) -->
+<a href="/biovaulthealth/gutoptim.html"
+   class="floating-cta btn btn-info fw-bold"
+   id="floating-cta-button"
+   target="_blank"
+   rel="noopener noreferrer">
+   🔄 Shop GutOptim Now
+</a>
+
+<!-- Floating CTA script Button (Mobile Only) -->
+ <script>
+  const ctaVariants = {
+    "floating-cta": [
+      { buttonText: "🔄 Reset Hormones & Digestion Today »", variantID: "v1" },
+      { buttonText: "🌿 Bloating? Hormonal Swings? Try GutOptim »", variantID: "v2" },
+      { buttonText: "📦 Save 60% on GutOptim + Bonus Guide", variantID: "v3" },
+      { buttonText: "💊 Daily Synbiotic for Hormonal Harmony »", variantID: "v4" },
+      { buttonText: "🧘‍♀️ Gut–Hormone Support Starts Here »", variantID: "v5" },
+      { buttonText: "🔥 Balance PMS, Mood & Gut — Naturally", variantID: "v6" }
+    ],
+    "cta-1": [
+      {
+        heading: "😣 Struggling with Mood, Bloating or PMS?",
+        subheading: "GutOptim helps restore hormonal balance through your gut — without harsh cleanses or synthetic hormones.",
+        offer: "🌿 Get up to 60% Off Today + Free Hormone Reset Guide",
+        buttonText: "Try GutOptim Risk-Free »",
+        variantID: "v1"
+      },
+      {
+        heading: "🔄 Hormonal Balance Starts in the Gut",
+        subheading: "GutOptim combines probiotics, botanicals & adaptogens to support smoother digestion, cycles, and clarity.",
+        offer: "🎁 6-Bottle Bundle = Save $120 + Free Ebook",
+        buttonText: "Feel the GutOptim Difference »",
+        variantID: "v2"
+      }
+    ],
+    "cta-2": [
+      {
+        heading: "💚 Gut–Hormone Synergy That Works",
+        subheading: "Formulated for women’s wellness — backed by science and trusted by thousands worldwide.",
+        offer: "✔️ Non-GMO • Hormone-Free • Doctor-Endorsed",
+        buttonText: "Order GutOptim & Save 60% Today »",
+        variantID: "v1"
+      },
+      {
+        heading: "🧘‍♀️ Hormonal Support, The Natural Way",
+        subheading: "From mood to metabolism, GutOptim offers daily balance from the inside out.",
+        offer: "📘 Get Bonus Hormone Reset Guide w/ 6-Bottle Pack",
+        buttonText: "Shop GutOptim Now »",
+        variantID: "v2"
+      }
+    ]
+  };
+
+  function getCookie(name) {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? decodeURIComponent(match[2]) : null;
+  }
+
+  function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + d.toUTCString();
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    ["floating-cta", "cta-1", "cta-2"].forEach(slot => {
+      let variantID = getCookie(`${slot}_variant`);
+      if (!variantID) {
+        const randomIndex = Math.floor(Math.random() * ctaVariants[slot].length);
+        variantID = ctaVariants[slot][randomIndex].variantID;
+        setCookie(`${slot}_variant`, variantID, 7);
+      }
+
+      const selected = ctaVariants[slot].find(v => v.variantID === variantID);
+      if (!selected) return;
+
+      if (slot === "floating-cta") {
+        const btn = document.getElementById("floating-cta-button");
+        if (btn && selected.buttonText) {
+          btn.textContent = selected.buttonText;
+          btn.setAttribute("data-variant", selected.variantID);
+        }
+      } else {
+        const heading = document.getElementById(`${slot}-heading`);
+        const subheading = document.getElementById(`${slot}-subheading`);
+        const offer = document.getElementById(`${slot}-offer`);
+        const btn = document.getElementById(`${slot}-button`);
+
+        if (heading && selected.heading) heading.textContent = selected.heading;
+        if (subheading && selected.subheading) subheading.textContent = selected.subheading;
+        if (offer && selected.offer) offer.textContent = selected.offer;
+        if (btn && selected.buttonText) {
+          btn.textContent = selected.buttonText;
+          btn.setAttribute("data-variant", selected.variantID);
+        }
+      }
+    });
+
+    const floatingBtn = document.getElementById("floating-cta-button");
+    if (floatingBtn) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 600) {
+          floatingBtn.style.opacity = "1";
+          floatingBtn.style.pointerEvents = "auto";
+        } else {
+          floatingBtn.style.opacity = "0";
+          floatingBtn.style.pointerEvents = "none";
+        }
+      });
+    }
+  });
+</script>
+
 
 
   

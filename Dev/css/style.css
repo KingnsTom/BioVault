@@ -867,8 +867,136 @@ form textarea:disabled {
   }
 
 
+/* ============================
+   Reusable: Product Section Block (Premium)
+============================ */
 
+.bvh-product-section {
+  padding: 4.5rem 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fefc 100%);
+  border-top: 1px solid #eaeaea;
+  overflow: hidden;
 }
+
+
+
+.bvh-product-section .text-muted {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  letter-spacing: 0.2px;
+  color: #6c757d;
+  margin-bottom: 1.75rem;
+}
+
+.bvh-product-section a {
+  color: #05b9b5;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.bvh-product-section a:hover {
+  color: #038f8c;
+  text-decoration: none;
+}
+
+.bvh-product-section .small {
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+/* ============================
+   Image Styling
+============================ */
+
+.bvh-product-section img {
+  max-width: 100%;
+  height: auto;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  animation: fadeInSlide 1.2s ease-in-out both;
+  transition: transform 0.3s ease;
+}
+
+.bvh-product-section img:hover {
+  transform: scale(1.02);
+}
+
+/* ============================
+   Highlight Block (Optional Quote or CTA)
+============================ */
+
+.bvh-product-section .highlight-block {
+  background: #f0fcf9;
+  border-left: 4px solid #05b9b5;
+  padding: 1rem 1.25rem;
+  font-style: italic;
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  color: #444;
+}
+
+/* ============================
+   Animation
+============================ */
+
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================
+   Responsive Enhancements
+============================ */
+
+@media (max-width: 992px) {
+  .bvh-product-section .section-title {
+    font-size: 1.9rem;
+  }
+
+  .bvh-product-section .text-muted {
+    font-size: 1.02rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bvh-product-section {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .bvh-product-section .section-title {
+    font-size: 1.65rem;
+    margin-bottom: 1rem;
+  }
+
+  .bvh-product-section img {
+    margin-bottom: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bvh-product-section .section-title {
+    font-size: 1.45rem;
+  }
+
+  .bvh-product-section .text-muted {
+    font-size: 0.95rem;
+  }
+
+  .bvh-product-section .highlight-block {
+    font-size: 0.95rem;
+  }
+}
+
 
 
 /* -----------------------------------
@@ -1126,7 +1254,6 @@ form textarea:disabled {
 }
 
 /* === Product Comparison Table === */
-/* === Product Comparison Table === */
 #compare-products {
   background-color: var(--light-color); /* Light background for the section */
   padding: 4rem 1rem; /* Padding around the section */
@@ -1286,6 +1413,76 @@ form textarea:disabled {
   border-radius: 12px;
   padding: 1rem;
 }
+/* ================================
+   BioVault – Product Offer Styling (ProDentim)
+   Polished for Image Placement + UX Flow
+================================ */
+
+/* General Card Styling */
+.product-offer-section .card {
+  transition: transform 0.3s ease-in-out;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* Hover Zoom */
+.product-offer-section .hover-zoom:hover {
+  transform: scale(1.03);
+}
+
+/* Card Header Tag */
+.product-offer-section .card-header {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border-bottom: none;
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+
+/* Image Styling */
+.product-offer-section .card-body img {
+  display: block;
+  margin: 0 auto 1rem;
+  max-height: 220px;
+  width: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0.5rem;
+}
+
+/* Responsive Image Adjustments */
+@media (max-width: 768px) {
+  .product-offer-section .card-body img {
+    max-height: 180px;
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* Buttons */
+.product-offer-section .btn {
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+}
+
+/* Section Titles */
+
+
+/* Small Muted Text */
+.product-offer-section p.text-muted.small {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Card Centering Fix (Optional Utility) */
+.product-offer-section .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* ======================================================
    3. Floating Keyframe Animation
 ====================================================== */
@@ -3936,7 +4133,7 @@ table tbody tr:nth-child(even) {
 /* List Item Styling */
 .science-list li {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   margin-bottom: 1.2rem;
   line-height: 1.65;
   font-weight: 500;
@@ -3951,13 +4148,12 @@ table tbody tr:nth-child(even) {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* Icon in List */
-.science-list span {
-  color: var(--primary-color);
-  font-size: 1.3rem;
-  margin-right: 0.85rem;
-  flex-shrink: 0;
-  line-height: 1.4;
+/* Fix: Icon and Supplement Title Inline */
+.science-list li > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 /* Study Reference Link */
@@ -4029,7 +4225,6 @@ table tbody tr:nth-child(even) {
   .science-list li {
     font-size: 0.95rem;
     padding: 0.75rem 1rem;
-    display: block !important;
   }
 
   .science-list li a {
@@ -4042,6 +4237,14 @@ table tbody tr:nth-child(even) {
     padding: 1rem 1.25rem;
   }
 }
+
+/* Prevent awkward breaks in supplement names */
+@media (min-width: 768px) {
+  .science-list li strong {
+    white-space: nowrap;
+  }
+}
+
 
 
 /* -----------------------------
