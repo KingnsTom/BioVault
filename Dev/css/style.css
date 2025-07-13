@@ -2589,6 +2589,36 @@ form textarea:disabled {
   transform: scale(1.02);
 }
 
+@media (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: 1fr; /* Stack all columns vertically */
+    text-align: center;
+  }
+
+  .footer-container {
+    padding: 0 1rem;
+  }
+
+  .footer-branding,
+  .footer-nav,
+  .footer-signup {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-form {
+    width: 100%;
+    align-items: center;
+  }
+
+  .footer-form input,
+  .footer-form button {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+
 
 /* -----------------------------------
    FAQ Section (Styled & Working)
