@@ -46,7 +46,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .container, .section {
+  .container, .section {  
     width: 100%;
     overflow-x: hidden;
   }
