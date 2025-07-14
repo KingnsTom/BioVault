@@ -16,6 +16,11 @@
       "permanent": true
     },
     {
+      "source": "/:path(.+)\\.html",
+      "destination": "/:path",
+      "permanent": true
+    },
+    {
       "source": "https://biovaulthealth.com/:path*",
       "destination": "https://www.biovaulthealth.com/:path*",
       "permanent": true
