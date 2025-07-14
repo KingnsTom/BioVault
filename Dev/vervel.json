@@ -2,15 +2,17 @@
   "cleanUrls": true,
   "trailingSlash": false,
 
+  "rewrites": [
+    {
+      "source": "/:path((?!.*\\.).*)",
+      "destination": "/:path.html"
+    }
+  ],
+
   "redirects": [
     {
       "source": "/index.html",
       "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)\\.html",
-      "destination": "/$1",
       "permanent": true
     },
     {
