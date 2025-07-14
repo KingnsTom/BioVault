@@ -60,6 +60,9 @@ body {
   border-radius: 0.5em;
   font-size: 1rem;
 }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 
   /* Typography */
