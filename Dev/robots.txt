@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.biovaulthealth.com/sitemap.xml
+Sitemap: https://biovaulthealth.com/sitemap.xml
