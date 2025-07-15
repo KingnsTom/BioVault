@@ -1,19 +1,18 @@
+<!-- ✅ Supplement Match Quiz | BioVault Health -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Supplement Match Quiz | BioVault Health</title>
-  <meta name="description" content="Find the perfect supplement for your body in 30 seconds. Personalized quiz by BioVault Health." />
-  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Find Your Perfect Supplement | BioVault Health</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" />
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
       background: #f6f8f9;
       color: #222;
+      margin: 0;
+      padding: 0;
     }
     .container {
       max-width: 720px;
@@ -25,12 +24,19 @@
       padding: 2rem;
       border-radius: 16px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      margin-bottom: 2rem;
       animation: fadeIn 0.8s ease;
+      margin-bottom: 2rem;
     }
     h1, h2 {
       color: #05b9b5;
       text-align: center;
+    }
+    .trust-bar {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6c757d;
+      margin-top: -1rem;
+      margin-bottom: 1.5rem;
     }
     .question {
       font-size: 1.2rem;
@@ -56,7 +62,6 @@
       transition: width 0.4s ease;
     }
     .answers button {
-      display: block;
       width: 100%;
       margin: 0.5rem 0;
       padding: 0.75rem;
@@ -94,6 +99,47 @@
       margin: 1rem auto;
       display: block;
     }
+    textarea, input[type="email"] {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 1rem;
+    }
+    button[type="submit"] {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #05b9b5;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+    /* Exit Intent Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 400px;
+      text-align: center;
+    }
+    .modal h2 {
+      color: #05b9b5;
+    }
+    .modal input {
+      margin-top: 1rem;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -104,44 +150,51 @@
   <main class="container">
     <section class="quiz-section" id="quiz">
       <h1>🔍 Find Your Perfect Supplement</h1>
+      <div class="trust-bar">✅ Secure. No spam. Backed by science.</div>
       <p id="progress"></p>
       <div class="progress-bar"><div id="progress-fill"></div></div>
       <p class="question" id="question"></p>
       <div class="answers" id="answers"></div>
     </section>
-
     <section class="quiz-section result-section" id="result"></section>
   </main>
 
-  <script>
-  // ✅ Data Config
+  <!-- Exit Intent Modal -->
+  <div class="modal" id="exitModal">
+    <div class="modal-content">
+      <h2>👋 Leaving so soon?</h2>
+      <p>We'd love to send you a free personalized supplement plan before you go.</p>
+      <form onsubmit="handleExitSubmit(event)">
+        <input type="email" name="exitEmail" placeholder="Enter your email" required />
+        <button type="submit">Get My Plan →</button>
+      </form>
+    </div>
+  </div>
+
+ <script>
   const quizData = [
-    {
-      q: "What do you want to improve most right now?",
-      a: ["Energy Levels", "Digestion & Bloating", "Mental Clarity", "Hormonal Balance", "Blood Sugar", "Oral Health"]
-    },
-    {
-      q: "What best describes your supplement habits?",
-      a: ["Daily User", "Occasional", "Newbie"]
-    }
+    { q: "What do you want to improve most right now?", a: ["Energy Levels", "Digestion & Bloating", "Mental Clarity", "Hormonal Balance", "Blood Sugar", "Oral Health", "Other"] },
+    { q: "What best describes your supplement habits?", a: ["Daily User", "Occasional", "Newbie"] },
+    { q: "What’s your age range?", a: ["18–24", "25–34", "35–49", "50+"] },
+    { q: "What’s your current eating style?", a: ["Standard", "Low Carb", "Vegetarian", "Vegan", "Intermittent Fasting", "Other"] }
   ];
 
   const symptomsMap = {
-    "Energy Levels": ["Fatigue", "Low Stamina", "Afternoon Crash"],
-    "Digestion & Bloating": ["Gas / Bloating", "Constipation", "Stomach Pain"],
-    "Mental Clarity": ["Brain Fog", "Trouble Focusing", "Restless Sleep"],
-    "Hormonal Balance": ["Mood Swings / PMS", "Weight Gain", "Low Libido"],
-    "Blood Sugar": ["Cravings", "Energy Dips After Eating", "Frequent Thirst"],
-    "Oral Health": ["Bleeding Gums", "Bad Breath", "Tooth Sensitivity"]
+    "Energy Levels": ["Fatigue", "Low Stamina", "Afternoon Crash", "Low Motivation", "Other"],
+    "Digestion & Bloating": ["Gas / Bloating", "Constipation", "Stomach Pain", "Acid Reflux", "Other"],
+    "Mental Clarity": ["Brain Fog", "Trouble Focusing", "Restless Sleep", "Forgetfulness", "Other"],
+    "Hormonal Balance": ["Mood Swings / PMS", "Weight Gain", "Hot Flashes", "Low Libido", "Other"],
+    "Blood Sugar": ["Cravings", "Energy Dips After Eating", "Frequent Thirst", "Sugar Addiction", "Other"],
+    "Oral Health": ["Bleeding Gums", "Bad Breath", "Tooth Sensitivity", "Cavities", "Other"]
   };
 
   const productMap = {
-    "Energy Levels": "Moringa Magic", "Fatigue": "Moringa Magic", "Low Stamina": "Moringa Magic", "Afternoon Crash": "Moringa Magic",
-    "Gas / Bloating": "DigestSync", "Constipation": "DigestSync", "Stomach Pain": "DigestSync", "Digestion & Bloating": "DigestSync",
-    "Mental Clarity": "Pineal XT", "Brain Fog": "Pineal XT", "Trouble Focusing": "Pineal XT", "Restless Sleep": "Pineal XT",
-    "Hormonal Balance": "GutOptim", "Mood Swings / PMS": "GutOptim", "Weight Gain": "GutOptim", "Low Libido": "GutOptim",
-    "Blood Sugar": "GlucoTrust", "Cravings": "GlucoTrust", "Energy Dips After Eating": "GlucoTrust", "Frequent Thirst": "GlucoTrust",
-    "Oral Health": "ProDentim", "Bleeding Gums": "ProDentim", "Bad Breath": "ProDentim", "Tooth Sensitivity": "ProDentim"
+    "Energy Levels": "Moringa Magic", "Fatigue": "Moringa Magic", "Afternoon Crash": "Moringa Magic",
+    "Digestion & Bloating": "DigestSync", "Stomach Pain": "DigestSync",
+    "Mental Clarity": "Pineal XT", "Brain Fog": "Pineal XT",
+    "Hormonal Balance": "GutOptim", "Mood Swings / PMS": "GutOptim",
+    "Blood Sugar": "GlucoTrust", "Cravings": "GlucoTrust",
+    "Oral Health": "ProDentim", "Bleeding Gums": "ProDentim"
   };
 
   const productImages = {
@@ -171,7 +224,9 @@
     "ProDentim": "7-Day Oral Health Routine"
   };
 
-  // ✅ Quiz Logic
+  const API_KEY = "Ckns7ZnNgp-5NTxRLMCrmw";
+  const FORM_UID = "dbc284d448";
+
   let step = 0;
   let match = "";
   let selectedCategory = "";
@@ -199,48 +254,153 @@
   }
 
   function handleAnswer(answer) {
-    // Step 0: Category selected
     if (step === 0) {
       selectedCategory = answer;
-      match = productMap[answer]; // Default match from category
+      match = productMap[answer];
       quizData.splice(1, 0, {
         q: "What’s your most annoying symptom?",
-        a: symptomsMap[selectedCategory] || []
+        a: [...(symptomsMap[selectedCategory] || []), "Other"]
       });
     }
 
-    // Step 1: Symptom selected
+    if (step === 1 && answer === "Other") {
+      showOtherFallback();
+      return;
+    }
+
     if (step === 1 && productMap[answer]) {
-      match = productMap[answer]; // Override if more specific
+      match = productMap[answer];
     }
 
     step++;
     if (step < quizData.length) {
       renderQuestion();
     } else {
-      showResult();
+      showEmailCapture();
     }
   }
 
-  function showResult() {
+  function showEmailCapture() {
     quizEl.style.display = "none";
     resultEl.classList.add("active");
     resultEl.innerHTML = `
-      <h2>Your Match: ${match}</h2>
-      <img src="${productImages[match]}" class="product-image" alt="${match}" />
-      <p>This supplement is tailored to support your current wellness goal.</p>
-      <a href="${productLinks[match]}?utm_source=quiz&utm_medium=match&utm_campaign=conversion" class="cta-btn" target="_blank">View ${match} →</a>
-      <form action="https://app.kit.com/forms/8291346/subscriptions" method="post" style="margin-top:2rem;background:#EAE8E5;padding:1.5rem;border-radius:12px;">
-        <div style="font-weight:600;font-size:1.2rem;margin-bottom:0.5rem;">🎯 Get Your Personalized Plan</div>
-        <p>We'll email you your <strong>${planMap[match]}</strong> for <strong>${match}</strong>.</p>
-        <input type="email" name="email_address" placeholder="Your email" required style="width:100%;padding:0.5rem;border-radius:6px;border:1px solid #ccc;" />
-        <button type="submit" style="margin-top:1rem;padding:0.75rem 1.5rem;background:#05b9b5;color:white;border:none;border-radius:30px;font-weight:bold;">Send It to Me</button>
-        <small>We respect your privacy. Unsubscribe anytime.</small>
+      <h2>🎯 Where should we send your personalized plan?</h2>
+      <form onsubmit="handleEmailSubmit(event)">
+        <input type="email" name="email" placeholder="Enter your email" required />
+        <button type="submit">Reveal My Match →</button>
       </form>
     `;
   }
 
-  // Initialize
+  function handleEmailSubmit(e) {
+    e.preventDefault();
+    const email = e.target.email.value;
+
+    fetch(`https://api.convertkit.com/v3/forms/${FORM_UID}/subscribe`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        api_key: API_KEY,
+        email: email,
+        fields: {
+          goal: selectedCategory,
+          match: match,
+          source: "quiz"
+        }
+      })
+    })
+    .then(res => res.ok ? showResult() : alert("Something went wrong. Try again."))
+    .catch(() => alert("Submission failed. Please try again."));
+  }
+
+  function showOtherFallback() {
+    quizEl.style.display = "none";
+    resultEl.classList.add("active");
+    resultEl.innerHTML = `
+      <h2>🩺 Tell Us More</h2>
+      <p>We didn’t find an exact match, but we’ll create one just for you.</p>
+      <form onsubmit="handleOtherSubmit(event)">
+        <textarea name="otherDetails" placeholder="Briefly describe your top concern..." required></textarea>
+        <input type="email" name="email" placeholder="Your email address" required />
+        <button type="submit">Send My Personalized Plan →</button>
+      </form>
+    `;
+  }
+
+  function handleOtherSubmit(e) {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const note = e.target.otherDetails.value;
+
+    fetch(`https://api.convertkit.com/v3/forms/${FORM_UID}/subscribe`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        api_key: API_KEY,
+        email: email,
+        fields: {
+          note: note,
+          match: "Custom Plan",
+          goal: selectedCategory || "Other",
+          source: "quiz-fallback"
+        }
+      })
+    })
+    .then(res => {
+      resultEl.innerHTML = `
+        <h2>✅ You're All Set!</h2>
+        <p>Our team will review your concern and send a custom plan to <strong>${email}</strong> soon.</p>
+        <p>Thanks for trusting BioVault Health.</p>
+      `;
+    })
+    .catch(() => alert("Error submitting your concern. Please try again."));
+  }
+
+  function showResult() {
+    resultEl.innerHTML = `
+      <h2>Your Match: ${match}</h2>
+      <img src="${productImages[match]}" class="product-image" alt="${match}" />
+      <p>Based on your goal to improve <strong>${selectedCategory.toLowerCase()}</strong>, we recommend <strong>${match}</strong>.</p>
+      <p>Your personalized plan: <strong>${planMap[match]}</strong></p>
+      <a href="${productLinks[match]}?utm_source=quiz&utm_medium=match&utm_campaign=conversion" class="cta-btn" target="_blank">View ${match} →</a>
+    `;
+  }
+
+  // Exit-intent trigger
+  let exitShown = false;
+  document.addEventListener('mouseout', function(e) {
+    if (e.clientY < 10 && !exitShown) {
+      document.getElementById('exitModal').style.display = 'flex';
+      exitShown = true;
+    }
+  });
+
+  function handleExitSubmit(e) {
+    e.preventDefault();
+    const email = e.target.exitEmail.value;
+
+    fetch(`https://api.convertkit.com/v3/forms/${FORM_UID}/subscribe`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        api_key: API_KEY,
+        email: email,
+        fields: {
+          source: "exit-intent"
+        }
+      })
+    })
+    .then(res => {
+      document.getElementById('exitModal').innerHTML = `
+        <div class="modal-content">
+          <h2>✅ You're In!</h2>
+          <p>We’ll send your personalized supplement plan to <strong>${email}</strong> shortly.</p>
+        </div>
+      `;
+    })
+    .catch(() => alert("Couldn’t capture your email. Please try again."));
+  }
+
   renderQuestion();
 </script>
 
