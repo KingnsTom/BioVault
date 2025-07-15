@@ -1,13 +1,5 @@
 {
-  "cleanUrls": true,
   "trailingSlash": false,
-
-  "rewrites": [
-    {
-      "source": "/:path((?!.*\\.).*)",
-      "destination": "/:path.html"
-    }
-  ],
 
   "redirects": [
     {
@@ -88,6 +80,10 @@
   ],
 
   "routes": [
+    {
+      "src": "^/(.*[^/])$",
+      "dest": "/$1.html"
+    },
     {
       "src": "/sitemap.xml",
       "dest": "/sitemap.xml"
