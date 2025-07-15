@@ -41,6 +41,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="/css/style.css" />
+<!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 
 <!-- Open Graph Meta -->
 <meta property="og:type" content="website" />
@@ -529,6 +532,322 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- ========================================
+     Discovery Block — “Is This Page Right for You?”
+======================================== -->
+<section id="bvh-discovery" class="pain-points bg-light py-5">
+  <div class="container text-center">
+
+    <!-- Standardized Section Header -->
+    <div class="special-offer-header text-center mb-4 position-relative">
+      <h2 class="section-title">
+        🧭 Start With What You’re  — <span class="text-success">Feeling</span>
+      </h2>
+      <p class="text-muted fs-5 mb-1">
+Fatigue? Brain fog? Digestive issues? If you're dealing with symptoms like these, you're in the right place. BioVault helps real people solve real wellness problems — naturally.
+
+      </p>
+    </div>
+    <div class="row g-4">
+      <!-- Energy: Moringa Magic -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+          <h5 class="mb-2 text-dark">⚡ I’m Always Tired</h5>
+          <p class="small text-muted mb-2">Even after sleep, your energy crashes. You might need <strong>Moringa Magic</strong> for cellular fuel + metabolism.</p>
+          <a href="/biovaulthealth/moringa.html" class="text-success fw-semibold">👉 Reclaim My Energy →</a>
+        </div>
+      </div>
+
+      <!-- Brain Fog: Pineal XT -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+          <h5 class="mb-2 text-dark">🧠 I Can’t Think Clearly</h5>
+          <p class="small text-muted mb-2">Mental fog, poor sleep, or spiritual fatigue? <strong>Pineal XT</strong> may help detox your brain for clarity.</p>
+          <a href="/biovaulthealth/pinealxt.html" class="text-success fw-semibold">👉 Clear My Mind →</a>
+        </div>
+      </div>
+
+      <!-- Gut: DigestSync -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+          <h5 class="mb-2 text-dark">🤢 My Gut Feels Off</h5>
+          <p class="small text-muted mb-2">Bloating, gas, or sluggish digestion? <strong>DigestSync</strong> helps you reset your gut and feel light again.</p>
+          <a href="/biovaulthealth/digestsync.html" class="text-success fw-semibold">👉 Reset My Gut  →</a>
+        </div>
+      </div>
+
+      <!-- Sugar: GlucoTrust -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+          <h5 class="mb-2 text-dark">🍭 I Crave Sugar Constantly</h5>
+          <p class="small text-muted mb-2">If your energy spikes and crashes, <strong>GlucoTrust</strong> can support healthy glucose & insulin balance.</p>
+          <a href="/biovaulthealth/glucotrust.html" class="text-success fw-semibold">👉 Balance My Sugar →</a>
+        </div>
+      </div>
+
+      <!-- Hormones: GutOptim -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+          <h5 class="mb-2 text-dark">😵‍💫 My Hormones Are Out of Whack</h5>
+          <p class="small text-muted mb-2">Mood swings, PMS, or fatigue? <strong>GutOptim</strong> helps rebalance hormones via the gut axis.</p>
+          <a href="/biovaulthealth/gutoptim.html" class="text-success fw-semibold">👉 Balance My Hormones  →</a>
+        </div>
+      </div>
+
+      <!-- Oral: ProDentim -->
+      <div class="col-md-4">
+        <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+          <h5 class="mb-2 text-dark">🦷 My Gums Bleed or My Breath Smells</h5>
+          <p class="small text-muted mb-2">If brushing doesn’t help, <strong>ProDentim</strong> restores your oral microbiome from the inside out.</p>
+          <a href="/biovaulthealth/prodentim.html" class="text-success fw-semibold">👉 Fix My Smile→</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= 
+      BioVault Wellness Journey Timeline Section
+============================== -->
+<section id="bvh-timeline" class="bvh-product-section bg-light py-5 section-divider">
+  <div class="container">
+    
+
+    <!-- Matching Custom Header -->
+    <div class="special-offer-header text-center mb-4 position-relative">
+      <h2 class="section-title text-center">
+        🧩 Your <span class="text-success">BioVault Wellness Journey</span>
+      </h2>
+      <p class="text-muted fs-5 mb-1">
+Choose your wellness goal — energy, gut repair, mental clarity, or hormonal balance — and track your transformation with science-backed steps.
+
+      </p>
+    </div>
+  <!-- Tabs -->
+  <ul class="nav nav-pills justify-content-center mb-4" id="timelineTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="energy-tab" data-bs-toggle="pill" data-bs-target="#energy" type="button" role="tab">⚡ Energy</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="gut-tab" data-bs-toggle="pill" data-bs-target="#gut" type="button" role="tab">🦠 Gut</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="clarity-tab" data-bs-toggle="pill" data-bs-target="#clarity" type="button" role="tab">🧠 Clarity</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="sugar-tab" data-bs-toggle="pill" data-bs-target="#sugar" type="button" role="tab">💉 Sugar</button>
+    </li>
+    <li class="nav-item" role="presentation">
+  <button class="nav-link" id="hormones-tab" data-bs-toggle="pill" data-bs-target="#hormones" type="button" role="tab">💃 Hormones</button>
+</li>
+
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="oral-tab" data-bs-toggle="pill" data-bs-target="#oral" type="button" role="tab">😁 Oral</button>
+    </li>
+  </ul>
+
+  <!-- Tab Content -->
+  <div class="tab-content" id="timelineTabsContent">
+    <!-- ENERGY -->
+    <div class="tab-pane fade show active" id="energy" role="tabpanel">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5>Week 1</h5>
+          <ul>
+            <li>⚡ Quick energy boost</li>
+            <li>🌿 Reduced inflammation</li>
+            <li>😌 Fewer afternoon crashes</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Week 2–3</h5>
+          <ul>
+            <li>🔋 Stamina builds up</li>
+            <li>💤 Improved sleep depth</li>
+            <li>🧬 Cellular repair activates</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Month 1+</h5>
+          <ul>
+            <li>🛡️ Stronger immune defense</li>
+            <li>⚖️ Metabolism rebalanced</li>
+            <li>🌟 Overall vitality rises</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="/biovaulthealth/moringa.html" class="btn btn-success rounded-pill px-4">Get My Energy Plan →</a>
+      </div>
+    </div>
+
+    <!-- GUT -->
+    <div class="tab-pane fade" id="gut" role="tabpanel">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5>Week 1</h5>
+          <ul>
+            <li>🥴 Less bloating</li>
+            <li>💨 Easier digestion</li>
+            <li>😌 Calmer belly</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Week 2–3</h5>
+          <ul>
+            <li>🦠 Microbiome rebalancing</li>
+            <li>🛌 Better sleep & mood</li>
+            <li>🚽 Regular bowel movements</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Month 1+</h5>
+          <ul>
+            <li>💪 Improved nutrient absorption</li>
+            <li>🧠 Gut-brain axis syncs</li>
+            <li>🏃‍♀️ Long-term digestive ease</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="/biovaulthealth/digestsync.html" class="btn btn-success rounded-pill px-4">Get My Gut Reset Plan →</a>
+      </div>
+    </div>
+
+    <!-- CLARITY -->
+    <div class="tab-pane fade" id="clarity" role="tabpanel">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5>Week 1</h5>
+          <ul>
+            <li>🌌 Calmer thoughts</li>
+            <li>🧘‍♀️ More restful sleep</li>
+            <li>🚫 Less brain fog</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Week 2–3</h5>
+          <ul>
+            <li>🔮 Enhanced focus</li>
+            <li>🧘‍♂️ Mood balance</li>
+            <li>🌙 Deeper dream states</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Month 1+</h5>
+          <ul>
+            <li>🧠 Mental sharpness</li>
+            <li>🪐 Elevated spiritual clarity</li>
+            <li>😴 Rested mind-body connection</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="/biovaulthealth/pinealxt.html" class="btn btn-success rounded-pill px-4">Get My Mental Clarity Plan →</a>
+      </div>
+    </div>
+
+    <!-- SUGAR -->
+    <div class="tab-pane fade" id="sugar" role="tabpanel">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5>Week 1</h5>
+          <ul>
+            <li>🍭 Cravings decrease</li>
+            <li>📉 Smoother blood sugar</li>
+            <li>😌 Less brain fog post-meal</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Week 2–3</h5>
+          <ul>
+            <li>💡 Increased energy</li>
+            <li>🔁 Stable sugar spikes</li>
+            <li>👟 Fewer crashes</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Month 1+</h5>
+          <ul>
+            <li>🧬 Metabolic health support</li>
+            <li>🛡️ Insulin sensitivity</li>
+            <li>📊 Sustainable results</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="/biovaulthealth/glucotrust.html" class="btn btn-success rounded-pill px-4">Get My Blood Sugar Plan →</a>
+      </div>
+    </div>
+    <!-- HORMONAL BALANCE -->
+<div class="tab-pane fade" id="hormones" role="tabpanel">
+  <div class="row g-4">
+    <div class="col-md-4">
+      <h5>Week 1</h5>
+      <ul>
+        <li>🌿 Reduced bloating & cravings</li>
+        <li>😌 Improved digestion comfort</li>
+        <li>🙂 Subtle mood lift begins</li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h5>Week 2–3</h5>
+      <ul>
+        <li>🌸 PMS symptoms start easing</li>
+        <li>🧬 Hormonal rhythms recalibrate</li>
+        <li>💤 Better sleep, fewer mood swings</li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h5>Month 1+</h5>
+      <ul>
+        <li>💫 Stable mood & emotional clarity</li>
+        <li>🌿 Balanced gut-hormone connection</li>
+        <li>✨ More energy, radiant skin</li>
+      </ul>
+    </div>
+  </div>
+  <div class="text-center mt-4">
+    <a href="/biovaulthealth/gutoptim.html" class="btn btn-success rounded-pill px-4">Start My Hormone Reset Plan →</a>
+  </div>
+</div>
+
+
+    <!-- ORAL -->
+    <div class="tab-pane fade" id="oral" role="tabpanel">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5>Week 1</h5>
+          <ul>
+            <li>😁 Breath freshness</li>
+            <li>🪥 Gums feel cleaner</li>
+            <li>⚡ Oral microbiome boost</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Week 2–3</h5>
+          <ul>
+            <li>🩸 Bleeding reduced</li>
+            <li>🦷 Plaque minimized</li>
+            <li>💚 Gum strength improves</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Month 1+</h5>
+          <ul>
+            <li>🛡️ Long-term oral balance</li>
+            <li>🧬 Natural protection</li>
+            <li>🎯 Dentist-approved results</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="/biovaulthealth/prodentim.html" class="btn btn-success rounded-pill px-4">Get My Oral Health Plan →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- ============================= 
      Real Users Feedback Section (Homepage)
@@ -542,7 +861,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         💬 Real Results from <span class="text-success">Real People</span>
       </h2>
       <p class="text-muted fs-5 mb-1">
-        Discover how our top-rated supplements are transforming energy, digestion, and daily wellness worldwide.
+Tired to thriving. Sluggish to sharp.
+See how BioVault users are transforming energy, digestion, and daily wellness — with real results, not hype.
       </p>
     </div>
 
@@ -657,6 +977,77 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+
+<!-- ============================= 
+     7-Day Results Preview Section
+============================== -->
+<section class="py-5 bg-light border-top border-bottom" id="bvh-first-7-days">
+  <div class="container">
+
+    <!-- Standardized Section Header -->
+    <div class="special-offer-header text-center mb-4 position-relative">
+      <h2 class="section-title text-center">
+        ✨ What You’ll Feel in the <span class="text-success">First 7 Days</span>
+      </h2>
+      <p class="text-muted fs-5 mb-1">
+Feel lighter, clearer, and more energized — often within 7 days. No crashes. No bloating. Just real results.
+
+
+      </p>
+    </div>
+    <div class="row text-center g-4">
+
+      <div class="col-md-4">
+        <div class="card glow-card h-100 border-0 rounded-4 p-4 position-relative">
+          <h5 class="text-success">⚡ Energy & Vitality</h5>
+          <p class="text-muted mb-0">Feel more energized, alert, and productive by day 3 — without caffeine crashes.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card glow-card h-100 border-0 rounded-4 p-4 position-relative">
+          <h5 class="text-success">🧠 Mental Clarity</h5>
+          <p class="text-muted mb-0">Notice clearer focus, sharper memory, and reduced brain fog within your first week.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card glow-card h-100 border-0 rounded-4 p-4 position-relative">
+          <h5 class="text-success">🌙 Better Sleep</h5>
+          <p class="text-muted mb-0">Fall asleep easier, stay asleep longer, and wake up feeling truly refreshed.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card glow-card h-100 border-0 rounded-4 p-4 position-relative">
+          <h5 class="text-success">🦠 Digestive Relief</h5>
+          <p class="text-muted mb-0">Experience less bloating, smoother digestion, and more regularity.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card glow-card h-100 border-0 rounded-4 p-4 position-relative">
+          <h5 class="text-success">🌸 Hormonal Support</h5>
+          <p class="text-muted mb-0">Feel more balanced emotionally and physically — even around your cycle.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card glow-card h-100 border-0 rounded-4 p-4 position-relative">
+          <h5 class="text-success">🦷 Oral Health Boost</h5>
+          <p class="text-muted mb-0">Fresher breath, stronger gums, and a healthier smile in just days.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center mt-5">
+      <a href="/quiz.html" class="btn btn-success rounded-pill px-4 py-2 fs-5">🎯 Take the Quiz – Find Your Formula</a>
+    </div>
+  </div>
+</section>
+
+
+
 <!-- Products Grid Section -->
 <section id="products" class="py-5 bg-light">
   <div class="container">
@@ -667,7 +1058,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         🌿 Transform Your Health with <span class="text-success">Nature's Top Formulas</span>
       </h2>
       <p class="text-muted fs-5 mb-1">
-        Discover the exact supplements BioVault Health recommends for gut repair, energy, mental clarity, and hormonal harmony — trusted by thousands worldwide.
+Ready to repair your gut, reboot your energy, and sharpen your focus? Discover the exact formulas trusted by thousands of BioVault users.
+
+
       </p>
     </div>
 
@@ -1185,7 +1578,8 @@ Secure the best value on our top 6-bottle bundles — maximum results, minimum c
         ❓ BioVault Health <span class="text-success">Supplement FAQs</span>
       </h2>
       <p class="text-muted fs-5 mb-1">
-        Everything you need to know about how we recommend supplements, how affiliate links work, and how to get in touch.
+Everything you need to know about how we recommend supplements, how we earn through trusted partnerships, and how to get in touch.
+
       </p>
     </div>
 
@@ -1468,6 +1862,45 @@ You can reach us anytime via support@biovaulthealth.com or DM us on Instagram @b
     });
   });
 </script>
+
+
+<script>
+  // Enable swipe on timeline tabs for mobile
+  const tabs = document.getElementById('timelineTabsContent');
+  let startX = 0;
+
+  tabs.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  tabs.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = endX - startX;
+
+    if (Math.abs(diff) > 50) {
+      const active = document.querySelector('#timelineTabs .nav-link.active');
+      const items = [...document.querySelectorAll('#timelineTabs .nav-link')];
+      const index = items.indexOf(active);
+
+      let nextIndex = index + (diff < 0 ? 1 : -1);
+      if (nextIndex < 0) nextIndex = 0;
+      if (nextIndex >= items.length) nextIndex = items.length - 1;
+
+      items[nextIndex].click();
+    }
+  });
+</script>
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 800,
+    easing: 'ease-out-quart',
+  });
+</script>
+
 
 
 <!-- Add ConvertKit Exit-Intent Script Here -->
