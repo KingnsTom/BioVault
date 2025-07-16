@@ -5,8 +5,22 @@
   "trailingSlash": false,
 
   "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/:path((?!.*\\.).+)", "destination": "/:path.html" }
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/:path((?!.*\\.).+)",
+      "destination": "/:path.html"
+    },
+    {
+      "source": "/:folder/:slug((?!.*\\.).+)",
+      "destination": "/:folder/:slug.html"
+    },
+    {
+      "source": "/:folder1/:folder2/:slug((?!.*\\.).+)",
+      "destination": "/:folder1/:folder2/:slug.html"
+    }
   ],
 
   "redirects": [
@@ -41,19 +55,43 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "interest-cohort=()" },
-        { "key": "X-Robots-Tag", "value": "index, follow" },
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "interest-cohort=()"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
       ]
     },
     {
       "source": "/(.*)\\.(css|js|png|jpg|jpeg|webp|svg|woff2|woff|ttf)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     }
   ]
