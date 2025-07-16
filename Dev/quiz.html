@@ -171,7 +171,10 @@
     </div>
   </div>
 
- <script>
+<script>
+  const API_KEY = "Ckns7ZnNgp-5NTxRLMCrmw";
+  const FORM_UID = "8291346";
+
   const quizData = [
     { q: "What do you want to improve most right now?", a: ["Energy Levels", "Digestion & Bloating", "Mental Clarity", "Hormonal Balance", "Blood Sugar", "Oral Health", "Other"] },
     { q: "What best describes your supplement habits?", a: ["Daily User", "Occasional", "Newbie"] },
@@ -180,12 +183,12 @@
   ];
 
   const symptomsMap = {
-    "Energy Levels": ["Fatigue", "Low Stamina", "Afternoon Crash", "Low Motivation", "Other"],
-    "Digestion & Bloating": ["Gas / Bloating", "Constipation", "Stomach Pain", "Acid Reflux", "Other"],
-    "Mental Clarity": ["Brain Fog", "Trouble Focusing", "Restless Sleep", "Forgetfulness", "Other"],
-    "Hormonal Balance": ["Mood Swings / PMS", "Weight Gain", "Hot Flashes", "Low Libido", "Other"],
-    "Blood Sugar": ["Cravings", "Energy Dips After Eating", "Frequent Thirst", "Sugar Addiction", "Other"],
-    "Oral Health": ["Bleeding Gums", "Bad Breath", "Tooth Sensitivity", "Cavities", "Other"]
+    "Energy Levels": ["Fatigue", "Low Stamina", "Afternoon Crash", "Low Motivation"],
+    "Digestion & Bloating": ["Gas / Bloating", "Constipation", "Stomach Pain", "Acid Reflux"],
+    "Mental Clarity": ["Brain Fog", "Trouble Focusing", "Restless Sleep", "Forgetfulness"],
+    "Hormonal Balance": ["Mood Swings / PMS", "Weight Gain", "Hot Flashes", "Low Libido"],
+    "Blood Sugar": ["Cravings", "Energy Dips After Eating", "Frequent Thirst", "Sugar Addiction"],
+    "Oral Health": ["Bleeding Gums", "Bad Breath", "Tooth Sensitivity", "Cavities"]
   };
 
   const productMap = {
@@ -224,9 +227,6 @@
     "ProDentim": "7-Day Oral Health Routine"
   };
 
-  const API_KEY = "Ckns7ZnNgp-5NTxRLMCrmw";
-  const FORM_UID = "dbc284d448";
-
   let step = 0;
   let match = "";
   let selectedCategory = "";
@@ -256,11 +256,13 @@
   function handleAnswer(answer) {
     if (step === 0) {
       selectedCategory = answer;
-      match = productMap[answer];
-      quizData.splice(1, 0, {
-        q: "What’s your most annoying symptom?",
-        a: [...(symptomsMap[selectedCategory] || []), "Other"]
-      });
+      match = productMap[answer] || "";
+      if (symptomsMap[selectedCategory]) {
+        quizData.splice(1, 0, {
+          q: "What’s your most annoying symptom?",
+          a: [...symptomsMap[selectedCategory], "Other"]
+        });
+      }
     }
 
     if (step === 1 && answer === "Other") {
@@ -301,15 +303,24 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         api_key: API_KEY,
-        email: email,
+        email,
         fields: {
           goal: selectedCategory,
-          match: match,
+          match,
           source: "quiz"
         }
       })
     })
-    .then(res => res.ok ? showResult() : alert("Something went wrong. Try again."))
+    .then(res => {
+      if (res.ok) {
+        localStorage.setItem("quizEmailSubmitted", "true");
+        showResult();
+      } else {
+        res.json().then(data => {
+          alert("ConvertKit Error: " + (data.message || "Unknown error."));
+        });
+      }
+    })
     .catch(() => alert("Submission failed. Please try again."));
   }
 
@@ -337,9 +348,9 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         api_key: API_KEY,
-        email: email,
+        email,
         fields: {
-          note: note,
+          note,
           match: "Custom Plan",
           goal: selectedCategory || "Other",
           source: "quiz-fallback"
@@ -347,11 +358,17 @@
       })
     })
     .then(res => {
-      resultEl.innerHTML = `
-        <h2>✅ You're All Set!</h2>
-        <p>Our team will review your concern and send a custom plan to <strong>${email}</strong> soon.</p>
-        <p>Thanks for trusting BioVault Health.</p>
-      `;
+      if (res.ok) {
+        localStorage.setItem("quizEmailSubmitted", "true");
+        resultEl.innerHTML = `
+          <h2>✅ You're All Set!</h2>
+          <p>We’ll send a personalized plan to <strong>${email}</strong> shortly.</p>
+        `;
+      } else {
+        res.json().then(data => {
+          alert("ConvertKit Error: " + (data.message || "Unknown error."));
+        });
+      }
     })
     .catch(() => alert("Error submitting your concern. Please try again."));
   }
@@ -366,14 +383,25 @@
     `;
   }
 
-  // Exit-intent trigger
+  // Exit-intent trigger (delayed + respects localStorage flag)
   let exitShown = false;
-  document.addEventListener('mouseout', function(e) {
-    if (e.clientY < 10 && !exitShown) {
-      document.getElementById('exitModal').style.display = 'flex';
-      exitShown = true;
-    }
-  });
+  let quizStartTime = null;
+
+  function delayExitIntent() {
+    quizStartTime = Date.now();
+    document.addEventListener('mouseout', function (e) {
+      if (
+        e.clientY < 10 &&
+        !exitShown &&
+        Date.now() - quizStartTime > 20000 &&
+        !localStorage.getItem("quizEmailSubmitted") &&
+        document.querySelector("#exitModal")
+      ) {
+        document.getElementById('exitModal').style.display = 'flex';
+        exitShown = true;
+      }
+    });
+  }
 
   function handleExitSubmit(e) {
     e.preventDefault();
@@ -384,24 +412,30 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         api_key: API_KEY,
-        email: email,
-        fields: {
-          source: "exit-intent"
-        }
+        email,
+        fields: { source: "exit-intent" }
       })
     })
     .then(res => {
-      document.getElementById('exitModal').innerHTML = `
-        <div class="modal-content">
-          <h2>✅ You're In!</h2>
-          <p>We’ll send your personalized supplement plan to <strong>${email}</strong> shortly.</p>
-        </div>
-      `;
+      if (res.ok) {
+        localStorage.setItem("quizEmailSubmitted", "true");
+        document.getElementById('exitModal').innerHTML = `
+          <div class="modal-content">
+            <h2>✅ You're In!</h2>
+            <p>We’ll send your personalized supplement plan to <strong>${email}</strong> shortly.</p>
+          </div>
+        `;
+      } else {
+        res.json().then(data => {
+          alert("ConvertKit Error: " + (data.message || "Unknown error."));
+        });
+      }
     })
     .catch(() => alert("Couldn’t capture your email. Please try again."));
   }
 
   renderQuestion();
+  delayExitIntent();
 </script>
 
 </body>
