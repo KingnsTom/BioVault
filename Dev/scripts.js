@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const paginationContainer = document.querySelector(".pagination");
   const filterButtons = document.querySelectorAll("[data-filter]");
   if (paginationContainer && blogCards.length) {
-    const postsPerPage = 12;
+    const postsPerPage = 9;
     let currentPage = 1, currentFilter = "all";
 
     const getFilteredPosts = () =>
