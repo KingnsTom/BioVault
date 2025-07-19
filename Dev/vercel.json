@@ -23,6 +23,11 @@
       "destination": "/blog/moringa-review-2025-does-moringa-really-work",
       "statusCode": 301
     },
+     {
+      "source": "/blog/3-day-reset",
+      "destination": "/blog/tired-after-8-hours-sleep-reset",
+      "statusCode": 301
+    },
     {
       "source": "/blog/moringa-review",
       "destination": "/blog/moringa-review-2025-does-moringa-really-work",
