@@ -12,7 +12,13 @@
 
   "redirects": [
     {
-      "source": "https://www.biovaulthealth.com/:path*",
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.biovaulthealth.com"
+        }
+      ],
       "destination": "https://biovaulthealth.com/:path*",
       "statusCode": 301
     },
