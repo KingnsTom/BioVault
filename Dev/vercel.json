@@ -24,7 +24,7 @@
       "statusCode": 301
     },
     {
-      "source": "/blog/moringa-review.html",
+      "source": "/blog/moringa-review",
       "destination": "/blog/moringa-review-2025-does-moringa-really-work",
       "statusCode": 301
     }
@@ -33,7 +33,7 @@
   "rewrites": [
     {
       "source": "/:path+/",
-      "destination": "/:path+.html"
+      "destination": "/:path+"
     }
   ],
 

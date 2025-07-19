@@ -40,7 +40,7 @@ export default async function handler(req, res) {
         text: `New subscriber: ${email}`,
       });
 
-      res.writeHead(302, { Location: '/thank-you.html' });
+      res.writeHead(302, { Location: '/thank-you' });
       res.end();
     } catch (error) {
       console.error('❌ Email send error:', error);
