@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
   animateCardsOnScroll(); // Initial trigger
 
 // -----------------------------------------
-// TOC Toggle Logic
+// TOC Toggle Logic – Hide on Mobile
 // -----------------------------------------
 window.addEventListener("load", function () {
   const tocBtn = document.getElementById("toggle-toc");
@@ -68,17 +68,36 @@ window.addEventListener("load", function () {
     return;
   }
 
+  function setInitialTOCState() {
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      tocList.style.display = "none";
+      tocBtn.textContent = "Show Table of Contents";
+      tocBtn.setAttribute("aria-expanded", "false");
+    } else {
+      tocList.style.display = "block";
+      tocBtn.textContent = "Hide Table of Contents";
+      tocBtn.setAttribute("aria-expanded", "true");
+    }
+  }
+
+  // Toggle behavior
   tocBtn.addEventListener("click", function () {
     const isHidden = tocList.style.display === "none";
 
     tocList.style.display = isHidden ? "block" : "none";
-    tocBtn.textContent = isHidden ? "Hide Sections" : "Show Sections";
+    tocBtn.textContent = isHidden ? "Hide Table of Contents" : "Show Table of Contents";
+    tocBtn.setAttribute("aria-expanded", String(isHidden));
   });
 
-  // Initial state (shown)
-  tocList.style.display = "block";
-  tocBtn.textContent = "Hide Sections";
+  // Set TOC visibility on load
+  setInitialTOCState();
+
+  // Optional: re-check on resize for responsiveness
+  window.addEventListener("resize", setInitialTOCState);
 });
+
 
 
   // -----------------------------------------
