@@ -349,69 +349,103 @@ form textarea:disabled {
   color: var(--light-color);
 }
 
-/* === Convertkit form === */
+/* === ConvertKit Full Form Styling === */
 .convertkit-box {
-  background-color: #eae8e5;
+  background-color: #f9f8f6;
   border-radius: 12px;
-  padding: 2rem 2rem; /* Slightly wider internal space */
-  margin-top: 2.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  max-width: 860px; /* 🔑 Wider than 640px */
-  margin-left: auto;
-  margin-right: auto;
+  padding: 2rem;
+  margin: 2.5rem auto;
+  max-width: 860px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: #333;
+}
+/* === ConvertKit Strip Form === */
+.convertkit-box {
+  background-color: #eafaf8;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  max-width: 100%;
 }
 
-/* Force embedded ConvertKit form to stay clean and inside */
+/* Layout: Wide horizontal form */
 .convertkit-box form {
   max-width: 100% !important;
   width: 100% !important;
-  padding: 0 !important;
-  margin: 0 auto !important;
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
+  display: flex !important;
+  flex-wrap: nowrap !important;
   gap: 1rem;
+  align-items: center;
   justify-content: center;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box;
 }
 
-/* Inputs and button sizing */
+/* Input field */
 .convertkit-box input[type="email"] {
-  flex: 1 1 300px;
-  min-width: 240px;
+  flex: 1 1 auto;
+  min-width: 280px;
   font-size: 1rem !important;
   padding: 0.75rem 1rem !important;
   border-radius: 8px !important;
+  border: 1px solid #ccc !important;
+  transition: border-color 0.2s ease;
 }
 
+.convertkit-box input[type="email"]:focus {
+  outline: none;
+  border-color: #05b9b5 !important;
+}
+
+/* Button styling */
 .convertkit-box button {
   flex: 0 0 auto;
-  font-size: 1rem !important;
   padding: 0.75rem 1.5rem !important;
+  font-size: 1rem !important;
+  font-weight: 600;
   border-radius: 8px !important;
+  border: none !important;
   background-color: #05b9b5 !important;
   color: #fff !important;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .convertkit-box button:hover {
-  background-color: #05b9b5!important;
+  background-color: #049e9b !important;
+  transform: translateY(-1px);
 }
 
-/* Trust bar */
-.convertkit-box .convertkit-trust {
-  font-size: 13px;
+/* Trust/quote elements (optional) */
+.convertkit-box .convertkit-trust,
+.convertkit-box .convertkit-quote {
+  font-size: 0.875rem;
   color: #666;
   text-align: center;
   margin-top: 1rem;
 }
 
-/* Quote */
-.convertkit-box .convertkit-quote {
-  font-style: italic;
-  color: #444;
-  text-align: center;
-  margin-top: 1rem;
+/* === Responsive adjustments === */
+@media (max-width: 768px) {
+  .convertkit-box form {
+    flex-wrap: wrap !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .convertkit-box input[type="email"],
+  .convertkit-box button {
+    width: 100% !important;
+    font-size: 1.05rem !important;
+  }
+
+  .convertkit-box button {
+    margin-top: 0.5rem;
+  }
 }
 
 
@@ -3374,6 +3408,12 @@ form textarea:disabled {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
 }
+
+.media-container.full-img-wrapper {
+  aspect-ratio: auto !important;
+  height: auto !important;
+}
+
 
 /* ======================================================
    3. Floating Keyframe Animation
