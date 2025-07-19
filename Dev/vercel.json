@@ -8,7 +8,6 @@
   ],
   "cleanUrls": true,
   "trailingSlash": false,
-  "directoryListing": false,
 
   "redirects": [
     {
