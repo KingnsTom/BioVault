@@ -23,7 +23,6 @@
   --z-dropdown: 200;
   --z-modal: 1000;
   --z-critical-ui: 2147483647;
-}
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -558,6 +557,7 @@ form textarea:disabled {
   top: 0;
   z-index: 9999;
   box-shadow: 0 2px 12px rgba(2, 61, 58, 0.18);
+  -webkit-backdrop-filter: blur(8px); /* Safari/iOS support */
   backdrop-filter: blur(8px); /* subtle blur effect */
   font-family: 'Poppins', sans-serif;
   transition: background 0.3s, box-shadow 0.3s;
@@ -834,6 +834,7 @@ form textarea:disabled {
 
 /* Content card (glassmorphism style) */
 .hero-carousel .content-card {
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.85);
   padding: 2rem 2.5rem;
@@ -1321,6 +1322,7 @@ form textarea:disabled {
   box-shadow: 0 6px 15px rgba(1, 127, 124, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -1613,7 +1615,6 @@ form textarea:disabled {
   #compare-products .table-responsive {
     overflow-x: auto;
     display: block; /* 👈 necessary for scrolling */
-    -webkit-overflow-scrolling: touch; /* 👈 for smooth iOS scroll */
     width: 100%; /* 👈 ensure it stretches fully */
   }
 
@@ -2334,8 +2335,8 @@ form textarea:disabled {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color: var(--primary-color);
-  mask-size: 60% 60%;
   -webkit-mask-size: 60% 60%;
+  mask-size: 60% 60%;
   background-size: 60% 60%;
   background-repeat: no-repeat;
   background-position: center;
@@ -3142,8 +3143,6 @@ form textarea:disabled {
   transition: max-height 0.4s ease, padding 0.3s ease;
 }
 
-}
-
 .faq-moringa-answer.open {
   padding: 1rem 1.5rem 1.5rem;
  
@@ -3793,7 +3792,6 @@ table {
   margin-bottom: 2rem;
   display: block;               /* Allows scroll on small screens */
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
 }
 
 /* Table headers and cells */
@@ -3905,6 +3903,7 @@ table tbody tr:nth-child(even) {
   display: inline-block;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   color: var(--light-color);
   font-size: 0.85rem;
@@ -4758,6 +4757,7 @@ table tbody tr:nth-child(even) {
   padding: 0.75rem 1.5rem;
   font-size: 0.95rem;
   color: var(--accent-color);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   display: inline-block;
@@ -4915,5 +4915,4 @@ table tbody tr:nth-child(even) {
 }
 .countdown-timer-box {
   -ms-overflow-style: none;
-  scrollbar-width: none;
 }
