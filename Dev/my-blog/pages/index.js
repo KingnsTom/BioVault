@@ -125,13 +125,15 @@ return (
       {/* BreadcrumbList Schema */}
     </Head>
     {/* Meta Pixel Code */}
-    <noscript>
-      &lt;img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=329609293519906&amp;ev=PageView&amp;noscript=1"
-      /&gt;
-    </noscript>
+  <noscript>
+  &lt;img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=329609293519906&amp;ev=PageView&amp;noscript=1"
+  /&gt;
+</noscript>
+
     {/* End Meta Pixel Code */}
     {/* ✅ BioVault Responsive Navbar */}
+    
   <header className="site-header">
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <div className="container d-flex justify-content-between align-items-center">
@@ -139,6 +141,7 @@ return (
         <a className="navbar-brand" href="/">
           <img src="/img/logo.png" alt="BioVault Logo" width={100} />
         </a>
+        
         {/* Mobile Toggle for Navbar */}
         <button
           className="navbar-toggler"

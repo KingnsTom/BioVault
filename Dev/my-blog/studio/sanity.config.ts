@@ -1,18 +1,13 @@
-import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemaTypes'
+import { defineConfig } from 'sanity'
+import { visionTool } from '@sanity/vision'
+import { deskTool } from 'sanity/desk'
+import { theme } from './theme' // make sure this file exists
 
 export default defineConfig({
   name: 'default',
-  title: 'biovaulthealth.blog',
-
-  projectId: 'xq1ttmr8',
+  title: 'BioVault Studio',
+  projectId: 'xq1ttmr8', // ✅ KEEP your actual projectId
   dataset: 'production',
-
-  plugins: [structureTool(), visionTool()],
-
-  schema: {
-    types: schemaTypes,
-  },
+  plugins: [deskTool(), visionTool()],
+  theme: theme, // ✅ this applies your global styles
 })
