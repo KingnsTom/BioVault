@@ -1,21 +1,33 @@
-// /lib/sanity.ts (or /sanity/lib/sanity.ts depending on your structure)
-import { createClient } from 'next-sanity'
-import imageUrlBuilder from '@sanity/image-url'
-import { SanityImageSource } from '@sanity/image-url/lib/types/types'
+// /lib/sanity.ts
 
-// ✅ Replace these with your own project details
-const config = {
-  projectId: '4yh8v1vf',       // e.g., 'abc123'
-  dataset: 'production',              // or whatever dataset you're using
-  apiVersion: '2023-01-01',           // use a fixed date for consistency
-  useCdn: true,                       // `true` for public data; `false` for draft mode
+import { createClient, type SanityClient } from 'next-sanity'
+import imageUrlBuilder from '@sanity/image-url'
+import type { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder'
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
+
+/**
+ * Sanity client configuration
+ */
+export const config = {
+  projectId: '4yh8v1vf',
+  dataset: 'production',
+  apiVersion: '2023-01-01',
+  useCdn: true, // Faster but potentially stale data
 }
 
-// 👉 Client instance
-export const sanityClient = createClient(config)
+/**
+ * Sanity client instance
+ */
+export const sanityClient: SanityClient = createClient(config)
 
-// 👉 For fetching images
-const builder = imageUrlBuilder(sanityClient)
+/**
+ * Image URL builder instance
+ */
+const builder: ImageUrlBuilder = imageUrlBuilder(sanityClient)
+
+/**
+ * Get a Sanity image URL
+ */
 export function urlFor(source: SanityImageSource) {
   return builder.image(source)
 }
