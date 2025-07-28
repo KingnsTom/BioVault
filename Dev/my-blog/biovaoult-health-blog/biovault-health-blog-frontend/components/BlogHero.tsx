@@ -2,7 +2,7 @@ export default function BlogHero() {
   return (
     <section className="hero text-center bg-[#eae8e5] text-black py-20 px-6 sm:px-10 md:px-24 font-[Poppins]">
       <div className="container max-w-5xl mx-auto">
-        <h1 className="display-4 fw-bold text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-4">
+        <h1 className="display-4 fw-bold text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-4 text-white">
           BioVault Wellness Blog
         </h1>
         <p className="lead text-lg md:text-xl text-gray-700 mt-3 mb-6 leading-relaxed">

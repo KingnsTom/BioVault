@@ -1,6 +1,8 @@
 export default function Head() {
   return (
     <>
+      <meta charSet="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>BioVault Health Blog | Natural Wellness Tips & Supplement Insights</title>
       <meta
         name="description"
@@ -9,19 +11,18 @@ export default function Head() {
       <meta
         name="keywords"
         content="natural wellness blog, gut health tips, supplement reviews, sleep support, metabolism boost, BioVault Health blog, healthy lifestyle, herbal solutions"
-      />
-      <meta name="author" content="BioVault Health Editorial Team" />
+      /> 
+      <meta name="author"content="BioVault Health Editorial Team" />
       <meta name="robots" content="index, follow" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content="#05b9b5" />
 
       {/* Canonical & Language Alternates */}
       <link rel="canonical" href="https://biovaulthealth.com/blog" />
-      <link rel="alternate" href="https://biovaulthealth.com/blog" {...{ hreflang: "en-us" }} />
-      <link rel="alternate" href="https://biovaulthealth.com/blog" {...{ hreflang: "en-gb" }} />
-      <link rel="alternate" href="https://biovaulthealth.com/blog" {...{ hreflang: "en-ca" }} />
-      <link rel="alternate" href="https://biovaulthealth.com/blog" {...{ hreflang: "en-au" }} />
-      <link rel="alternate" href="https://biovaulthealth.com/blog" {...{ hreflang: "x-default" }} />
+      <link rel="alternate" href="https://biovaulthealth.com/blog" hreflang="en-us" />
+      <link rel="alternate" href="https://biovaulthealth.com/blog" hreflang="en-gb" />
+      <link rel="alternate" href="https://biovaulthealth.com/blog" hreflang="en-ca" />
+      <link rel="alternate" href="https://biovaulthealth.com/blog" hreflang="en-au" />
+      <link rel="alternate" href="https://biovaulthealth.com/blog" hreflang="x-default" />
 
       {/* Favicons */}
       <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />

@@ -1,16 +1,9 @@
-import fs from 'fs'
-import path from 'path'
-import { JSDOM } from 'jsdom'
-import sanityClient from '@sanity/client'
-import { Readable } from 'stream'
-import fetch from 'node-fetch'
-import 'dotenv/config'
-
-// 🚨 Replace with your actual Sanity author ID
-const DEFAULT_AUTHOR_ID = process.env.SANITY_AUTHOR_ID || ''
-if (!DEFAULT_AUTHOR_ID) {
-  throw new Error('❌ Missing DEFAULT_AUTHOR_ID. Set SANITY_AUTHOR_ID in .env')
-}
+import fs from 'fs';
+import path from 'path';
+import { JSDOM } from 'jsdom';
+import sanityClient from '@sanity/client';
+import { Readable } from 'stream';
+import 'dotenv/config';
 
 const client = sanityClient({
   projectId: process.env.SANITY_PROJECT_ID,
@@ -18,139 +11,118 @@ const client = sanityClient({
   token: process.env.SANITY_TOKEN,
   useCdn: false,
   apiVersion: '2025-07-01',
-})
-
-const CATEGORY_SLUG_MAP = {
-  gut: 'gut-health',
-  sleep: 'sleep',
-  energy: 'energy-immunity',
-  brain: 'mental-clarity',
-}
+});
 
 async function uploadImageFromUrl(url) {
   try {
-    const res = await fetch(url)
-    if (!res.ok || !res.body) throw new Error(`Failed to fetch image: ${url}`)
-
+    const res = await fetch(url);
+    if (!res.ok || !res.body) throw new Error(`Failed to fetch image: ${url}`);
     const asset = await client.assets.upload(
       'image',
       Readable.fromWeb(res.body),
       { filename: path.basename(url) }
-    )
-
+    );
     return {
       _type: 'image',
       asset: { _type: 'reference', _ref: asset._id },
-    }
+    };
   } catch (err) {
-    console.warn('⚠️ Image upload failed:', url, err.message)
-    return null
-  }
-}
-
-async function getCategoryReference(slug) {
-  const category = await client.fetch(
-    `*[_type == "category" && slug.current == $slug][0]`,
-    { slug }
-  )
-
-  if (category && category._id) {
-    return {
-      _type: 'reference',
-      _ref: category._id,
-    }
-  }
-
-  const newCategory = await client.create({
-    _type: 'category',
-    title: slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
-    slug: { current: slug },
-  })
-
-  return {
-    _type: 'reference',
-    _ref: newCategory._id,
+    console.warn('⚠️ Image upload failed:', url, err.message);
+    return null;
   }
 }
 
 function getBlockStyle(tag) {
   switch (tag.toLowerCase()) {
-    case 'h1':
-      return 'h1'
-    case 'h2':
-      return 'h2'
-    case 'h3':
-      return 'h3'
-    default:
-      return 'normal'
+    case 'h1': return 'h1';
+    case 'h2': return 'h2';
+    case 'h3': return 'h3';
+    default: return 'normal';
   }
 }
 
 async function importPosts() {
-  const blogDir = path.resolve(process.cwd(), 'blog')
-  const files = fs.readdirSync(blogDir).filter((f) => f.endsWith('.html'))
+  const blogDir = path.join(process.cwd(), '..', 'blog');
+  const files = fs.readdirSync(blogDir).filter(f => f.endsWith('.html'));
 
   for (const file of files) {
-    const filePath = path.join(blogDir, file)
-    const html = fs.readFileSync(filePath, 'utf-8')
-    const dom = new JSDOM(html)
-    const doc = dom.window.document
+    const filePath = path.join(blogDir, file);
+    const html = fs.readFileSync(filePath, 'utf-8');
+    const dom = new JSDOM(html);
+    const doc = dom.window.document;
 
-    const title = doc.querySelector('title')?.textContent?.trim() || 'Untitled'
-    const excerpt = doc.querySelector('meta[name="description"]')?.content || ''
-    const slug = file.replace(/\.html$/, '')
-    const slugLower = slug.toLowerCase()
+    const title = doc.querySelector('title')?.textContent?.trim() || 'Untitled Post';
+    const excerpt = doc.querySelector('meta[name="description"]')?.content || '';
+    const slug = file.replace(/\.html$/, '');
 
-    const categoryKey = Object.keys(CATEGORY_SLUG_MAP).find((k) =>
-      slugLower.includes(k)
-    )
-    const categorySlug = categoryKey
-      ? CATEGORY_SLUG_MAP[categoryKey]
-      : 'uncategorized'
-    const categoryRef = await getCategoryReference(categorySlug)
+    const body = [];
+    const faq = [];
 
-    const firstImg = doc.querySelector('img')
-    const mainImageRef =
-      firstImg && firstImg.src ? await uploadImageFromUrl(firstImg.src) : null
-
-    const body = []
-    const contentNodes = doc.querySelectorAll('p, h1, h2, h3, img, ul, ol')
+    const contentNodes = doc.querySelectorAll('p, h1, h2, h3, img, ul, ol, table, blockquote, details');
 
     for (const node of contentNodes) {
-      if (node.nodeName === 'IMG') {
-        const src = node.getAttribute('src')
+      const tag = node.tagName.toLowerCase();
+
+      // ✅ Image
+      if (tag === 'img') {
+        const src = node.getAttribute('src');
         if (src) {
-          const img = await uploadImageFromUrl(src)
-          if (img) body.push(img)
+          const image = await uploadImageFromUrl(src);
+          if (image) body.push(image);
         }
-      } else {
-        const text = node.textContent?.trim()
-        if (text) {
+        continue;
+      }
+
+      // ✅ Table
+      if (tag === 'table') {
+        const rows = [...node.querySelectorAll('tr')].map(tr =>
+          [...tr.querySelectorAll('td, th')].map(td => td.textContent.trim())
+        );
+        if (rows.length) {
+          body.push({
+            _type: 'table',
+            rows,
+          });
+        }
+        continue;
+      }
+
+      // ✅ Blockquote
+      if (tag === 'blockquote') {
+        const quoteText = node.textContent.trim();
+        if (quoteText) {
           body.push({
             _type: 'block',
-            style: getBlockStyle(node.nodeName),
-            children: [{ _type: 'span', text }],
-          })
+            style: 'blockquote',
+            children: [{ _type: 'span', text: quoteText }],
+          });
         }
+        continue;
       }
-    }
 
-    if (body.length === 0) {
-      body.push({
-        _type: 'block',
-        style: 'normal',
-        children: [{ _type: 'span', text: 'Content coming soon.' }],
-      })
-    }
+      // ✅ FAQ (from <details><summary>)
+      if (tag === 'details') {
+        const question = node.querySelector('summary')?.textContent?.trim();
+        const answer = [...node.childNodes]
+          .filter(n => n.nodeType === 1 && n.tagName !== 'SUMMARY')
+          .map(n => n.textContent.trim())
+          .join('\n');
 
-    const exists = await client.fetch(
-      `*[_type == "post" && slug.current == $slug][0]`,
-      { slug }
-    )
+        if (question && answer) {
+          faq.push({ question, answer });
+        }
+        continue;
+      }
 
-    if (exists) {
-      console.log(`⚠️ Skipped existing post: ${slug}`)
-      continue
+      // ✅ Paragraphs, Lists, Headings
+      const text = node.textContent.trim();
+      if (text) {
+        body.push({
+          _type: 'block',
+          style: getBlockStyle(tag),
+          children: [{ _type: 'span', text }],
+        });
+      }
     }
 
     const postDoc = {
@@ -159,24 +131,19 @@ async function importPosts() {
       slug: { current: slug },
       excerpt: excerpt || title.slice(0, 160),
       publishedAt: new Date().toISOString(),
-      categories: [categoryRef],
-      author: {
-        _type: 'reference',
-        _ref: DEFAULT_AUTHOR_ID,
-      },
-      mainImage: mainImageRef,
       body,
-    }
+      faq,
+    };
 
     try {
-      await client.create(postDoc)
-      console.log(`✅ Imported: ${slug}`)
+      await client.createIfNotExists({ _type: 'post', slug: postDoc.slug }, postDoc);
+      console.log(`✅ Imported: ${slug}`);
     } catch (err) {
-      console.error(`❌ Failed to import ${slug}:`, err.message)
+      console.error(`❌ Failed to import ${slug}:`, err.message);
     }
   }
 }
 
-importPosts().catch((err) => {
-  console.error('🔥 Import failed:', err.message)
-})
+importPosts().catch(err => {
+  console.error('🔥 Import script crashed:', err.message);
+});

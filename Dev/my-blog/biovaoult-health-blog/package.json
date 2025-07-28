@@ -1,38 +1,32 @@
 {
-  "name": "biovaoult-health-blog",
-  "private": true,
-  "version": "1.0.0",
-  "main": "package.json",
-  "license": "UNLICENSED",
+  "name": "biovaulthealthblog",
+  "description": "Next.js + Sanity: A Powerful Website Starter with Real-time Visual Editing",
   "scripts": {
-    "dev": "sanity dev",
-    "start": "sanity start",
-    "build": "sanity build",
-    "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "dev": "npm-run-all --parallel --print-label dev:*",
+    "dev:next": "npm run dev --workspace=frontend",
+    "dev:studio": "npm run dev --workspace=studio",
+    "import-sample-data": "cd studio && sanity dataset import sample-data.tar.gz --replace"
   },
   "keywords": [
-    "sanity"
+    "Sanity",
+    "Next.js",
+    "Headless CMS",
+    "Visual Editing",
+    "Live Content API (LCAPI)",
+    "Real-time"
   ],
-  "dependencies": {
-    "@sanity/vision": "^4.1.0",
-    "react": "^19.1",
-    "react-dom": "^19.1",
-    "sanity": "^4.1.0",
-    "styled-components": "^6.1.18"
+  "bugs": {
+    "url": "https://github.com/sanity-io/sanity-template-nextjs-clean/issues"
   },
+  "homepage": "https://github.com/sanity-io/sanity-template-nextjs-clean#readme",
+  "workspaces": [
+    "studio",
+    "frontend"
+  ],
   "devDependencies": {
-    "@sanity/eslint-config-studio": "^5.0.2",
-    "@types/react": "^19.1",
-    "eslint": "^9.28",
-    "prettier": "^3.5",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "npm-run-all": "^4.1.5"
   },
-  "prettier": {
-    "semi": false,
-    "printWidth": 100,
-    "bracketSpacing": false,
-    "singleQuote": true
+  "dependencies": {
+    "styled-components": "^6.1.19"
   }
 }
