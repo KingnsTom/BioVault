@@ -1,13 +1,9 @@
-// app/blog/page.tsx (or wherever HomePage is located)
-
 import { getPosts } from "@/sanity/sanity-utils";
 import { Metadata } from "next";
-import BlogHero from "../components/BlogHero";
+import BlogHero from "@/components/BlogHero";
+import Footer from "@/components/Footer";
+
 import HomeClient from "@/components/HomeClient";
-import Footer from "../components/Footer";
-
-
-
 
 
 export const metadata: Metadata = {
@@ -36,9 +32,7 @@ export default async function HomePage() {
     <>
       <BlogHero />
       <HomeClient posts={posts} categories={categories} />
-  <Footer />
-
+      <Footer />
     </>
   );
 }
-
