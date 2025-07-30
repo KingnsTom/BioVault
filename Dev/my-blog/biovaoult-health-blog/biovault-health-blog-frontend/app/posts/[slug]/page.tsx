@@ -1,117 +1,219 @@
-import type { Metadata, ResolvingMetadata } from "next";
-import { notFound } from "next/navigation";
-import { type PortableTextBlock } from "next-sanity";
-import { Suspense } from "react";
+import { notFound } from 'next/navigation'
+import { groq } from 'next-sanity'
+import Image from 'next/image'
+import Link from 'next/link'
+import { createClient } from 'next-sanity'
+import { PortableText, type PortableTextComponents } from '@portabletext/react'
 
-import Avatar from "@/app/components/Avatar";
-import CoverImage from "@/app/components/CoverImage";
-import { MorePosts } from "@/app/components/Posts";
-import PortableText from "@/app/components/PortableText";
-import { sanityFetch } from "@/sanity/lib/live";
-import { postPagesSlugs, postQuery } from "@/sanity/lib/queries";
-import { resolveOpenGraphImage } from "@/sanity/lib/utils";
+import Footer from '@/components/Footer'
+import { extractHeadings } from '@/lib/extractHeadings'
+import TocToggle from '@/components/TocToggle'
+import Cta from '@/components/Cta'
+import Faq from '@/components/FAQ'
 
-type Props = {
-  params: Promise<{ slug: string }>;
-};
+const client = createClient({
+  projectId: '4yh8v1vf',
+  dataset: 'production',
+  apiVersion: '2023-07-22',
+  useCdn: true,
+})
 
-/**
- * Generate the static params for the page.
- * Learn more: https://nextjs.org/docs/app/api-reference/functions/generate-static-params
- */
+const postQuery = groq`
+  *[_type == "post" && slug.current == $slug][0]{
+    _id,
+    title,
+    publishedAt,
+    excerpt,
+    body,
+    ctaBlock,
+    "slug": slug.current,
+    "mainImage": mainImage.asset->url,
+    faq,
+    faqHeading
+  }
+`
+
+const allPostsQuery = groq`
+  *[_type == "post"] | order(publishedAt asc) {
+    title,
+    "slug": slug.current
+  }
+`
+
 export async function generateStaticParams() {
-  const { data } = await sanityFetch({
-    query: postPagesSlugs,
-    // Use the published perspective in generateStaticParams
-    perspective: "published",
-    stega: false,
-  });
-  return data;
+  const posts = await client.fetch<{ slug: { current: string } }[]>(
+    groq`*[_type == "post" && defined(slug.current)][]{ slug }`
+  )
+  return posts.map(post => ({ slug: post.slug.current }))
 }
-
-/**
- * Generate metadata for the page.
- * Learn more: https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function
- */
 export async function generateMetadata(
-  props: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
-  const params = await props.params;
-  const { data: post } = await sanityFetch({
-    query: postQuery,
-    params,
-    // Metadata should never contain stega
-    stega: false,
-  });
-  const previousImages = (await parent).openGraph?.images || [];
-  const ogImage = resolveOpenGraphImage(post?.coverImage);
+  context: { params: { slug: string } }
+) {
+  const { params } = context; // First, awaitable context
+  const { slug } = params;   // Safe to destructure now
+
+  const post = await client.fetch(postQuery, { slug });
+
+  if (!post) return {};
 
   return {
-    authors:
-      post?.author?.firstName && post?.author?.lastName
-        ? [{ name: `${post.author.firstName} ${post.author.lastName}` }]
-        : [],
-    title: post?.title,
-    description: post?.excerpt,
+    title: `${post.title} | BioVault Health`,
+    description: post.excerpt || 'Read this wellness post from BioVault Health.',
     openGraph: {
-      images: ogImage ? [ogImage, ...previousImages] : previousImages,
+      title: post.title,
+      description: post.excerpt || '',
+      url: `https://biovaulthealth.com/blog/${slug}`,
+      images: post.mainImage ? [post.mainImage] : [],
     },
-  } satisfies Metadata;
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt || '',
+      images: post.mainImage ? [post.mainImage] : [],
+    },
+  };
 }
 
-export default async function PostPage(props: Props) {
-  const params = await props.params;
-  const [{ data: post }] = await Promise.all([
-    sanityFetch({ query: postQuery, params }),
-  ]);
 
-  if (!post?._id) {
-    return notFound();
-  }
+const portableTextComponents: PortableTextComponents = {
+  types: {
+    image: ({ value }) =>
+      value?.asset?.url && (
+        <div className="my-6 overflow-hidden rounded-2xl shadow-md">
+          <Image
+            src={value.asset.url}
+            alt={value.alt || 'Image'}
+            width={1200}
+            height={800}
+            className="w-full h-auto object-cover"
+          />
+        </div>
+      ),
+  },
+  block: {
+    h1: ({ children }) => <h1 className="text-3xl font-bold mt-8 mb-4 text-[#05b9b5]">{children}</h1>,
+    h2: ({ children }) => <h2 className="text-2xl font-semibold mt-6 mb-3 text-[#05b9b5]">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-xl font-semibold mt-6 mb-2 text-[#05b9b5]">{children}</h3>,
+    normal: ({ children }) => <p className="mb-5 leading-relaxed text-base">{children}</p>,
+  },
+  marks: {
+    link: ({ children, value }) => (
+      <a
+        href={value?.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#05b9b5] underline hover:text-black transition"
+      >
+        {children}
+      </a>
+    ),
+    strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+    em: ({ children }) => <em className="italic">{children}</em>,
+  },
+  list: {
+    bullet: ({ children }) => <ul className="list-disc ml-6 mb-4 space-y-2">{children}</ul>,
+    number: ({ children }) => <ol className="list-decimal ml-6 mb-4 space-y-2">{children}</ol>,
+  },
+  listItem: {
+    bullet: ({ children }) => <li className="text-base leading-snug">{children}</li>,
+    number: ({ children }) => <li className="text-base leading-snug">{children}</li>,
+  },
+}
+
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  const { slug } = params
+  const post = await client.fetch(postQuery, { slug })
+  if (!post) return notFound()
+
+  const allPosts = await client.fetch(allPostsQuery)
+  const currentIndex = allPosts.findIndex(p => p.slug === slug)
+  const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null
+  const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
+
+  const headings = extractHeadings(post.body || [])
 
   return (
     <>
-      <div className="">
-        <div className="container my-12 lg:my-24 grid gap-12">
-          <div>
-            <div className="pb-6 grid gap-6 mb-6 border-b border-gray-100">
-              <div className="max-w-3xl flex flex-col gap-6">
-                <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-7xl">
-                  {post.title}
-                </h2>
-              </div>
-              <div className="max-w-3xl flex gap-4 items-center">
-                {post.author &&
-                  post.author.firstName &&
-                  post.author.lastName && (
-                    <Avatar person={post.author} date={post.date} />
-                  )}
-              </div>
-            </div>
-            <article className="gap-6 grid max-w-4xl">
-              <div className="">
-                {post?.coverImage && (
-                  <CoverImage image={post.coverImage} priority />
-                )}
-              </div>
-              {post.content?.length && (
-                <PortableText
-                  className="max-w-2xl"
-                  value={post.content as PortableTextBlock[]}
-                />
-              )}
-            </article>
+      <article className="blog-post max-w-4xl mx-auto py-12 px-4 text-black">
+        {/* Title & Date */}
+        <h1 className="text-4xl font-bold mb-4 text-[#05b9b5]">{post.title}</h1>
+        <p className="text-sm text-gray-500 mb-4">
+          {new Date(post.publishedAt).toLocaleDateString()}
+        </p>
+
+        {/* Featured Image */}
+        {post.mainImage && (
+          <div className="mb-10">
+            <Image
+              src={post.mainImage}
+              alt={post.title}
+              width={1200}
+              height={600}
+              className="rounded-2xl shadow-md w-full object-cover"
+            />
           </div>
+        )}
+
+        {/* Table of Contents */}
+        {headings.length > 0 && (
+          <div className="my-5">
+            <TocToggle headings={headings} />
+          </div>
+        )}
+
+        {/* Body Content */}
+        <div className="blog-post">
+          <PortableText value={post.body} components={portableTextComponents} />
         </div>
-      </div>
-      <div className="border-t border-gray-100 bg-gray-50">
-        <div className="container py-12 lg:py-24 grid gap-12">
-          <aside>
-            <Suspense>{await MorePosts({ skip: post._id, limit: 2 })}</Suspense>
-          </aside>
-        </div>
-      </div>
+
+        {/* Call To Action */}
+        {post.ctaBlock && <Cta block={post.ctaBlock} index={0} />}
+
+        {/* FAQ Section */}
+        {post.faq?.length > 0 && (
+          <Faq
+            faqs={post.faq}
+            heading={post.faqHeading ?? 'Frequently Asked Questions'}
+          />
+        )}
+
+        {/* Pagination */}
+        <nav className="mt-5 mb-5" aria-label="Blog post navigation">
+          <ul className="pagination justify-content-center">
+            <li className={`page-item ${!prevPost ? 'disabled' : ''}`} aria-disabled={!prevPost}>
+              {prevPost ? (
+                <Link
+                  href={`/blog/${prevPost.slug}`}
+                  className="page-link brand-page-link"
+                  rel="prev"
+                >
+                  ← Previous
+                </Link>
+              ) : (
+                <span className="page-link brand-page-link">← Previous</span>
+              )}
+            </li>
+            <li className="page-item disabled" aria-disabled="true">
+              <span className="page-link brand-page-link">{currentIndex + 1}</span>
+            </li>
+            <li className={`page-item ${!nextPost ? 'disabled' : ''}`} aria-disabled={!nextPost}>
+              {nextPost ? (
+                <Link
+                  href={`/blog/${nextPost.slug}`}
+                  className="page-link brand-page-link"
+                  rel="next"
+                >
+                  Next →
+                </Link>
+              ) : (
+                <span className="page-link brand-page-link">Next →</span>
+              )}
+            </li>
+          </ul>
+        </nav>
+      </article>
+
+      <Footer />
     </>
-  );
+  )
 }

@@ -43,7 +43,7 @@ export default async function Page() {
           </div>
         </div>
 
-        {/* Description + CTA Section */}
+        {/* Description + CTA Section */}page.tsx
         <div className="flex flex-col items-center">
           <SideBySideIcons />
           <div className="container relative mx-auto flex max-w-2xl flex-col items-center space-y-6 pb-20 pt-10 lg:max-w-4xl lg:px-12">
