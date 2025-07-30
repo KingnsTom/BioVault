@@ -17,7 +17,7 @@
     "paths": {
       "@/*": ["./*"]
     },
-    "forceConsistentCasingInFileNames": true,   // <--- Add this here
+    "forceConsistentCasingInFileNames": true, // ✅ Enforced casing for cross-OS compatibility
     "plugins": [
       {
         "name": "next"
