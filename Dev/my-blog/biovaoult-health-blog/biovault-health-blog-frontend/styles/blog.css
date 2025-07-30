@@ -707,22 +707,6 @@ form textarea:disabled {
 }
 
 
-/* Section Divider */
-.hero-carousel::after {
-  content: "";
-  display: block;
-  width: 80%;
-  height: 2px;
-  background: #ddd;
-  margin: -2rem auto 0;
-  position: relative;
-  z-index: 3;
-}
-  .hero-carousel .overlay {
-    padding: 1rem;
-    align-items: center; /* ✅ Center the content vertically */
-  }
-
 /* ============================
    Reusable: Product Section Block (Premium)
 ============================ */
