@@ -707,102 +707,6 @@ form textarea:disabled {
 }
 
 
-/* ---------------------------------
-   HERO CAROUSEL: FULLSCREEN SLIDER
------------------------------------ */
-
-.hero-carousel {
-  margin-top: -4rem;
-  padding-bottom: 0;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Fullscreen slides with background images */
-.hero-carousel .carousel-item {
-  height: 100vh;
-  min-height: 550px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Semi-transparent dark overlay */
-.hero-carousel .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-}
-
-
-/* Content card (glassmorphism style) */
-.hero-carousel .content-card {
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.85);
-  padding: 2rem 2.5rem;
-  border-radius: 1.2rem;
-  max-width: 640px;
-  animation: fadeSlideIn 1s ease both;
-  box-shadow: var(--card-shadow);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  transform: translateY(-2rem); /* ✅ Fix: Clean upward shift */
-}
-
-/* Entrance animation */
-@keyframes fadeSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(-2rem); /* Match transform shift */
-  }
-}
-
-/* Headline */
-.hero-carousel .content-card h2 {
-  font-family: var(--heading-font);
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  color: var(--primary-color);
-}
-
-/* Subheadline */
-.hero-carousel .content-card p {
-  font-family: var(--body-font);
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: var(--text-muted);
-  margin: 1rem 0;
-  line-height: 1.6;
-}
-
-/* CTA Button */
-.hero-carousel .btn {
-  font-family: var(--body-font);
-  font-weight: 600;
-  padding: 0.6rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 50px;
-  background-color: var(--primary-color);
-  color: var(--light-color);
-  box-shadow: 0 6px 18px rgba(1, 127, 124, 0.25);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.hero-carousel .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(1, 127, 124, 0.4);
-}
-
 /* Section Divider */
 .hero-carousel::after {
   content: "";
@@ -817,33 +721,6 @@ form textarea:disabled {
   .hero-carousel .overlay {
     padding: 1rem;
     align-items: center; /* ✅ Center the content vertically */
-  }
-
-  .hero-carousel .content-card {
-    padding: 1rem 1rem;
-    border-radius: 0.75rem;
-    
-    margin: 0 1rem;
-    transform: translateY(-1rem); /* ✅ Slight uplift */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-  }
-
-  .hero-carousel .content-card h2 {
-    font-size: 1.6rem;
-  }
-
-  .hero-carousel .content-card p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .hero-carousel .btn {
-    font-size: 0.9rem;
-    padding: 0.45rem 1.2rem;
-  }
-
-  .hero-carousel .carousel-indicators {
-    bottom: 1rem;
   }
 
 /* ============================
