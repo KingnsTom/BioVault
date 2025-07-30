@@ -1,15 +1,23 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     remotePatterns: [
       {
         protocol: "https",
         hostname: "cdn.sanity.io",
-        port: "", // leave blank unless you're using a non-standard port
-        pathname: "/images/**", // covers all Sanity project image paths
+        port: "",
+        pathname: "/public/**",
       },
     ],
+  },
+  async redirects() {
+    return [
+      {
+        source: "/blog/:slug.html",
+        destination: "/blog/:slug",
+        permanent: true,
+      },
+    ];
   },
 };
 
