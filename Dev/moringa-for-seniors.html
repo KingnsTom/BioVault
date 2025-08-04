@@ -137,11 +137,10 @@ h1 {
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
-
 .testimonial {
   margin-top: 2rem;
   background: #fdfdfd;
-  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  padding: 1.5rem;
   border-left: 4px solid #007e6a;
   font-style: italic;
   display: flex;
@@ -174,6 +173,18 @@ h1 {
   font-style: normal;
   font-weight: 700;
   color: #007e6a;
+}
+
+/* Responsive for small screens */
+@media (max-width: 480px) {
+  .testimonial {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .testimonial img {
+    margin-bottom: 1rem;
+  }
 }
 
 .trust-badges {
@@ -395,7 +406,7 @@ h1 {
 <body>
 
 <header>
-  <img src="/img/logo.png" alt="BioVault Health" />
+        <img src="/img/logo.png" alt="BioVault Logo" width="120" height="auto" loading="lazy">
 </header>
 
 <div class="container">
@@ -446,10 +457,13 @@ h1 {
     </ul>
   </div>
 
-<div class="testimonial" style="display: flex; align-items: flex-start; gap: 1rem; background: #fdfdfd; padding: 1.5rem; border-left: 4px solid #007e6a; border-radius: 8px;">
-  
-  <!-- Optional headshot -->
-  <img src="/img/martha.png" alt="Martha - Verified Senior" style="width: 64px; height: 64px; border-radius: 50px; object-fit: cover; box-shadow: 0 2px 6px rgba(0,0,0,0.1);" />
+<div class="testimonial">
+  <img src="/img/Martha.png" alt="Martha - Verified Senior" />
+  <div>
+    <p>“I was struggling with joint pain and now I can barely soak my mug without knee pain. Walking has been a breeze. I’ve even cut back on pain meds!”</p>
+    <strong>— Martha L., Verified Buyer</strong>
+  </div>
+</div>
 
   <div>
     <p style="margin: 0; font-weight: 600; color: #007e6a;">Real Relief from Real Seniors</p>
