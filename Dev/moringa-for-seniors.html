@@ -216,35 +216,45 @@ h1 {
     display: none;
   }
 }
-
 .pricing-options {
   margin-top: 2.5rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.pricing-options > div {
+.pricing-card {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 1rem;
-  margin: 1.5rem 0;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease;
-}
-
-.pricing-options > div:hover,
-.pricing-options > div:focus-within {
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
   outline: none;
 }
 
-.pricing-options img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-bottom: 0.75rem;
+.pricing-card:hover,
+.pricing-card:focus-within {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  outline: 2px solid #28a745;
 }
 
-.pricing-options a {
+.pricing-card img {
+  max-width: 100%;     /* Fit container width */
+  max-height: 240px;   /* Limit height to avoid tall images */
+  object-fit: contain; /* Keep aspect ratio, no cropping */
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  height: auto;
+  width: auto;         /* Let width scale proportionally with height */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  /* Center image horizontally */
+}
+
+
+.pricing-card a {
   display: inline-block;
   color: white;
   padding: 0.9rem 2rem;
@@ -252,37 +262,52 @@ h1 {
   border-radius: 50px;
   margin-top: 0.5rem;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, filter 0.3s ease;
 }
 
-.pricing-options div:nth-child(2) a {
-  background: #28a745;
-}
-.pricing-options div:nth-child(3) a {
-  background: #007e6a;
-}
-.pricing-options div:nth-child(4) a {
-  background: #999;
-}
-
-.pricing-options a:hover,
-.pricing-options a:focus {
+.pricing-card a:hover,
+.pricing-card a:focus {
   filter: brightness(0.9);
   outline: none;
 }
 
-.pricing-options p {
+/* Specific button colors */
+.pricing-card:nth-child(1) a {
+  background: #28a745;
+}
+.pricing-card:nth-child(2) a {
+  background: #007e6a;
+}
+.pricing-card:nth-child(3) a {
+  background: #999;
+}
+
+.pricing-card p {
   margin: 0.25rem 0;
   font-weight: 600;
 }
 
-.pricing-options p:last-child {
+.pricing-card p:last-child {
   font-size: 0.95rem;
   margin-top: 0.5rem;
 }
 
-.pricing-options p:last-child[style*="color: #cc0000"] {
+/* Highlight for red warning text */
+.pricing-card p[style*="color: #cc0000"] {
   font-weight: 700;
+}
+
+/* Responsive layout for desktop */
+@media (min-width: 768px) {
+  .pricing-options {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .pricing-card {
+    flex: 0 1 30%;
+    margin: 0;
+  }
 }
 
 .faq {
@@ -446,35 +471,32 @@ h1 {
   <div class="guarantee">
     💚 60-Day Money-Back Guarantee | Ships Fast from the USA
   </div>
-
-  <div class="pricing-options">
-  <h2 style="color: #007e6a;">Choose Your Package</h2>
-
-  <div style="background: #f8fff8; padding: 1rem; border-radius: 10px;">
+<div class="pricing-options">
+  <div class="pricing-card" style="background: #f8fff8;">
     <img src="/img/6Bottles_MoneyBack.webp" alt="6 Bottle Deal">
     <p><strong>$49 Per Bottle – Save $900 + Free Shipping</strong></p>
-     <a href="/biovaulthealth/moringa" style="background: #28a745;" target="_blank" rel="noopener noreferrer nofollow">
+    <a href="/biovaulthealth/moringa" style="background: #28a745;" target="_blank" rel="noopener noreferrer nofollow">
       Add 6 Bottles to Cart
     </a>
-    <p style="color: #cc0000; font-size: 0.95rem; margin-top: 0.5rem;">🔥 Most Popular – Selling Fast!</p>
+    <p style="color: #cc0000; font-size: 0.95rem;">🔥 Most Popular – Selling Fast!</p>
   </div>
 
-  <div style="background: #fffef8; padding: 1rem; border-radius: 10px;">
+  <div class="pricing-card" style="background: #fffef8;">
     <img src="/img/3Bottles_MoneyBack.webp" alt="3 Bottle Deal">
     <p><strong>$59 Per Bottle – Save $420</strong></p>
     <a href="/biovaulthealth/moringa" style="background: #007e6a;" target="_blank" rel="noopener noreferrer nofollow">
       Add 3 Bottles to Cart
     </a>
-    <p style="color: #e67e22; font-size: 0.95rem; margin-top: 0.5rem;">⭐ Great Value – While Supplies Last</p>
+    <p style="color: #e67e22; font-size: 0.95rem;">⭐ Great Value – While Supplies Last</p>
   </div>
 
-  <div style="background: #fff; padding: 1rem; border-radius: 10px;">
+  <div class="pricing-card" style="background: #fff;">
     <img src="/img/1Bottle_MoneyBack.webp" alt="1 Bottle Deal">
     <p><strong>$79 Per Bottle – Save $120</strong></p>
-      <a href="/biovaulthealth/moringa" style="background: #999;" target="_blank" rel="noopener noreferrer nofollow">
+    <a href="/biovaulthealth/moringa" style="background: #999;" target="_blank" rel="noopener noreferrer nofollow">
       Add 1 Bottle to Cart
     </a>
-    <p style="color: #d00; font-size: 0.95rem; margin-top: 0.5rem;">⚠ Low Stock – May Sell Out Today</p>
+    <p style="color: #d00; font-size: 0.95rem;">⚠ Low Stock – May Sell Out Today</p>
   </div>
 </div>
 
