@@ -9,7 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
   <style>
-   body {
+/* === Global Reset & Typography === */
+body {
   font-family: 'Inter', sans-serif;
   background: #f4f4f4;
   margin: 0;
@@ -18,20 +19,20 @@
   font-size: 20px;
   line-height: 1.7;
 }
+h1, h2, h3, h4, h5, h6 { margin: 0 0 1rem; font-weight: 700; }
+p { margin: 0 0 1rem; }
+a { text-decoration: none; color: inherit; }
 
+/* === Header === */
 header {
   background: #fff;
   padding: 1rem 0;
   text-align: center;
   border-bottom: 1px solid #eee;
 }
+header img { max-height: 60px; width: auto; }
 
-header img {
-  max-height: 0px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
+/* === Container === */
 .container {
   max-width: 840px;
   margin: 2rem auto;
@@ -39,104 +40,52 @@ header img {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-sizing: border-box;
 }
 
-.hero {
-  text-align: center;
-}
-
+/* === Hero === */
+.hero { text-align: center; }
 .hero img {
   width: 100%;
-  max-width: 100%;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
 .hero img:hover,
-.hero img:focus {
-  transform: scale(1.02);
-  outline: none;
-}
+.hero img:focus { transform: scale(1.02); outline: none; }
+h1 { font-size: 2rem; color: #007e6a; margin-top: 1.5rem; }
+.subhead { font-size: 1.2rem; margin-top: 0.5rem; color: #555; }
+.stars { color: #f39c12; font-size: 1.2rem; margin: 0.5rem 0; }
 
-h1 {
-  font-size: 2rem;
-  color: #007e6a;
-  margin-top: 1.5rem;
-}
-
-.subhead {
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-  color: #555;
-}
-
-.stars {
-  color: #f39c12;
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-}
-
-.cta {
-  text-align: center;
-  margin-top: 1.25rem;
-}
-
-
-.cta a,
-.cta a:visited {
+/* === CTA === */
+.cta { text-align: center; margin-top: 1.25rem; }
+.cta a {
   background: #007e6a;
-  color: white;
-  text-decoration: none;
+  color: #fff;
   padding: 1rem 2.5rem;
   font-size: 1.2rem;
   font-weight: 700;
   border-radius: 50px;
   display: inline-block;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease;
 }
-
-
 .cta a:hover,
-.cta a:focus {
-  background: #005e4a;
-  outline: none;
-}
+.cta a:focus { background: #005e4a; outline: none; }
+.scarcity { color: #c00; font-size: 0.95rem; font-weight: 600; margin-top: 0.5rem; }
 
-.scarcity {
-  color: #c00;
-  font-size: 0.95rem;
-  margin-top: 0.5rem;
-  font-weight: 600;
-}
-
+/* === Benefit & How It Works === */
 .benefits, .how-it-works {
   margin-top: 2rem;
   padding: 1rem 1.25rem;
   border-radius: 10px;
   box-sizing: border-box;
 }
+.benefits { background: #eafaf7; color: #004d3a; }
+.how-it-works { background: #fff7ed; color: #663d00; }
+.benefits ul, .how-it-works ul { padding-left: 1.5rem; margin-top: 0.5rem; }
+.benefits li, .how-it-works li { margin-bottom: 0.5rem; font-weight: 600; }
 
-.benefits {
-  background: #eafaf7;
-  color: #004d3a;
-}
-
-.how-it-works {
-  background: #fff7ed;
-  color: #663d00;
-}
-
-.benefits ul,
-.how-it-works ul {
-  padding-left: 1.5rem;
-  margin-top: 0.5rem;
-}
-
-.benefits li,
-.how-it-works li {
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
+/* === Testimonial === */
 .testimonial {
   margin-top: 2rem;
   background: #fdfdfd;
@@ -149,7 +98,6 @@ h1 {
   border-radius: 8px;
   box-sizing: border-box;
 }
-
 .testimonial img {
   width: 64px;
   height: 64px;
@@ -158,15 +106,7 @@ h1 {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   flex-shrink: 0;
 }
-
-.testimonial > div {
-  flex: 1;
-}
-
-.testimonial p {
-  margin: 0;
-}
-
+.testimonial > div { flex: 1; }
 .testimonial strong {
   display: block;
   margin-top: 1rem;
@@ -175,61 +115,29 @@ h1 {
   color: #007e6a;
 }
 
-/* Responsive for small screens */
-@media (max-width: 480px) {
-  .testimonial {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .testimonial img {
-    margin-bottom: 1rem;
-  }
-}
+/* === Trust Badges & Guarantee === */
+.trust-badges { margin-top: 1.5rem; text-align: center; }
+.trust-badges img { max-height: 60px; max-width: 100%; object-fit: contain; }
+.guarantee { margin-top: 2rem; text-align: center; font-size: 1rem; color: #666; font-weight: 500; }
 
-.trust-badges {
-  margin-top: 1.5rem;
-  text-align: center;
-}
-
-.trust-badges img {
-  max-height: 60px;
-  max-width: 100%;
-  object-fit: contain;
-}
-
-.guarantee {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 1rem;
-  color: #666;
-  font-weight: 500;
-}
-
+/* === Sticky CTA === */
 .sticky-cta {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 0; left: 0; right: 0;
   background: #007e6a;
   text-align: center;
   padding: 0.75rem 1rem;
   z-index: 1000;
   box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
 }
-
 .sticky-cta a {
-  color: white;
+  color: #fff;
   font-size: 1.2rem;
   font-weight: 600;
-  text-decoration: none;
 }
+@media (min-width: 720px) { .sticky-cta { display: none; } }
 
-@media (min-width: 720px) {
-  .sticky-cta {
-    display: none;
-  }
-}
+/* === Pricing Options === */
 .pricing-options {
   margin-top: 2.5rem;
   text-align: center;
@@ -237,7 +145,6 @@ h1 {
   flex-direction: column;
   gap: 1.5rem;
 }
-
 .pricing-card {
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -245,114 +152,52 @@ h1 {
   background: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease;
-  outline: none;
 }
-
 .pricing-card:hover,
 .pricing-card:focus-within {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  outline: 2px solid #28a745;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
-
 .pricing-card img {
-  max-width: 100%;     /* Fit container width */
-  max-height: 240px;   /* Limit height to avoid tall images */
-  object-fit: contain; /* Keep aspect ratio, no cropping */
+  max-width: 100%;
+  max-height: 240px;
+  object-fit: contain;
   border-radius: 8px;
-  margin-bottom: 0.75rem;
-  height: auto;
-  width: auto;         /* Let width scale proportionally with height */
+  margin: 0 auto 0.75rem;
   display: block;
-  margin-left: auto;
-  margin-right: auto;  /* Center image horizontally */
 }
-
-
 .pricing-card a {
   display: inline-block;
-  color: white;
+  color: #fff;
   padding: 0.9rem 2rem;
   font-size: 1.2rem;
   border-radius: 50px;
   margin-top: 0.5rem;
-  text-decoration: none;
-  transition: background-color 0.3s ease, filter 0.3s ease;
+  transition: filter 0.3s ease;
 }
-
 .pricing-card a:hover,
-.pricing-card a:focus {
-  filter: brightness(0.9);
-  outline: none;
-}
+.pricing-card a:focus { filter: brightness(0.9); outline: none; }
+.pricing-card p { margin: 0.25rem 0; font-weight: 600; }
+.pricing-card p:last-child { font-size: 0.95rem; margin-top: 0.5rem; }
+.pricing-card p[style*="color: #cc0000"] { font-weight: 700; }
 
-/* Specific button colors */
-.pricing-card:nth-child(1) a {
-  background: #28a745;
-}
-.pricing-card:nth-child(2) a {
-  background: #007e6a;
-}
-.pricing-card:nth-child(3) a {
-  background: #999;
-}
-
-.pricing-card p {
-  margin: 0.25rem 0;
-  font-weight: 600;
-}
-
-.pricing-card p:last-child {
-  font-size: 0.95rem;
-  margin-top: 0.5rem;
-}
-
-/* Highlight for red warning text */
-.pricing-card p[style*="color: #cc0000"] {
-  font-weight: 700;
-}
-
-/* Responsive layout for desktop */
 @media (min-width: 768px) {
-  .pricing-options {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .pricing-card {
-    flex: 0 1 30%;
-    margin: 0;
-  }
+  .pricing-options { flex-direction: row; justify-content: center; }
+  .pricing-card { flex: 0 1 30%; }
 }
 
+/* === FAQ === */
 .faq {
   background: #f9f9f9;
   padding: 1.5rem;
   margin-top: 2rem;
   border-radius: 10px;
-  color: #333;
   font-size: 1.1rem;
+  color: #333;
 }
+.faq h3 { color: #007e6a; margin: 0 0 1rem; font-size: 1.5rem; }
+.faq-item strong { display: block; color: #007e6a; margin-bottom: 0.3rem; }
 
-.faq h3 {
-  color: #007e6a;
-  margin-top: 0;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.faq p {
-  margin-bottom: 1.25rem;
-  line-height: 1.6;
-}
-
-.faq-item strong {
-  display: block;
-  color: #007e6a;
-  margin-bottom: 0.3rem;
-}
-
-
-/* Doctor quote section */
+/* === Doctor Quote === */
 .doctor-quote {
   margin-top: 1.5rem;
   background: #eefdf7;
@@ -360,53 +205,35 @@ h1 {
   border-radius: 10px;
   text-align: center;
   color: #007e6a;
-  box-sizing: border-box;
 }
-
 .doctor-quote img {
-  width: 60px;
-  height: 60px;
+  width: 60px; height: 60px;
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   margin-bottom: 0.5rem;
-  display: inline-block;
 }
 
-.doctor-quote p {
-  margin: 0.25rem 0 0 0;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #555;
-}
+/* === Footer === */
+.footer { padding: 20px 0; background: #f9f9f9; text-align: center; font-size: 14px; color: #555; }
+.footer a { color: #555; text-decoration: underline; margin: 0 8px; }
+.footer-social { margin-bottom: 12px; }
 
-/* Responsive tweaks */
-
+/* === Responsive Tweaks === */
 @media (max-width: 480px) {
-  body {
-    font-size: 18px;
-  }
-  .container {
-    padding: 1rem;
-    margin: 1rem;
-  }
-  .testimonial {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .testimonial img {
-    margin-bottom: 1rem;
-  }
+  body { font-size: 18px; }
+  .container { padding: 1rem; margin: 1rem; }
+  .testimonial { flex-direction: column; text-align: center; align-items: center; }
+  .testimonial img { margin-bottom: 1rem; }
 }
+</style>
 
-  </style>
 </head>
 
 <body>
 
 <header>
-        <img src="/img/logo.png" alt="BioVault Logo" width="120" height="auto" loading="lazy">
+<img src="/img/logo.png" alt="BioVault Logo" width="120" height="auto" loading="lazy">
 </header>
 
 <div class="container">
