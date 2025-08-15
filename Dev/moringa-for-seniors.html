@@ -8,411 +8,2820 @@
   <title>Moringa Magic for Seniors | BioVault Health</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
-  <style>
-/* === Global Reset & Typography === */
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-…(see CDNJS integrity key)…"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<style>
+
+  /* -----------------------------------
+   BioVault CSS Styles – Global
+----------------------------------- */
+
+/* ===== Root Variables ===== */
+:root {
+  /* Brand Colors */
+  --primary-color: #017f7c;
+  --secondary-color: #05b9b5;
+  --accent-color: #f5f5f5;
+  --dark-color: #1d1d1d;
+  --light-color: #ffffff;
+  --text-muted: #6c757d;
+
+  /* Brand Extensions */
+  --teal-bright: #05b9b5;
+  --deep-teal: #023d3a;
+  --neutral-bg: #eae8e5;
+  --background-light: #f1fafa;
+
+  /* Typography */
+  --heading-font: 'Poppins', sans-serif;
+  --body-font: 'Inter', sans-serif;
+
+  /* Shadows */
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  --focus-ring: 0 0 0 2px rgba(1, 127, 124, 0.3);
+
+  /* Z-index */
+  --z-base: 1;
+  --z-header: 100;
+  --z-dropdown: 200;
+  --z-modal: 1000;
+  --z-critical-ui: 2147483647;
+}
+
+/* ===== HTML & BODY ===== */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
 body {
-  font-family: 'Inter', sans-serif;
-  background: #f4f4f4;
   margin: 0;
-  padding: 0;
-  color: #222;
+  padding: 0 1rem;
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--body-font), Arial, Helvetica, sans-serif;
+  background: var(--accent-color);
+  color: var(--dark-color);
   font-size: 20px;
   line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.5s ease;
+  scroll-behavior: smooth;
 }
-h1, h2, h3, h4, h5, h6 { margin: 0 0 1rem; font-weight: 700; }
-p { margin: 0 0 1rem; }
-a { text-decoration: none; color: inherit; }
 
-/* === Header === */
+
+/* ===== GLOBAL RESET ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* === Global Section Title Styles === */
+.section-title {
+  font-size: 2.75rem !important; /* Set font size */
+  font-weight: 700; /* Set font weight */
+  color: #1d1d1d; /* Dark color for the section title */
+  letter-spacing: 1px; /* Letter spacing for better readability */
+  text-transform: uppercase; /* Uppercase text */
+  margin-bottom: 0.75rem; /* Bottom margin to space out from the content below */
+  position: relative; /* To position the after pseudo-element */
+}
+
+.section-title::after {
+  content: '';
+  width: 80px; /* Width of the underline */
+  height: 4px; /* Height of the underline */
+  background-color: var(--teal-bright); /* Underline color */
+  display: block;
+  margin: 10px auto 0; /* Center the underline */
+  border-radius: 2px; /* Rounded corners for the underline */
+  box-shadow: 0 0 8px rgba(5, 185, 181, 0.67); /* Shadow for the underline */
+}
+
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0 !important;
+  margin-bottom: 0.6em !important;
+  font-weight: 700 !important;
+  color: var(--primary-color) !important;
+  line-height: 1.3 !important;
+  text-align: center !important;
+  font-family: var(--heading-font) !important;
+}
+
+h1 { font-size: 2.75rem !important; }
+h2 { font-size: 2.25rem !important; }
+h3 { font-size: 1.75rem !important; }
+h4 { font-size: 1.4rem !important; }
+h5 { font-size: 1.15rem !important; }
+h6 {
+  font-size: 1rem !important;
+  color: #666 !important;
+  font-weight: 600 !important;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.container {
+  max-width: 1040px;
+  margin: 1rem auto !important;    /* reduced from 2rem to 1rem for less vertical space */
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  width: 100%;
+}
+
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablets (≤ 768px) */
+@media (max-width: 768px) {
+  .container {
+    max-width: 95%;
+    margin: 1rem auto !important;
+    padding: 1.5rem 1rem !important;
+  }
+}
+
+/* Small phones (≤ 480px) */
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+    margin: 1.5rem auto !important;
+    padding: 1.25rem 1rem !important;
+  }
+}
+
+/* Section spacing + optional background divider */
+.section-divider {
+  border-bottom: 1px solid #eaeaea;
+  border-top: none;
+
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  padding-top: 0;
+  padding-bottom: 1rem;
+}
+
+/* Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .section-divider {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+/* Mobile Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .section-divider {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+
+
+/* Padding utility classes (could use Bootstrap if included) */
+
+
+.py-3 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+
+.bg-light {
+  background-color: #f9f9f9;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.fs-5 {
+  font-size: 1.125rem;
+}
+
+/* Optional: Give your icons some structure if used */
+.icon-circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: #fff;
+}
+.bg-primary { background-color: var(--primary-color); }
+.bg-success { background-color: var(--secondary-color); }
+.bg-warning { background-color: #ffc107; }
+
+
+/* ===== SPECIAL HEADER ===== */
+.special-offer-header {
+  background: linear-gradient(90deg, #f5fff5, #e0f7ea);
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+}
+
+/* ===== RESPONSIVE QUERIES ===== */
+@media (max-width: 768px) {
+  .container, .section {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .container {
+    padding: 1.5rem 1rem !important;
+    margin: 2rem auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.25rem 1rem !important;
+  }
+}
+
+
+/* ===== HEADER ===== */
 header {
   background: #fff;
   padding: 1rem 0;
   text-align: center;
   border-bottom: 1px solid #eee;
 }
-header img { max-height: 60px; width: auto; }
 
-/* === Container === */
-.container {
-  max-width: 840px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  box-sizing: border-box;
+header img {
+  height: auto;
+  max-height: 60px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-/* === Hero === */
-.hero { text-align: center; }
+
+
+/* ===== HERO SECTION ===== */
+.hero {
+  text-align: center;
+}
+
+/* Hero Image */
 .hero img {
+  max-width: 720px;
   width: 100%;
+  margin: 0 auto;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 .hero img:hover,
-.hero img:focus { transform: scale(1.02); outline: none; }
-h1 { font-size: 2rem; color: #007e6a; margin-top: 1.5rem; }
-.subhead { font-size: 1.2rem; margin-top: 0.5rem; color: #555; }
-.stars { color: #f39c12; font-size: 1.2rem; margin: 0.5rem 0; }
+.hero img:focus {
+  transform: scale(1.02);
+}
 
-/* === CTA === */
-.cta { text-align: center; margin-top: 1.25rem; }
-.cta a {
-  background: #007e6a;
+/* Text Elements */
+.hero .micro-headline {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #05b9b5;
+  margin-bottom: 0.5rem;
+}
+
+.hero h1 {
+  font-size: 2.2rem; /* increased for seniors */
+  font-weight: 700;
+}
+
+/* Call to Action Button */
+.hero .cta-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: #05b9b5;
   color: #fff;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Subtext */
+.hero .cta-subtext {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: #333;
+}
+
+/* Trust Badges */
+.hero .trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero .trust-badges img {
+  width: 60px;
+  height: auto;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablets (≤ 768px) */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero .cta-btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .hero .trust-badges {
+    gap: 0.75rem;
+  }
+}
+
+/* Mobile Phones (≤ 480px) */
+@media (max-width: 480px) {
+  .hero img {
+    max-width: 100%;
+  }
+
+  .hero .micro-headline {
+    font-size: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero .cta-btn {
+    font-size: 0.95rem;
+    padding: 0.75rem 1.2rem;
+  }
+
+  .hero .cta-subtext {
+    font-size: 0.9rem;
+  }
+
+  .hero .trust-badges img {
+    width: 48px;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  color: #007e6a;
+  margin-top: 1.5rem;
+}
+
+.subhead {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.stars {
+  color: #f39c12;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.cta {
+  text-align: center;
+  margin-top: 1.25rem;
+}
+
+.cta-btn {
+  background: #007e6a;
+  color: white;
   padding: 1rem 2.5rem;
   font-size: 1.2rem;
   font-weight: 700;
   border-radius: 50px;
   display: inline-block;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
-.cta a:hover,
-.cta a:focus { background: #005e4a; outline: none; }
-.scarcity { color: #c00; font-size: 0.95rem; font-weight: 600; margin-top: 0.5rem; }
 
-/* === Benefit & How It Works === */
-.benefits, .how-it-works {
+.cta-btn:hover,
+.cta-btn:focus {
+  background: #005e4a;
+  outline: none;
+}
+
+.scarcity {
+  color: #c00;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+/* ===== BENEFITS SECTION ===== */
+.benefits {
+  background: #fff;
+  color: #222;
   margin-top: 2rem;
   padding: 1rem 1.25rem;
   border-radius: 10px;
-  box-sizing: border-box;
 }
-.benefits { background: #eafaf7; color: #004d3a; }
-.how-it-works { background: #fff7ed; color: #663d00; }
-.benefits ul, .how-it-works ul { padding-left: 1.5rem; margin-top: 0.5rem; }
-.benefits li, .how-it-works li { margin-bottom: 0.5rem; font-weight: 600; }
 
-/* === Testimonial === */
-.testimonial {
-  margin-top: 2rem;
-  background: #fdfdfd;
-  padding: 1.5rem;
-  border-left: 4px solid #007e6a;
-  font-style: italic;
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  border-radius: 8px;
-  box-sizing: border-box;
+.benefits h2 {
+  color: #007e6a;
+  font-size: 1.5rem;
 }
-.testimonial img {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
+
+.benefits .intro {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* === LAYOUT: DESKTOP DEFAULT === */
+.benefits-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.benefit-list-wrapper {
+  flex: 1 1 60%;
+  max-width: 640px;
+}
+
+/* === IMAGE CONTAINER === */
+.benefit-image {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.benefit-image img {
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  max-width: 320px;
+  max-height: 420px;
+  height: auto;
   object-fit: cover;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* === BENEFIT LIST === */
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.benefit-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.check-icon {
+  color: #1a7f37;
+  font-size: 1.4rem;
+  margin-right: 12px;
   flex-shrink: 0;
 }
-.testimonial > div { flex: 1; }
-.testimonial strong {
-  display: block;
-  margin-top: 1rem;
-  font-style: normal;
-  font-weight: 700;
-  color: #007e6a;
+
+.benefit-list li div {
+  max-width: 600px;
 }
 
-/* === Trust Badges & Guarantee === */
-.trust-badges { margin-top: 1.5rem; text-align: center; }
-.trust-badges img { max-height: 60px; max-width: 100%; object-fit: contain; }
-.guarantee { margin-top: 2rem; text-align: center; font-size: 1rem; color: #666; font-weight: 500; }
+.benefit-list li strong {
+  display: block;
+  margin-bottom: 0.3rem;
+}
 
-/* === Sticky CTA === */
+.micro-desc {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
+/* === BENEFIT ICONS === */
+.benefit-icons {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.benefit-item img {
+  width: 60px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.benefit-item p {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* === VIDEO WRAPPER === */
+.video-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.video-wrapper video {
+  border-radius: 10px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.video-caption {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablets (≤ 768px) */
+@media (max-width: 768px) {
+  .benefits h2 {
+    font-size: 1.3rem;
+  }
+
+  .benefits .intro {
+    font-size: 1rem;
+  }
+
+  .benefit-item p {
+    font-size: 1rem;
+  }
+
+  .benefit-icons {
+    gap: 1rem;
+  }
+
+  .video-wrapper video {
+    max-width: 100%;
+  }
+
+  .video-caption {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Phones (≤ 576px) */
+@media (max-width: 576px) {
+  .benefits-wrapper {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+
+  .benefit-image {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .benefit-image img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .benefit-list {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .benefit-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .check-icon {
+    margin-bottom: 0.5rem;
+  }
+
+  .benefit-list li div {
+    max-width: 100%;
+  }
+
+  .micro-desc {
+    font-size: 0.9rem;
+  }
+
+  .benefit-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .benefit-item img {
+    width: 48px;
+  }
+
+  .benefit-item p {
+    font-size: 0.95rem;
+  }
+
+  .benefits h2 {
+    font-size: 1.2rem;
+  }
+
+  .benefits li {
+    padding-left: 1.25rem;
+  }
+}
+
+/* ===== DOCTOR + SCIENCE SECTION ===== */ 
+.doctor-science {
+  background-color: #eefdf7;
+  padding: 3rem 1rem;
+  border-radius: 12px;
+  color: #004d3e;
+}
+
+.doctor-image img {
+  margin: 0 auto;
+  display: block;
+}
+
+
+/* === Section Header === */
+.doctor-science-header .section-title {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #004d3e;
+}
+
+.doctor-science-header p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* === Content Layout === */
+.doctor-science-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: nowrap;
+}
+
+.doctor-text-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.doctor-image-wrapper {
+  flex-shrink: 0;
+  max-width: 280px;
+}
+
+/* === Science Intro === */
+.doctor-science-intro {
+  font-size: 1rem;
+  font-style: italic;
+  color: #004d3e;
+  margin-bottom: 1.5rem;
+  padding-right: 1rem;
+  line-height: 1.6;
+}
+
+/* === Quote Box === */
+.doctor-quote-box {
+  background: #ffffff;
+  border-left: 4px solid #1a7f37;
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.doctor-quote-box blockquote {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.quote-mark {
+  color: #1a7f37;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/* === Doctor Image === */
+.doctor-image img {
+  width: 100%;
+  height: 250px;
+  max-width: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === Doctor Info === */
+.doctor-details {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.doctor-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.doctor-verification {
+  font-size: 0.95rem;
+  color: #1a7f37;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 0.3rem;
+}
+
+.check-icon {
+  font-weight: bold;
+}
+
+/* === Footer === */
+.doctor-science-footer {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.doctor-rating {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.doctor-cta .btn {
+  background-color: #1a7f37;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.05rem;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+}
+
+.doctor-cta .btn:hover {
+  background-color: #146d2f;
+}
+
+.cta-subtext {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.doctor-research-link {
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.doctor-research-link a {
+  color: #007e6a;
+  text-decoration: underline;
+  font-weight: 500;
+}
+/* === Scientific References Box === */
+.references-box {
+  display: none; /* Hidden by default */
+  margin: 2rem auto 0;
+  padding: 1.5rem 1.75rem;
+  max-width: 800px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* === Heading Style === */
+.references-box h3 {
+  font-size: 1.5rem;
+  color: #004d3e;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+/* === Ordered List === */
+.references-box ol {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.references-box li {
+  margin-bottom: 1rem;
+  list-style-position: inside;
+}
+
+/* === Link Styling (optional) === */
+.references-box a {
+  color: #005f4e;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.references-box a:hover {
+  text-decoration: underline;
+  color: #003f34;
+}
+
+
+/* === Visibility Helpers === */
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+/* === Responsive Styles === */
+
+/* Tablets & below */
+@media (max-width: 768px) {
+  .doctor-science-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Image behavior */
+  .mobile-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .doctor-image-wrapper.mobile-only {
+    margin: 1.5rem auto;
+    text-align: center;
+  }
+
+  .doctor-image-wrapper.mobile-only .doctor-image {
+    display: inline-block;
+  }
+
+  .doctor-image img {
+    margin: 0 auto;
+  }
+
+  .doctor-science-intro {
+    font-size: 0.95rem;
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .doctor-quote-box {
+    margin: 0 1rem 1.5rem 1rem;
+  }
+
+  .doctor-quote-box blockquote {
+    font-size: 1rem;
+  }
+
+  .doctor-name {
+    font-size: 1.1rem;
+  }
+
+  .doctor-verification {
+    font-size: 0.9rem;
+  }
+
+  .doctor-rating {
+    font-size: 0.9rem;
+  }
+
+  .doctor-cta .btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .cta-subtext {
+    font-size: 0.85rem;
+  }
+
+  .doctor-research-link {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile phones & small screens */
+@media (max-width: 480px) {
+  .doctor-science-intro {
+    font-size: 0.9rem;
+    padding: 0 0.75rem;
+  }
+
+  .doctor-quote-box blockquote {
+    font-size: 0.95rem;
+  }
+
+  .doctor-name {
+    font-size: 1rem;
+  }
+
+  .doctor-verification {
+    font-size: 0.85rem;
+  }
+
+  .doctor-rating {
+    font-size: 0.85rem;
+  }
+
+  .doctor-cta .btn {
+    font-size: 0.95rem;
+    padding: 0.55rem 1.1rem;
+  }
+
+  .cta-subtext {
+    font-size: 0.8rem;
+  }
+
+  .doctor-research-link {
+    font-size: 0.85rem;
+  }
+}
+
+/* === Benefits Section Layout === */
+/* Container and Wrapper */
+.benefits-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap; /* no wrap on desktop */
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+/* Benefit list container */
+.benefit-list-wrapper {
+  flex: 1 1 auto;
+  max-width: 640px;
+  margin-right: 2rem; /* spacing on desktop */
+}
+
+/* Benefit List */
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.benefit-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.check-icon {
+  color: #1a7f37;
+  font-size: 1.4rem;
+  margin-right: 12px;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.benefit-list li div {
+  max-width: 600px;
+}
+
+.benefit-list li strong {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.micro-desc {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
+/* Desktop Image */
+.benefit-image {
+  flex: 0 0 320px;
+  display: flex !important; /* override bootstrap d-md-flex */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.benefit-image img {
+  margin: 0 auto;
+  display: block;
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  max-width: 320px;
+  max-height: 420px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Image */
+.benefit-image-mobile {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.benefit-image-mobile img {
+  margin: 0 auto;
+  display: block;
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+
+/* Medium breakpoint and below (tablet and smaller) */
+@media (max-width: 991.98px) {
+  .benefits-wrapper {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
+  }
+
+  .benefit-list-wrapper {
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .benefit-list {
+    font-size: 1.1rem;
+    text-align: left;
+  }
+
+  .micro-desc {
+    font-size: 0.95rem;
+  }
+
+  /* Show mobile image (Bootstrap handles visibility) */
+  .benefit-image {
+    display: none !important; /* Hide desktop image on tablet and below */
+  }
+}
+
+/* Small breakpoint and below (mobile phones) */
+@media (max-width: 575.98px) {
+  .benefit-list {
+    font-size: 1rem;
+  }
+
+  .benefit-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .check-icon {
+    margin-bottom: 0.5rem;
+  }
+
+  .benefit-list li div {
+    max-width: 100%;
+  }
+
+  .micro-desc {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ===== HOW IT WORKS SECTION ===== */
+/* HOW IT WORKS SECTION */
+
+.how-it-works {
+  background: var(--neutral-bg);               /* #eae8e5 */
+  color: var(--dark-color);                   /* #1d1d1d */
+  margin-top: 2rem;
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  font-family: var(--body-font);
+}
+
+/* Section Heading */
+.how-it-works h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color) !important;
+  font-weight: 700;
+  font-family: var(--heading-font);
+}
+
+/* Step Icons */
+.how-it-works i {
+  color: var(--secondary-color) !important;
+}
+
+/* Step Titles */
+.how-it-works h3 {
+  color: var(--secondary-color) !important;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  font-family: var(--heading-font);
+}
+
+/* Step Descriptions */
+.how-it-works p {
+  color: var(--text-muted);                    /* #6c757d */
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  font-family: var(--body-font);
+}
+
+/* Timeline Labels */
+.timeline {
+  font-size: 0.9rem;
+  color: var(--secondary-color) !important;
+  font-weight: 700;
+}
+
+/* CTA Button */
+.btn-brand {
+  background-color: var(--secondary-color) !important;
+  color: var(--light-color) !important;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  font-family: var(--heading-font);
+  border: none;
+}
+
+.btn-brand:hover,
+.btn-brand:focus {
+  background-color: var(--deep-teal) !important;  /* #023d3a */
+  color: var(--light-color) !important;
+}
+
+/* ====================== */
+/*     RESPONSIVE FIXES   */
+/* ====================== */
+
+@media (max-width: 768px) {
+  .how-it-works h2 {
+    font-size: 1.3rem;
+  }
+
+  .how-it-works h3 {
+    font-size: 1.1rem;
+  }
+
+  .how-it-works p {
+    font-size: 0.95rem;
+  }
+
+  .timeline {
+    font-size: 0.85rem;
+  }
+
+  .btn-brand {
+    font-size: 1rem;
+    padding: 0.7rem 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-it-works h2 {
+    font-size: 1.2rem;
+  }
+
+  .how-it-works h3 {
+    font-size: 1rem;
+  }
+
+  .btn-brand {
+    font-size: 0.95rem;
+    padding: 0.65rem 1.5rem;
+  }
+}
+
+/* ===== GENERAL RESET (SAFE) scoped to testimonial & product badge images ===== */
+#testimonial-section img,
+#product-badge img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== TESTIMONIAL SECTION ===== */
+.testimonial-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  filter: sepia(10%) brightness(1.05) contrast(1.1);
+  margin: 0 auto 1rem;
+}
+
+.pull-quote {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #05b9b5;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.full-story {
+  font-size: 1.125rem;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.customer-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #007e6a;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.location {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+
+.star-rating {
+  font-size: 1.5rem;
+  color: #f1c40f;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* ===== CAROUSEL CONTROLS & INDICATORS ===== */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 50% 50%;
+  padding: 1rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 20%; /* Keep above the content */
+  transform: translateY(-50%);
+  width: 2.75rem;
+  height: 2.75rem;
+  background-color: #05b9b5;
+  border-radius: 50%;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+  background-color: #04908d;
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  border: none;
+}
+
+.carousel-indicators .active {
+  background-color: #05b9b5;
+}
+
+/* ===== PRODUCT BADGE BELOW CAROUSEL ===== */
+#product-badge .d-flex img {
+  border-radius: 8px;
+  max-height: 120px;
+}
+
+#product-badge .d-flex p {
+  font-size: 0.875rem;
+  color: #888;
+}
+
+/* ===== CTA BUTTON (Styled) ===== */
+.btn-brand {
+  background-color: #05b9b5;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.btn-brand:hover {
+  background-color: #04908d;
+  color: #fff;
+}
+
+/* ===== HEADINGS & CONTAINERS ===== */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+}
+
+.special-offer-header p {
+  font-size: 1.125rem;
+  color: #777;
+  text-align: center;
+}
+
+/* ===== UTILITIES FROM BOOTSTRAP-LIKE SETUP ===== */
+.text-success {
+  color: #05b9b5 !important;
+}
+.text-warning {
+  color: #f1c40f !important;
+}
+.text-muted {
+  color: #6c757d !important;
+}
+.text-dark {
+  color: #333 !important;
+}
+.fw-bold {
+  font-weight: 700 !important;
+}
+.fw-semibold {
+  font-weight: 600 !important;
+}
+.fs-3 {
+  font-size: 1.75rem !important;
+}
+.fs-4 {
+  font-size: 1.5rem !important;
+}
+.fs-5 {
+  font-size: 1.25rem !important;
+}
+.fs-6 {
+  font-size: 1rem !important;
+}
+.rounded-circle {
+  border-radius: 50% !important;
+}
+.shadow {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ===== RESPONSIVENESS ===== */
+@media (max-width: 768px) {
+  .testimonial-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .pull-quote {
+    font-size: 1.2rem;
+  }
+
+  .full-story {
+    font-size: 1rem;
+  }
+
+  .star-rating {
+    font-size: 1.25rem;
+  }
+
+  .carousel-control-prev {
+    left: 6px;
+    top: 15%;
+  }
+
+  .carousel-control-next {
+    right: 6px;
+    top: 15%;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .pull-quote {
+    font-size: 1.1rem;
+  }
+
+  .full-story {
+    font-size: 0.95rem;
+  }
+
+  .customer-name {
+    font-size: 0.95rem;
+  }
+
+  .location {
+    font-size: 0.85rem;
+  }
+
+  .star-rating {
+    font-size: 1rem;
+  }
+
+  .btn-brand {
+    font-size: 1rem;
+    padding: 0.6rem 1.4rem;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 2.25rem;
+    height: 2.25rem;
+    top: 10%; /* higher on mobile to avoid overlap */
+  }
+
+  .carousel-control-prev {
+    left: 5px;
+  }
+
+  .carousel-control-next {
+    right: 5px;
+  }
+}
+
+.star-rating {
+  margin-bottom: 2rem; /* Add enough space to avoid overlap */
+}
+
+
+/* ===== TRUST BADGES ===== */
+
+.trust-guarantee {
+  background-image: url('/img/trust-bg.webp'); /* Make sure this path is correct */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 4rem 1rem;
+  position: relative;
+  color: #fff; /* White text for better contrast over background image */
+  text-align: center;
+}
+
+/* Optional: Add a subtle overlay for contrast if the image is bright */
+.trust-guarantee::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+}
+
+.trust-guarantee .container {
+  position: relative;
+  z-index: 2;
+}
+
+
+.trust-badges ul li img {
+  width: 60px;
+  height: auto;
+  filter: grayscale(10%);
+}
+
+.guarantee {
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+  margin-top: 1rem;
+}
+
+.lock-icon {
+  color: #05b9b5;
+  font-size: 1.2rem;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablets (≤ 768px) */
+@media (max-width: 768px) {
+  .trust-badges ul {
+    gap: 1rem;
+  }
+
+  .trust-badges ul li img {
+    width: 50px;
+  }
+
+  .guarantee {
+    font-size: 0.95rem;
+  }
+
+  .lock-icon {
+    font-size: 1.1rem;
+  }
+}
+
+/* Phones (≤ 480px) */
+@media (max-width: 480px) {
+  .trust-badges ul {
+    gap: 0.75rem;
+  }
+
+  .trust-badges ul li img {
+    width: 45px;
+  }
+
+  .guarantee {
+    font-size: 0.9rem;
+  }
+
+  .lock-icon {
+    font-size: 1rem;
+  }
+}
+
+
+/* ===== PRICING ===== */
+
+.pricing {
+  text-align: center;
+  margin: 2.5rem auto 0;
+  max-width: 1100px;
+  padding: 0 1rem;
+  font-family: var(--body-font);
+  background: var(--background-light);
+  border-radius: 12px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.pricing > h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-family: var(--heading-font);
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  border-bottom: 3px solid var(--secondary-color);
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pricing > p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* Wrapper for all pricing cards */
+.pricing-cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  margin-top: 1rem;
+}
+
+/* Individual Card */
+.pricing-card {
+  flex: 1 1 280px;
+  border: 1px solid #ddd;
+  padding: 2rem 1.8rem 2.5rem;
+  text-align: center;
+  border-radius: 10px;
+  background: var(--light-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.pricing-card:hover,
+.pricing-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-card img {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.pricing-card p {
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin: 0.5rem 0 1rem;
+  color: var(--dark-color);
+}
+
+.pricing-card p.per-day {
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.6rem;
+}
+
+.pricing-card p.trust-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+  margin-bottom: 0;
+}
+
+/* Last line note colors */
+.pricing-card:nth-child(1) p:last-child {
+  color: #d9534f; /* red for "Most Popular" */
+  font-weight: 700;
+  margin-top: 0.3rem;
+}
+
+.pricing-card:nth-child(2) p:last-child {
+  color: #f0ad4e; /* orange for "Great Value" */
+  font-weight: 700;
+  margin-top: 0.3rem;
+}
+
+.pricing-card:nth-child(3) p:last-child {
+  color: #c00; /* dark red for "Low Stock" */
+  font-weight: 700;
+  margin-top: 0.3rem;
+}
+
+/* Best Value Ribbon */
+.best-value {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  border-color: var(--secondary-color);
+}
+
+.ribbon {
+  position: absolute;
+  top: 10px;
+  right: -18px;
+  background: var(--secondary-color);
+  color: var(--light-color);
+  padding: 6px 22px;
+  transform: rotate(45deg);
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* CTA Button */
+.cta-btn {
+  display: inline-block;
+  margin-top: auto;
+  padding: 1rem 2.8rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--light-color);
+  background: var(--secondary-color);
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+  box-shadow: 0 4px 8px rgba(5, 185, 181, 0.4);
+  user-select: none;
+}
+
+.cta-btn:hover,
+.cta-btn:focus {
+  background-color: var(--deep-teal);
+  box-shadow: 0 6px 12px rgba(2, 61, 58, 0.6);
+  outline: none;
+}
+
+.pricing-card.best-value .cta-btn {
+  background-color: var(--secondary-color);
+}
+
+.pricing-card:nth-child(2) .cta-btn {
+  background-color: var(--primary-color);
+}
+
+.pricing-card:nth-child(3) .cta-btn {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+.pricing-card:nth-child(3) .cta-btn:hover,
+.pricing-card:nth-child(3) .cta-btn:focus {
+  background-color: #111;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .pricing {
+    padding: 2rem 1rem;
+  }
+  .cta-btn {
+    padding: 0.85rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+/* ===== FAQ SECTION ===== */
+.faq {
+  background: #f9f9f9;
+  padding: 2rem 1.5rem;
+  margin: 2rem auto 0;
+  border-radius: 10px;
+  color: #333;
+    max-width: 1100px;
+
+  box-sizing: border-box;
+  max-width: 1000px;
+}
+
+/* Header styling consistent with Seniors section */
+.special-offer-header {
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #007e6a;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+/* Optional underline below title */
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -0.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: #05b9b5;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(5, 185, 181, 0.5);
+}
+
+.text-muted {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* FAQ item styling */
+.faq-item {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.faq-item details {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #05b9b5;
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+/* Remove browser default arrow */
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom arrow using pseudo-element */
+.faq-item summary::before {
+  content: "▶";
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] summary::before {
+  content: "▼";
+}
+
+/* Optional strong (sub-head) in summary */
+.faq-item summary strong {
+  display: block;
+  color: #007e6a;
+  margin-bottom: 0.3rem;
+}
+
+.faq-item p {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 480px) {
+  .faq {
+    padding: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .faq-item summary {
+    font-size: 1rem;
+  }
+
+  .faq-item p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .faq-item summary {
+    font-size: 1.2rem;
+  }
+
+  .faq-item p {
+    font-size: 1.05rem;
+  }
+}
+
+
+/* ===== STICKY CTA ===== */
 .sticky-cta {
   position: fixed;
-  bottom: 0; left: 0; right: 0;
-  background: #007e6a;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #05b9b5; /* Uses A's brighter tone for consistency */
   text-align: center;
   padding: 0.75rem 1rem;
   z-index: 1000;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
 }
+
 .sticky-cta a {
   color: #fff;
   font-size: 1.2rem;
   font-weight: 600;
+  text-decoration: none;
 }
-@media (min-width: 720px) { .sticky-cta { display: none; } }
 
-/* === Pricing Options === */
-.pricing-options {
-  margin-top: 2.5rem;
+/* Hide sticky CTA on wider screens */
+@media (min-width: 720px) {
+  .sticky-cta {
+    display: none;
+  }
+}
+
+/* Optional: Adjust font size and padding for very small screens */
+@media (max-width: 400px) {
+  .sticky-cta a {
+    font-size: 1.05rem;
+  }
+  .sticky-cta {
+    padding: 0.6rem 0.75rem;
+  }
+}
+/* ===== FOOTER ===== */
+.footer {
+  background: #ffffff;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.pricing-card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 1rem;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.3s ease;
-}
-.pricing-card:hover,
-.pricing-card:focus-within {
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-.pricing-card img {
-  max-width: 100%;
-  max-height: 240px;
-  object-fit: contain;
-  border-radius: 8px;
-  margin: 0 auto 0.75rem;
-  display: block;
-}
-.pricing-card a {
-  display: inline-block;
-  color: #fff;
-  padding: 0.9rem 2rem;
-  font-size: 1.2rem;
-  border-radius: 50px;
-  margin-top: 0.5rem;
-  transition: filter 0.3s ease;
-}
-.pricing-card a:hover,
-.pricing-card a:focus { filter: brightness(0.9); outline: none; }
-.pricing-card p { margin: 0.25rem 0; font-weight: 600; }
-.pricing-card p:last-child { font-size: 0.95rem; margin-top: 0.5rem; }
-.pricing-card p[style*="color: #cc0000"] { font-weight: 700; }
-
-@media (min-width: 768px) {
-  .pricing-options { flex-direction: row; justify-content: center; }
-  .pricing-card { flex: 0 1 30%; }
-}
-
-/* === FAQ === */
-.faq {
-  background: #f9f9f9;
-  padding: 1.5rem;
+  padding: 2.5rem 1rem;
   margin-top: 2rem;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  color: #333;
+  border-top: 1px solid #eee;
+  font-family: system-ui, sans-serif;
 }
-.faq h3 { color: #007e6a; margin: 0 0 1rem; font-size: 1.5rem; }
-.faq-item strong { display: block; color: #007e6a; margin-bottom: 0.3rem; }
 
-/* === Doctor Quote === */
-.doctor-quote {
-  margin-top: 1.5rem;
-  background: #eefdf7;
-  padding: 1rem;
-  border-radius: 10px;
-  text-align: center;
+.footer nav {
+  margin-bottom: 1rem;
+}
+
+.footer-link {
   color: #007e6a;
-}
-.doctor-quote img {
-  width: 60px; height: 60px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin-bottom: 0.5rem;
+  margin: 0 0.75rem;
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
-/* === Footer === */
-.footer { padding: 20px 0; background: #f9f9f9; text-align: center; font-size: 14px; color: #555; }
-.footer a { color: #555; text-decoration: underline; margin: 0 8px; }
-.footer-social { margin-bottom: 12px; }
+.footer-link:hover {
+  color: #04908d;
+}
 
-/* === Responsive Tweaks === */
+/* ===== SOCIAL ICONS ===== */
+.footer-social {
+  margin: 1rem 0;
+}
+
+.footer-social a {
+  display: inline-block;
+  margin: 0 0.4rem;
+  color: #007e6a;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-social a:hover {
+  color: #04908d;
+  transform: scale(1.1);
+}
+
+.footer-social .icon {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+
+/* ===== CONTACT INFO ===== */
+.contact {
+  margin: 1rem 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.contact a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+/* ===== COPYRIGHT ===== */
+small {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* ===== MEDIA QUERIES ===== */
 @media (max-width: 480px) {
-  body { font-size: 18px; }
-  .container { padding: 1rem; margin: 1rem; }
-  .testimonial { flex-direction: column; text-align: center; align-items: center; }
-  .testimonial img { margin-bottom: 1rem; }
+  .footer-link {
+    display: block;
+    margin: 0.5rem 0;
+    font-size: 1.05rem;
+  }
+
+  .footer-social .icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .contact {
+    font-size: 1rem;
+  }
+
+  small {
+    font-size: 0.8rem;
+  }
 }
+
+
 </style>
 
 </head>
-
 <body>
 
-<header>
-<img src="/img/logo.png" alt="BioVault Logo" width="120" height="auto" loading="lazy">
-</header>
+  <header>
+    <img src="/img/logo.png" alt="BioVault Health Logo" loading="lazy">
+  </header>
 
-<div class="container">
+  <main class="container">
+    
+<!-- HERO SECTION --> 
+<section class="hero py-3 bg-white text-center" aria-label="Joint Relief for Adults 55+">
+  <div class="container">
 
-  <div class="hero">
-    <img src="/img/moringa-55-cover.png" alt="Moringa Magic for Seniors">
-    <h1>Feel Younger, Move Better with Moringa Magic 🌿</h1>
-    <p class="stars">★★★★★ Rated 4.9 by 1,200+ seniors</p>
-    <p class="subhead">Natural anti-inflammatory made for active adults 55+</p>
+    <!-- Hero Image -->
+    <figure class="mb-4">
+      <img src="/img/moringa-55-cover.webp" 
+           alt="Smiling senior holding Moringa Magic bottle and moving easily" 
+           class="img-fluid rounded shadow-sm"
+           loading="lazy"
+           width="600"
+           height="auto">
+    </figure>
 
-    <div class="cta">
-      <a href="/biovaulthealth/moringa" target="_blank" rel="noopener noreferrer nofollow">Get Relief Now →</a>
-      <p class="scarcity">🔥 Limited stock — Selling fast this week</p>
+    <!-- Micro-headline -->
+    <p class="micro-headline text-success fw-bold text-uppercase mb-2">
+      🌿 For Adults 55+ Seeking Natural Joint Relief
+    </p>
+
+    <!-- Main Headline (Pain Point + Timeframe) -->
+    <h1 class="display-5 fw-bold mb-3">
+      Ease Stiff Joints & Boost Energy — Feel Younger in 7 Days
+    </h1>
+
+    <!-- Social proof & trust -->
+    <p class="stars text-warning fs-5 mb-1">★★★★★ Rated 4.9 by 1,200+ Seniors</p>
+    <p class="text-muted mb-3">Clinically Reviewed | Doctor Trusted | Made for 55+</p>
+
+    <!-- Supporting Subhead -->
+    <p class="lead text-dark mb-4">
+      Moringa Magic is a natural anti-inflammatory designed to relieve stiff joints, boost energy, and help you stay active — without risky side effects.
+    </p>
+
+    <!-- CTA -->
+    <div class="cta mb-4">
+      <a href="/biovaulthealth/moringa" 
+  class="btn btn-brand btn-lg rounded-pill px-4"         style="background-color:#f7931e; border:none;" 
+         target="_blank" 
+         rel="noopener noreferrer nofollow" 
+         role="button">
+         ✅ Order Now & Start Feeling Better →
+      </a>
+      <p class="cta-subtext mt-2 text-muted small">
+        Safe, Doctor-Recommended Relief — Try It Risk-Free
+      </p>
+      <p class="scarcity text-danger fw-semibold mt-1">
+        📦 Limited Stock — Offer Ends Soon!
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- RECOMMENDATION -->
+<section class="benefits section-divider py-3 bg-light text-center" aria-label="Why We Recommend Moringa Magic">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="special-offer-header mb-4">
+      <h2 class="section-title">
+        🌿 Why We Recommend <span class="text-success">Moringa Magic</span>
+      </h2>
+      <p class="text-muted fs-5">
+        Trusted by thousands of adults 55+ for joint comfort, daily energy, and long-term wellness — without side effects.
+      </p>
+    </div>
+
+    <!-- Supporting Paragraph -->
+    <p class="lead text-dark mb-4">
+      This doctor-reviewed supplement combines science-backed ingredients with real results. Moringa Magic stood out for its gentle anti-inflammatory power, clean formula, and incredible user reviews.
+    </p>
+
+    <!-- 3 Key Benefits with Icons -->
+    <div class="benefit-icons d-flex justify-content-center flex-wrap gap-4 my-4">
+      <div class="benefit-item">
+        <i class="fas fa-leaf fa-2x text-success" aria-hidden="true"></i>
+        <p class="fw-semibold mt-2">Natural Relief</p>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-walking fa-2x  text-success" aria-hidden="true"></i>
+        <p class="fw-semibold mt-2">Easier Movement</p>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-bolt fa-2x  text-success" aria-hidden="true"></i>
+        <p class="fw-semibold mt-2">More Daily Energy</p>
+      </div>
+    </div>
+
+     <!-- Video: Optional Explainer -->
+<p class="video-caption text-muted mt-2">
+  <strong>Watch this short video to learn 13 science-backed benefits of Moringa, explained by Dr. Berg.</strong>
+</p>
+
+<div class="video-wrapper my-4">
+  <video 
+    controls 
+    muted 
+    playsinline 
+    poster="/img/video-thumbnail.webp" 
+    width="100%"
+    aria-label="Video explaining why Moringa Magic is recommended">
+    <source src="/video/moringa-why-we-recommend.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+     
+    </div>
+
+    <!-- CTA Button -->
+    <div class="text-center mt-3">
+      <a href="/biovaulthealth/moringa" 
+         class="btn btn-brand btn-lg rounded-pill px-4"
+         target="_blank" 
+         rel="noopener noreferrer nofollow">
+         💚 Try Moringa Magic Now – 100% Risk-Free
+      </a>
+      <p class="cta-subtext mt-2 text-muted small">
+        Doctor-Recommended • 60-Day Guarantee • Fast U.S. Shipping
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- BENEFITS SECTION -->
+
+<!-- DOCTOR + SCIENCE SECTION -->
+<section class="doctor-science section-divider py-3 ">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="special-offer-header text-center mb-4 position-relative">
+      <h2 class="section-title text-center">
+        🔬 Backed by Science — <span class="text-success">Trusted by Doctors</span>
+      </h2>
+      <p>
+        Moringa Magic is supported by decades of research — and recommended by medical professionals who specialize in senior care.
+      </p>
+    </div>
+
+    <!-- Doctor Content Row -->
+    <div class="doctor-science-content">
+
+      <!-- Left: Text, mobile image, and Quote -->
+      <div class="doctor-text-content">
+
+        <p class="doctor-science-intro">
+          Modern research highlights the powerful properties of <strong>Moringa oleifera</strong> — a plant known for its anti-inflammatory, immune-supportive, and antioxidant effects. It's one of the most studied botanicals in natural wellness today.
+        </p>
+
+        <!-- Mobile Image -->
+        <div class="doctor-image-wrapper mobile-only">
+          <div class="doctor-image">
+            <img src="/img/doctor-headshot.webp" alt="Dr. James Walker, MD" />
+          </div>
+        </div>
+
+        <div class="doctor-quote-box">
+          <blockquote>
+            <span class="quote-mark">“</span><strong>Moringa Magic</strong> gives my patients a natural way to improve joint comfort and mobility — without the harsh side effects of conventional medications.”<span class="quote-mark">”</span>
+          </blockquote>
+          <div class="doctor-details">
+            <p class="doctor-name">Dr. James Walker, MD</p>
+            <p class="doctor-verification">
+              <span class="check-icon">✔</span> Orthopedic Specialist, Austin, TX
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: Desktop Image -->
+      <div class="doctor-image-wrapper desktop-only">
+        <div class="doctor-image">
+          <img src="/img/doctor-headshot.webp" alt="Dr. James Walker, MD" />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="doctor-science-footer">
+      <p class="doctor-rating">⭐️⭐️⭐️⭐️⭐️ Rated by 2,500+ Seniors for Joint Relief</p>
+
+      <div class="doctor-cta">
+        <a href="/biovaulthealth/moringa" class="btn">
+          💚 Try Moringa Magic Today — Doctor Recommended →
+        </a>
+        <p class="cta-subtext">Clinically supported. Doctor-approved for joint comfort.</p>
+      </div>
+
+     <div class="doctor-research-link">
+  <a href="#!" id="show-references">🔗 View the Scientific References ›</a>
+</div>
+
+<!-- Hidden references container -->
+<div id="scientific-references" class="references-box">
+  <h3>Scientific References</h3>
+  <ol>
+    <li><a href="#" target="_blank">Moringa oleifera Aqueous Leaf Extract Induces Cell-Cycle Arrest and Apoptosis in Human Liver Hepatocellular Carcinoma Cells – Charlette Tiloke, et al.</a></li>
+    <li><a href="#" target="_blank">The Antiproliferative Effect of Moringa oleifera Crude Aqueous Leaf Extract on Human Esophageal Cancer Cells – Charlette Tiloke, et al.</a></li>
+    <li><a href="#" target="_blank">Bioactive Components in Moringa Oleifera Leaves Protect against Chronic Disease – Marcela Vergara-Jimenez, et al.</a></li>
+    <li><a href="#" target="_blank">A Systematic Review of Pharmacological Activities and Safety of Moringa oleifera – Jacob O. Popoola, et al.</a></li>
+    <li><a href="#" target="_blank">Bioactive Components and Anti-Diabetic Properties of Moringa oleifera Lam – Fang Wang, et al.</a></li>
+    <li><a href="#" target="_blank">Impact of Moringa Oleifera Leaves Supplementation on Quality of Life in HIV Patients – Aisha Gambo, et al.</a></li>
+    <li><a href="#" target="_blank">Moringa oleifera Leaf Supplementation as a Glycemic Control Strategy in Prediabetes – Sonia Gómez-Martínez, et al.</a></li>
+    <li><a href="#" target="_blank">Moringa Supplementation for Improved Milk Output – Suzanna L Attia</a></li>
+    <li><a href="#" target="_blank">Review of the Safety and Efficacy of Moringa oleifera – Sidney J Stohs, et al.</a></li>
+    <li><a href="#" target="_blank">Nutraceutical, Cosmetological and Medicinal Importance of Moringa Oleifera – Marta Klimek-Szczykutowicz, et al.</a></li>
+    <li><a href="#" target="_blank">Effect of Moringa Leaves Powder on Body Weight and Lipid Profile – Maria Munir, et al.</a></li>
+    <li><a href="#" target="_blank">Biological, Nutritional, and Therapeutic Significance of Moringa oleifera Lam – Ashok K Dhakad, et al.</a></li>
+  </ol>
+</div>
+
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- WHY SENIORS LOVE IT -->
+<section class="why section-divider py-3  bg-light">
+  <div class="container">
+    <div class="special-offer-header text-center mb-5">
+      <h2 class="section-title">
+        🌿 Why Seniors Love <span class="text-success">Moringa Magic</span>
+      </h2>
+      <p class="text-muted fs-5">
+        Real adults 55+ are feeling the difference — more energy, easier movement, and brighter moods.
+      </p>
+    </div>
+
+    <!-- ✅ MOBILE IMAGE (VISIBLE ON SMALL SCREENS ONLY) -->
+    <div class="benefit-image-mobile text-center d-block d-md-none mb-4">
+      <img
+        src="/img/Happy-senior-enjoying.webp"
+        alt="Happy senior enjoying active life"
+        class="img-fluid rounded shadow-sm"
+        style="aspect-ratio: 9 / 16; max-width: 320px; width: 100%; height: auto;"
+      />
+    </div>
+
+    <!-- BENEFITS WRAPPER -->
+    <div class="benefits-wrapper d-flex flex-column flex-md-row justify-content-between align-items-start gap-4 mt-4">
+
+      <!-- ✅ BENEFITS LIST -->
+      <div class="benefit-list-wrapper flex-grow-1">
+        <ul class="benefit-list text-start">
+          <li>
+            <span class="check-icon">✔</span>
+            <div>
+              <strong>Relieves stiff joints & reduces inflammation</strong>
+              <p class="micro-desc">Enjoy walks, hobbies, and errands again — without nagging pain.</p>
+            </div>
+          </li>
+          <li>
+            <span class="check-icon">✔</span>
+            <div>
+              <strong>Boosts energy naturally — no crashes</strong>
+              <p class="micro-desc">Stay active and alert all day — no caffeine or sugar needed.</p>
+            </div>
+          </li>
+          <li>
+            <span class="check-icon">✔</span>
+            <div>
+              <strong>Supports digestion and immune health</strong>
+              <p class="micro-desc">Feel lighter, healthier, and more resistant to daily stressors.</p>
+            </div>
+          </li>
+          <li>
+            <span class="check-icon">✔</span>
+            <div>
+              <strong>Helps you keep up with grandkids and hobbies</strong>
+              <p class="micro-desc">Move with confidence and reconnect with what you love doing.</p>
+            </div>
+          </li>
+          <li>
+            <span class="check-icon">✔</span>
+            <div>
+              <strong>100% natural, safe & non-GMO</strong>
+              <p class="micro-desc">No chemicals. Just gentle, proven ingredients for senior wellness.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ✅ DESKTOP IMAGE (VISIBLE ON MD+ SCREENS ONLY) -->
+      <div class="benefit-image d-none d-md-flex justify-content-center align-items-center text-center">
+        <img
+          src="/img/Happy-senior-enjoying.webp"
+          alt="Happy senior enjoying active life"
+          class="img-fluid rounded shadow-sm"
+        />
+      </div>
+    </div>
+
+    <!-- CTA BUTTON -->
+    <div class="text-center mt-4">
+      <a href="/biovaulthealth/moringa" 
+         class="btn btn-brand btn-lg rounded-pill px-4"
+         target="_blank" 
+         rel="noopener noreferrer nofollow">
+        💚 Doctor-Recommended Relief →
+      </a>
     </div>
   </div>
+</section>
 
-  
-  <div style="margin-top: 2rem; background: #f1fef7; padding: 1.5rem; border-radius: 10px;">
-  <h3 style="color: #007e6a;">Why We Recommend Moringa Magic</h3>
-  <p>
-    Moringa Magic impressed us with its natural anti-inflammatory power, clean formula, and excellent user reviews. It’s an ideal supplement for adults 55+ looking to reduce joint discomfort, boost energy, and feel better—naturally and without side effects.
-  </p>
-</div>
-<div class="doctor-quote">
-  <img src="/img/doctor-headshot.jpeg" alt="Doctor Recommended" />
-  <p style="color: #007e6a; font-weight: 600; margin-bottom: 0;">Doctor Recommended</p>
-  <p>“I recommend Moringa Magic to all my senior patients...”</p>
-</div>
+<!-- HOW IT WORKS -->
+<section class="section-divider py-3  bg-light" aria-label="How Moringa Magic Works">
+  <div class="container">
+    <div class="special-offer-header text-center mb-5">
+      <h2 class="section-title">
+        🕊️ How <span class="text-success">Moringa Magic</span> Helps You Feel Better
+      </h2>
+      <p class="text-muted fs-5">
+        It’s easy to get started. Just two capsules a day can help you feel younger, looser, and more energized — naturally.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center text-center">
+
+      <!-- Step 1 -->
+      <div class="col-md-4">
+        <div class="mb-3">
+          <i class="fas fa-capsules fa-2x text-success" aria-hidden="true"></i>
+        </div>
+        <h3 class="h5 fw-semibold">Step 1: Take 2 Capsules Daily</h3>
+        <p class="text-muted">With water and a meal for best results. No changes to your routine needed.</p>
+        <span class="timeline text-success fw-bold">Week 1</span>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="col-md-4">
+        <div class="mb-3">
+          <i class="fas fa-smile-beam fa-2x text-success" aria-hidden="true"></i>
+        </div>
+        <h3 class="h5 fw-semibold">Step 2: Notice Relief</h3>
+        <p class="text-muted">Feel easier movement and less joint discomfort — usually within 7–14 days.</p>
+        <span class="timeline text-success fw-bold">Week 2</span>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="col-md-4">
+        <div class="mb-3">
+          <i class="fas fa-heartbeat fa-2x text-success" aria-hidden="true"></i>
+        </div>
+        <h3 class="h5 fw-semibold">Step 3: Feel Like Yourself Again</h3>
+        <p class="text-muted">Keep taking it daily to support long-term comfort, energy, and independence.</p>
+        <span class="timeline text-success fw-bold">Ongoing</span>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-5">
+      <a href="/biovaulthealth/moringa" 
+         class="btn btn-brand btn-lg rounded-pill px-4" 
+         role="button" 
+         aria-label="Order Moringa Magic for joint relief in 7 to 14 days">
+        🕊️ Relief in 7–14 Days – Start Now →
+      </a>
+    </div>
+  </div>
+</section>
 
 
 
-  <div class="benefits">
-    <h2 style="color: #007e6a;">Why Seniors Love Moringa Magic:</h2>
-    <ul>
-      <li>✔ Relieves stiff joints & reduces inflammation</li>
-      <li>✔ Boosts energy naturally — no crashes</li>
-      <li>✔ Supports digestion and immune health</li>
-      <li>✔ 100% natural, safe & non-GMO</li>
+<!-- TESTIMONIAL CAROUSEL SECTION -->
+<section class="section-divider py-3  bg-light">
+  <div class="container text-center">
+    <div class="special-offer-header mb-4">
+      <h2 class="section-title">❤️ What Our Customers Say</h2>
+      <p class="text-muted fs-5">Real feedback from adults 55+ who tried Moringa Magic — and noticed real results.</p>
+    </div>
+
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="8000">
+      <div class="carousel-inner">
+
+        <!-- Slide 1: Martha -->
+        <div class="carousel-item active">
+          <img src="/img/Martha-senior.webp" class="testimonial-img mb-4 rounded-circle shadow" alt="Martha, a verified senior customer">
+          <blockquote class="pull-quote fs-4 fw-bold text-success mb-3">“I can walk my dog again without pain.”</blockquote>
+          <p class="full-story mb-3 fs-5 text-dark">
+            I was struggling with joint pain and waking up tired. Now I feel younger and can walk my dog again without pain. I’ve even cut back on meds!
+          </p>
+          <p class="customer-name fw-semibold text-success mb-2">
+            — Martha L., <span class="location text-muted fs-6">Age 67, Florida</span>
+          </p>
+          <div class="star-rating fs-3 text-warning" aria-label="5 out of 5 stars" role="img">★★★★★</div>
+        </div>
+
+        <!-- Slide 2: Robert -->
+        <div class="carousel-item">
+          <img src="/img/Robert-senior.webp" class="testimonial-img mb-4 rounded-circle shadow" alt="Robert, happy customer">
+          <blockquote class="pull-quote fs-4 fw-bold text-success mb-3">“More energy for golf and grandkids.”</blockquote>
+          <p class="full-story mb-3 fs-5 text-dark">
+            After turning 70, I felt drained. Moringa Magic gave me back my energy—I can hit the golf course and keep up with the grandkids!
+          </p>
+          <p class="customer-name fw-semibold text-success mb-2">
+            — Robert J., <span class="location text-muted fs-6">Age 71, Texas</span>
+          </p>
+          <div class="star-rating fs-3 text-warning">★★★★★</div>
+        </div>
+
+        <!-- Slide 3: Linda -->
+        <div class="carousel-item">
+          <img src="/img/Linda-senior.webp" class="testimonial-img mb-4 rounded-circle shadow" alt="Linda, verified customer">
+          <blockquote class="pull-quote fs-4 fw-bold text-success mb-3">“My knees feel 20 years younger.”</blockquote>
+          <p class="full-story mb-3 fs-5 text-dark">
+            I used to dread stairs. Now I don’t even think about it. My knees feel 20 years younger and I’m back to gardening.
+          </p>
+          <p class="customer-name fw-semibold text-success mb-2">
+            — Linda S., <span class="location text-muted fs-6">Age 63, Arizona</span>
+          </p>
+          <div class="star-rating fs-3 text-warning">★★★★★</div>
+        </div>
+
+        <!-- Slide 4: George -->
+        <div class="carousel-item">
+          <img src="/img/George-senior.webp" class="testimonial-img mb-4 rounded-circle shadow" alt="George, senior user">
+          <blockquote class="pull-quote fs-4 fw-bold text-success mb-3">“I sleep better and feel more alive.”</blockquote>
+          <p class="full-story mb-3 fs-5 text-dark">
+            I didn’t expect much, but now I sleep deeper, wake up rested, and just feel more alive. Moringa Magic is part of my daily routine.
+          </p>
+          <p class="customer-name fw-semibold text-success mb-2">
+            — George B., <span class="location text-muted fs-6">Age 69, North Carolina</span>
+          </p>
+          <div class="star-rating fs-3 text-warning">★★★★★</div>
+        </div>
+
+        <!-- Slide 5: Carol (Skeptical to Convinced) -->
+        <div class="carousel-item">
+          <img src="/img/Carol-senior.webp" class="testimonial-img mb-4 rounded-circle shadow" alt="Carol, senior customer">
+          <blockquote class="pull-quote fs-4 fw-bold text-success mb-3">“I was skeptical — but I’m glad I gave it a chance.”</blockquote>
+          <p class="full-story mb-3 fs-5 text-dark">
+            I usually don’t trust supplements, but my daughter gave me a bottle. Two weeks later, I wake up with less stiffness and more energy. It's now part of my routine.
+          </p>
+          <p class="customer-name fw-semibold text-success mb-2">
+            — Carol D., <span class="location text-muted fs-6">Age 72, Michigan</span>
+          </p>
+          <div class="star-rating fs-3 text-warning">★★★★☆</div>
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-success rounded-circle" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-success rounded-circle" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+      <!-- Indicators -->
+      <div class="carousel-indicators mt-4">
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3"></button>
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="4"></button>
+      </div>
+    </div>
+
+    <!-- Product badge & CTA -->
+    <div class="d-flex flex-column align-items-center mt-4">
+      <img src="/img/moringa-bottles.webp" alt="Moringa Magic Supplement Bottle" class="img-fluid mb-3" style="max-width: 120px;">
+      <p class="text-muted fs-6 mb-2">
+        Doctor-formulated • Made in USA • 60-day Money-Back Guarantee
+      </p>
+      <a href="/biovaulthealth/moringa" class="btn btn-brand btn-lg rounded-pill px-4">
+        👣 Move Comfortably Again – Starting at $49 →
+      </a>
+    </div>
+  </div>
+</section>
+<!-- END TESTIMONIAL CAROUSEL SECTION -->
+
+
+
+<!-- TRUST GUARANTEE -->
+
+<section class="trust-guarantee section-divider py-3  bg-light">
+  <div class="container text-center">
+    <!-- Trust Badges -->
+    <ul class="list-unstyled d-flex justify-content-center gap-4 flex-wrap mb-4">
+      <li><img src="/img/Non-GMO.webp" alt="Non-GMO Certification" style="height:60px;"></li>
     </ul>
+
+    <!-- Guarantee Line -->
+    <div class="fs-5 text-secondary">
+      <span class="lock-icon fs-4 text-success">🔒</span> Secure SSL Checkout &nbsp;|&nbsp; 
+      💚 60-Day Money-Back Guarantee &nbsp;|&nbsp; 
+      🚚 Ships Fast from USA
+    </div>
   </div>
+</section>
+<!-- PRICING -->
+<section class="pricing section-divider py-3  bg-light" aria-label="Pricing Packages">
+  <div class="container text-center">
+    <div class="special-offer-header mb-5">
+      <h2 class="section-title">
+        📦 Choose Your Package
+      </h2>
+      <p class="text-muted fs-5">
+        Select the best plan for your joint comfort and daily vitality.
+      </p>
+    </div>
 
-  <div class="how-it-works">
-    <h2 style="color: #cc6600;">How It Works:</h2>
-    <ul>
-      <li>🌿 Take 2 capsules daily with water</li>
-      <li>🕒 Notice reduced joint stiffness in 7–14 days</li>
-      <li>💪 Continued use = long-term comfort & energy</li>
-    </ul>
+    <div class="pricing-cards-wrapper">
+      <!-- Best Value -->
+      <div class="pricing-card best-value p-4 rounded shadow-sm text-center" role="region" aria-labelledby="best-value-title" tabindex="0">
+        <div class="ribbon">Best Value</div>
+        <img src="/img/6Bottles_MoneyBack.webp" alt="Six bottles of Moringa Magic">
+        <h3 id="best-value-title" class="fw-bold fs-5">
+          $49/Bottle • Save $900 + Free Shipping
+        </h3>
+        <p class="per-day mb-3">Only $1.63 a day for smoother movement and less stiffness.</p>
+        <a href="/biovaulthealth/moringa" class="btn btn-primary btn-lg rounded-pill px-4" role="button" aria-label="Select the Best Value package">
+       Yes, I Want Long-Term Relief
+        </a>
+        <p class="trust-note mb-1">60‑Day Risk-Free Guarantee</p>
+        <p class="highlight text-danger fw-semibold">⭐ Most Popular — Don’t Miss Out!</p>
+      </div>
+
+      <!-- Medium Value: 3 Bottles -->
+      <div class="pricing-card p-4 rounded shadow-sm text-center" role="region" aria-labelledby="three-bottle-title" tabindex="0">
+        <img src="/img/3Bottles_MoneyBack.webp" alt="Three bottles of Moringa Magic">
+        <h3 id="three-bottle-title" class="fw-bold fs-5">
+          $59/Bottle • Save $420
+        </h3>
+        <p class="per-day mb-3">$1.96/day for joint relief & daily energy.</p>
+        <a href="/biovaulthealth/moringa" class="btn btn-primary btn-lg rounded-pill px-4" role="button" aria-label="Select the 3 Bottles package">
+          Yes, I’m Ready to Feel Better
+        </a>
+        <p class="trust-note mb-1">60‑Day Risk‑Free Guarantee</p>
+        <p class="highlight text-warning fw-semibold">★ Great Value — Limited Supply</p>
+      </div>
+
+      <!-- Single Bottle -->
+      <div class="pricing-card p-4 rounded shadow-sm text-center" role="region" aria-labelledby="single-bottle-title" tabindex="0">
+        <img src="/img/1Bottle_MoneyBack.webp" alt="Single bottle of Moringa Magic">
+        <h3 id="single-bottle-title" class="fw-bold fs-5">
+          $79/Bottle • Save $120
+        </h3>
+        <p class="per-day mb-3">Try it completely risk‑free today.</p>
+        <a href="/biovaulthealth/moringa" class="btn btn-primary btn-lg rounded-pill px-4" role="button" aria-label="Select the Single Bottle package">
+          I’ll Try 1 Bottle Risk-Free
+        </a>
+        <p class="trust-note mb-1">60‑Day Risk‑Free Guarantee</p>
+        <p class="highlight text-danger fw-semibold">⚠ Low Stock — Order Soon</p>
+      </div>
+    </div>
   </div>
+</section>
 
-<div class="testimonial">
-  <img src="/img/Martha.png" alt="Martha - Verified Senior" />
-  <div>
-    <p>“I was struggling with joint pain and now I can barely soak my mug without knee pain. Walking has been a breeze. I’ve even cut back on pain meds!”</p>
-    <strong>— Martha L., Verified Buyer</strong>
+
+<!-- FAQ -->
+<section class="faq section-divider py-3  bg-light" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="special-offer-header text-center mb-5">
+      <h2 class="section-title" id="faq-heading">
+       ❓Common Questions from Adults 55+
+      </h2>
+      <p class="text-muted fs-5">
+        Find answers to the most popular questions about Moringa Magic.
+      </p>
+    </div>
+
+    <div class="faq-list" style="max-width: 700px; margin: 0 auto;">
+      <details class="faq-item mb-3" open>
+        <summary><strong>Is it safe to use with medications?</strong></summary>
+        <p>Yes. Moringa Magic is 100% natural. Always consult your doctor if you’re taking prescription medication.</p>
+      </details>
+
+      <details class="faq-item mb-3">
+        <summary><strong>When will I feel results?</strong></summary>
+        <p class="mt-2">Most users feel more energy and less joint pain within 7–14 days.</p>
+      </details>
+
+      <details class="faq-item mb-3">
+        <summary><strong>What if it doesn’t work for me?</strong></summary>
+        <p class="mt-2">That’s why we offer a 60-Day Risk-Free Guarantee. If you don’t feel relief, simply request a full refund.</p>
+      </details>
+
+      <details class="faq-item mb-3">
+        <summary><strong>How many seniors use Moringa Magic?</strong></summary>
+        <p class="mt-2">Over 12,000 happy users and counting — many ordering monthly for ongoing joint support and energy.</p>
+      </details>
+
+      <details class="faq-item mb-3">
+        <summary><strong>How do I take Moringa Magic?</strong></summary>
+        <p class="mt-2">Take 2 capsules daily with water, preferably in the morning or with a meal.</p>
+      </details>
+
+      <details class="faq-item mb-3">
+        <summary><strong>Are there any side effects?</strong></summary>
+        <p class="mt-2">Most users experience no side effects. It’s gentle and designed for sensitive systems.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary><strong>Where is Moringa Magic made?</strong></summary>
+        <p class="mt-2">Proudly made in the USA in a GMP-certified, FDA-registered facility.</p>
+      </details>
+    </div>
   </div>
-</div>
+</section>
 
-  <div>
-    <p style="margin: 0; font-weight: 600; color: #007e6a;">Real Relief from Real Seniors</p>
-    <p style="font-style: italic; margin-top: 0.25rem;">
-      “At 68, I was waking up tired and could barely walk my dog without knee pain. Moringa has been a lifesaver. I’ve even cut back on pain meds.”
-    </p>
-    <strong style="display: block; margin-top: 0.5rem; font-style: normal;">— Martha L., Ohio (Verified Buyer)</strong>
-  </div>
-</div>
+  </main>
 
-
-  <div class="cta">
-    <a href="/biovaulthealth/moringa" target="_blank" rel="noopener noreferrer nofollow">
-      Get Moringa Magic – Only $49 Today →
-    </a>
-  </div>
-
-  <div class="trust-badges">
-    <img src="/img/Non-GMO.png" alt="GMP Certified, Made in USA, Non-GMO">
-  </div>
-
-  <div class="guarantee">
-    💚 60-Day Money-Back Guarantee | Ships Fast from the USA
-  </div>
-<div class="pricing-options">
-  <div class="pricing-card" style="background: #f8fff8;">
-    <img src="/img/6Bottles_MoneyBack.webp" alt="6 Bottle Deal">
-    <p><strong>$49 Per Bottle – Save $900 + Free Shipping</strong></p>
-<a href="/biovaulthealth/moringa" style="background: #28a745;" target="_blank" rel="noopener noreferrer nofollow">
-      Add 6 Bottles to Cart
-    </a>
-    <p style="color: #cc0000; font-size: 0.95rem;">🔥 Most Popular – Selling Fast!</p>
-  </div>
-
-  <div class="pricing-card" style="background: #fffef8;">
-    <img src="/img/3Bottles_MoneyBack.webp" alt="3 Bottle Deal">
-    <p><strong>$59 Per Bottle – Save $420</strong></p>
-    <a href="/biovaulthealth/moringa" style="background: #007e6a;" target="_blank" rel="noopener noreferrer nofollow">
-      Add 3 Bottles to Cart
-    </a>
-    <p style="color: #e67e22; font-size: 0.95rem;">⭐ Great Value – While Supplies Last</p>
-  </div>
-
-  <div class="pricing-card" style="background: #fff;">
-    <img src="/img/1Bottle_MoneyBack.webp" alt="1 Bottle Deal">
-    <p><strong>$79 Per Bottle – Save $120</strong></p>
-    <a href="/biovaulthealth/moringa" style="background: #999;" target="_blank" rel="noopener noreferrer nofollow">
-      Add 1 Bottle to Cart
-    </a>
-    <p style="color: #d00; font-size: 0.95rem;">⚠ Low Stock – May Sell Out Today</p>
-  </div>
-</div>
-
-
- <div class="faq">
-  <h3>Common Questions from Adults 55+</h3>
-
-  <div class="faq-item">
-    <p><strong>Q: Is it safe to use with medications?</strong><br>
-    A: Yes. Moringa Magic is 100% natural. Always consult your doctor if you’re taking prescription medication.</p>
-  </div>
-
-  <div class="faq-item">
-    <p><strong>Q: When will I feel results?</strong><br>
-    A: Most users feel more energy and less joint pain within 7–14 days.</p>
-  </div>
-
-  <div class="faq-item">
-    <p><strong>Q: Is there a money-back guarantee?</strong><br>
-    A: Absolutely. Try it risk-free for 60 days — or your money back.</p>
-  </div>
-
-  <div class="faq-item">
-    <p><strong>Q: How do I take Moringa Magic?</strong><br>
-    A: Take 2 capsules daily with water, preferably in the morning or with a meal.</p>
-  </div>
-
-  <div class="faq-item">
-    <p><strong>Q: Are there any side effects?</strong><br>
-    A: Most users experience no side effects. It’s gentle and designed for sensitive systems.</p>
-  </div>
-
-  <div class="faq-item">
-    <p><strong>Q: Is Moringa Magic habit-forming?</strong><br>
-    A: No. It’s a natural, non-addictive supplement and safe for long-term use.</p>
-  </div>
-
-  <div class="faq-item">
-    <p><strong>Q: Where is Moringa Magic made?</strong><br>
-    A: Proudly made in the USA in a GMP-certified, FDA-registered facility.</p>
-  </div>
-</div>
-
-
-</div>
-
+ <!-- STICKY CTA -->
 <div class="sticky-cta">
-  <a href="/biovaulthealth/moringa" target="_blank" rel="noopener noreferrer nofollow">
-    Try Moringa Magic – $49 with Free Shipping →
+  <a href="/biovaulthealth/moringa" 
+     class="btn btn-brand btn-lg rounded-pill px-4"
+     target="_blank" 
+     rel="noopener noreferrer nofollow" 
+     role="button">
+    🔒 Move Pain-Free – Try Moringa Magic →
   </a>
 </div>
 
 
-<footer class="footer" style="padding: 20px 0; background: #f9f9f9; text-align: center; font-size: 14px; color: #555;">
-  <div class="container" style="max-width: 600px; margin: 0 auto;">
-    
-    <!-- Minimal Legal Links -->
-    <p style="margin-bottom: 8px;">
-      <a href="/privacy-policy" style="color: #555; text-decoration: underline; margin-right: 15px;">Privacy Policy</a>
-      <a href="/terms" style="color: #555; text-decoration: underline;">Terms of Use</a>
-    </p>
-    
-    <!-- Optional: Social Icons (keep or remove as you prefer) -->
-    <div class="footer-social" style="margin-bottom: 12px;">
-      <a href="https://facebook.com/biovaulthealth" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="margin: 0 8px; color: #555;">Facebook</a> |
-      <a href="https://instagram.com/biovaulthealth" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="margin: 0 8px; color: #555;">Instagram</a>
+<!-- FOOTER --> 
+<footer class="footer">
+  <div class="container">
+    <nav>
+      <a href="/privacy-policy" class="footer-link">Privacy Policy</a>
+      <a href="/terms" class="footer-link">Terms of Use</a>
+    </nav>
+
+       <!-- Social Media -->
+    <div class="footer-social">
+      <!-- Facebook -->
+      <a href="https://facebook.com/biovaulthealth" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.406.593 24 1.325 
+          24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.894-4.788 
+          4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 
+          0-1.796.715-1.796 1.764v2.313h3.588l-.467 3.622h-3.121V24h6.116C23.406 
+          24 24 23.406 24 22.675V1.325C24 .593 23.406 0 22.675 0z"/>
+        </svg>
+      </a>
+
+      <!-- TikTok -->
+      <a href="https://tiktok.com/@biovaulthealth" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.74 2h2.234a5.83 5.83 0 004.083 4.083v2.233a8.06 8.06 0 01-4.083-1.145v7.429a5.27 5.27 
+          0 11-5.27-5.27 5.2 5.2 0 011.146.13V9.086a8.055 8.055 0 00-1.146-.083 7.503 
+          7.503 0 107.5 7.5V2h-4.464z"/>
+        </svg>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://instagram.com/biovaulthealth" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 
+          0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2h.01M12 7a5 5 0 110 
+          10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/>
+        </svg>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://youtube.com/@BioVaulthealth" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19.615 3.184c-1.64-.133-8.22-.133-8.22-.133s-6.588 0-8.22.133C1.5 
+          3.321.222 4.625.222 6.398v7.204c0 1.773 1.277 3.077 2.955 
+          3.214 1.64.133 8.22.133 8.22.133s6.588 0 8.22-.133c1.678-.137 
+          2.955-1.441 2.955-3.214V6.398c0-1.773-1.277-3.077-2.955-3.214zM9.995 
+          13.997V8.185l5.435 2.816-5.435 2.813z"/>
+        </svg>
+      </a>
     </div>
-    
-    <!-- Copyright -->
+
+    <!-- Optional Contact (Affiliate-friendly) -->
+    <p class="contact">
+      📧 <a href="mailto:info@biovaulthealth.com">info@biovaulthealth.com</a>
+    </p>
+
+   
+
     <small>&copy; 2025 BioVault Health. All rights reserved.</small>
   </div>
 </footer>
 
+<!-- ✅ Bootstrap 5.3 Bundle (includes Popper + Collapse) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const btn = document.getElementById('show-references');
+  const refDiv = document.getElementById('scientific-references');
+
+  if (btn && refDiv) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      if (refDiv.style.display === 'none' || refDiv.style.display === '') {
+        refDiv.style.display = 'block';
+        btn.textContent = '🔗 Hide the Scientific References ›';
+      } else {
+        refDiv.style.display = 'none';
+        btn.textContent = '🔗 View the Scientific References ›';
+      }
+    });
+  }
+});
+
+</script>
+
+
+
 </body>
+
+
 </html>
+
