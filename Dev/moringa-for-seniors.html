@@ -102,24 +102,52 @@ ul, li {
 
 /* === Global Section Title Styles === */
 .section-title {
-  font-size: 2.75rem !important; /* Set font size */
-  font-weight: 700; /* Set font weight */
-  color: #1d1d1d; /* Dark color for the section title */
-  letter-spacing: 1px; /* Letter spacing for better readability */
-  text-transform: uppercase; /* Uppercase text */
-  margin-bottom: 0.75rem; /* Bottom margin to space out from the content below */
-  position: relative; /* To position the after pseudo-element */
+  font-size: 2.75rem !important;
+  font-weight: 700 !important;
+  color: #1d1d1d !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 0.75rem !important;
+  position: relative !important;
+  text-align: center !important;
+  word-break: break-word !important;
 }
 
+/* Decorative underline */
 .section-title::after {
-  content: '';
-  width: 80px; /* Width of the underline */
-  height: 4px; /* Height of the underline */
-  background-color: var(--teal-bright); /* Underline color */
-  display: block;
-  margin: 10px auto 0; /* Center the underline */
-  border-radius: 2px; /* Rounded corners for the underline */
-  box-shadow: 0 0 8px rgba(5, 185, 181, 0.67); /* Shadow for the underline */
+  content: '' !important;
+  width: 80px !important;
+  height: 4px !important;
+  background-color: var(--teal-bright) !important;
+  display: block !important;
+  margin: 10px auto 0 !important;
+  border-radius: 2px !important;
+  box-shadow: 0 0 8px rgba(5, 185, 181, 0.67) !important;
+}
+
+/* === Responsive Font Sizes === */
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2.25rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.875rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .section-title {
+    font-size: 1.25rem !important;
+  }
 }
 
 
@@ -1408,12 +1436,7 @@ h1 {
 }
 
 /* ===== HEADINGS & CONTAINERS ===== */
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #222;
-  text-align: center;
-}
+
 
 .special-offer-header p {
   font-size: 1.125rem;
@@ -1641,20 +1664,6 @@ h1 {
   padding-bottom: 3rem;
 }
 
-.pricing > h2 {
-  font-size: 2rem;
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-  font-family: var(--heading-font);
-  text-transform: uppercase;
-  letter-spacing: 1.1px;
-  border-bottom: 3px solid var(--secondary-color);
-  display: inline-block;
-  padding-bottom: 0.25rem;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .pricing > p {
   color: var(--text-muted);
@@ -1808,17 +1817,155 @@ h1 {
 .pricing-card:nth-child(3) .cta-btn:focus {
   background-color: #111;
 }
+/* ===== Responsive Adjustments for Pricing Section and Cards ===== */
 
-/* Responsive Adjustments */
-@media (max-width: 900px) {
+/* Large tablets and smaller laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
   .pricing {
-    padding: 2rem 1rem;
+    padding: 2.5rem 1.5rem !important;
   }
+
+  .pricing > h2 {
+    font-size: 1.75rem !important;
+  }
+
+  .pricing > p {
+    font-size: 1rem !important;
+  }
+
   .cta-btn {
-    padding: 0.85rem 2rem;
-    font-size: 1.1rem;
+    padding: 0.9rem 2.2rem !important;
+    font-size: 1.1rem !important;
   }
 }
+
+/* Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .pricing {
+    padding: 2rem 1rem !important;
+  }
+
+  .pricing > h2 {
+    font-size: 1.6rem !important;
+  }
+
+  .pricing > p {
+    font-size: 0.95rem !important;
+  }
+
+  .cta-btn {
+    padding: 0.8rem 2rem !important;
+    font-size: 1rem !important;
+  }
+
+  .pricing-cards-wrapper {
+    gap: 1.5rem !important;
+  }
+
+  .pricing-card {
+    padding: 1.5rem 1rem 2rem !important;
+  }
+
+  .pricing-card p {
+    font-size: 1.05rem !important;
+  }
+
+  .pricing-card p.per-day {
+    font-size: 0.95rem !important;
+  }
+
+  .pricing-card p.trust-note {
+    font-size: 0.85rem !important;
+  }
+}
+
+/* Large phones and small tablets (max-width: 600px) */
+@media (max-width: 600px) {
+  .pricing > h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .cta-btn {
+    padding: 0.75rem 1.6rem !important;
+    font-size: 0.95rem !important;
+  }
+
+  .pricing-card {
+    max-width: 100% !important;
+  }
+
+  .pricing-cards-wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+}
+
+/* Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .pricing {
+    padding: 1.5rem 0.8rem !important;
+  }
+
+  .pricing > h2 {
+    font-size: 1.3rem !important;
+  }
+
+  .pricing > p {
+    font-size: 0.9rem !important;
+  }
+
+  .pricing-card {
+    padding: 1.25rem 0.8rem 1.8rem !important;
+  }
+
+  .pricing-card p {
+    font-size: 1rem !important;
+  }
+
+  .pricing-card p.per-day {
+    font-size: 0.9rem !important;
+  }
+
+  .pricing-card p.trust-note {
+    font-size: 0.8rem !important;
+  }
+
+  .cta-btn {
+    font-size: 0.9rem !important;
+    padding: 0.7rem 1.4rem !important;
+  }
+
+  .ribbon {
+    font-size: 0.75rem !important;
+    padding: 5px 18px !important;
+  }
+}
+
+/* Extra small phones (max-width: 360px) */
+@media (max-width: 360px) {
+  .pricing > h2 {
+    font-size: 1.15rem !important;
+  }
+
+  .pricing > p {
+    font-size: 0.85rem !important;
+  }
+
+  .cta-btn {
+    font-size: 0.85rem !important;
+    padding: 0.6rem 1.2rem !important;
+  }
+
+  .pricing-card p {
+    font-size: 0.95rem !important;
+  }
+
+  .pricing-card p.per-day,
+  .pricing-card p.trust-note {
+    font-size: 0.8rem !important;
+  }
+}
+
 /* ===== FAQ SECTION ===== */
 .faq {
   background: #f9f9f9;
@@ -1837,15 +1984,7 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
-.section-title {
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: #007e6a;
-  position: relative;
-  display: inline-block;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-}
+
 
 /* Optional underline below title */
 .section-title::after {
@@ -2481,7 +2620,7 @@ small {
 <section class="section-divider py-3  bg-light">
   <div class="container text-center">
     <div class="special-offer-header mb-4">
-      <h2 class="section-title">❤️ What Our Customers Say</h2>
+      <h2 class="section-title">❤️ What Our  <span class="text-success">Customers</span> Say</h2>
       <p class="text-muted fs-5">Real feedback from adults 55+ who tried Moringa Magic — and noticed real results.</p>
     </div>
 
@@ -2613,7 +2752,7 @@ small {
   <div class="container text-center">
     <div class="special-offer-header mb-5">
       <h2 class="section-title">
-        📦 Choose Your Package
+📦 Select the Plan That’s  <span class="text-success"> Right </span>for You</h2>
       </h2>
       <p class="text-muted fs-5">
         Select the best plan for your joint comfort and daily vitality.
@@ -2629,7 +2768,7 @@ small {
           $49/Bottle • Save $900 + Free Shipping
         </h3>
         <p class="per-day mb-3">Only $1.63 a day for smoother movement and less stiffness.</p>
-        <a href="/biovaulthealth/moringa" class="btn btn-primary btn-lg rounded-pill px-4" role="button" aria-label="Select the Best Value package">
+<a href="/biovaulthealth/moringa" class="btn btn-success btn-lg rounded-pill px-4" role="button" aria-label="Select the Best Value package">
        Yes, I Want Long-Term Relief
         </a>
         <p class="trust-note mb-1">60‑Day Risk-Free Guarantee</p>
@@ -2643,7 +2782,7 @@ small {
           $59/Bottle • Save $420
         </h3>
         <p class="per-day mb-3">$1.96/day for joint relief & daily energy.</p>
-        <a href="/biovaulthealth/moringa" class="btn btn-primary btn-lg rounded-pill px-4" role="button" aria-label="Select the 3 Bottles package">
+<a href="/biovaulthealth/moringa" class="btn btn-warning text-dark btn-lg rounded-pill px-4" role="button" aria-label="Select the 3 Bottles package">
           Yes, I’m Ready to Feel Better
         </a>
         <p class="trust-note mb-1">60‑Day Risk‑Free Guarantee</p>
@@ -2657,7 +2796,7 @@ small {
           $79/Bottle • Save $120
         </h3>
         <p class="per-day mb-3">Try it completely risk‑free today.</p>
-        <a href="/biovaulthealth/moringa" class="btn btn-primary btn-lg rounded-pill px-4" role="button" aria-label="Select the Single Bottle package">
+<a href="/biovaulthealth/moringa" class="btn btn-secondary btn-lg rounded-pill px-4" role="button" aria-label="Select the Single Bottle package">
           I’ll Try 1 Bottle Risk-Free
         </a>
         <p class="trust-note mb-1">60‑Day Risk‑Free Guarantee</p>
@@ -2673,7 +2812,7 @@ small {
   <div class="container">
     <div class="special-offer-header text-center mb-5">
       <h2 class="section-title" id="faq-heading">
-       ❓Common Questions from Adults 55+
+       ❓Common Questions from  <span class="text-success"> Adults</span> 55+
       </h2>
       <p class="text-muted fs-5">
         Find answers to the most popular questions about Moringa Magic.
